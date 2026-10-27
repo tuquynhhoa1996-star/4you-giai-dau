@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>4YOU SPORT - Giải đấu và xếp hạng bóng đá trẻ</title>
+<style>
+:root{--xanh:#0B5D1E;--xanh2:#0f7a28;--vang:#FFD200;--nen:#f4f6f3;--chu:#1b231d;--mo:#6b756d;--vien:#dfe5df;--do:#c0392b}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Roboto,Arial,sans-serif;background:var(--nen);color:var(--chu);line-height:1.5}
+a{color:inherit}
+header{background:var(--xanh);color:#fff;position:sticky;top:0;z-index:5;box-shadow:0 2px 8px #0003}
+.top{max-width:1100px;margin:auto;display:flex;align-items:center;gap:12px;padding:8px 16px}
+.top img{height:44px}
+.top b{font-size:17px;letter-spacing:.5px}.top b span{color:var(--vang)}
+nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+nav a{text-decoration:none;padding:7px 12px;border-radius:8px;font-size:14px;font-weight:600;opacity:.9}
+nav a.on,nav a:hover{background:#ffffff22;opacity:1}
+nav a.cta{background:var(--vang);color:var(--xanh)}
+main{max-width:1100px;margin:auto;padding:20px 16px 60px}
+.hero{background:linear-gradient(135deg,var(--xanh),#063a12);color:#fff;border-radius:18px;padding:34px 28px;position:relative;overflow:hidden}
+.hero h1{margin:0 0 8px;font-size:30px;line-height:1.2}.hero h1 span{color:var(--vang)}
+.hero p{margin:0 0 18px;opacity:.9;max-width:620px}
+.hero:after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;border:30px solid #ffffff10}
+.btn{display:inline-block;background:var(--vang);color:var(--xanh);font-weight:700;padding:10px 18px;border-radius:10px;text-decoration:none;border:0;cursor:pointer;font-size:15px}
+.btn.phu{background:#fff;color:var(--xanh);border:1px solid var(--vien)}
+h2{font-size:21px;margin:30px 0 12px;display:flex;align-items:center;gap:10px}
+h2:before{content:"";width:6px;height:22px;background:var(--vang);border-radius:3px}
+.luoi{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.luoi.to{grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr))}
+.the{background:#fff;border:1px solid var(--vien);border-radius:14px;padding:16px}
+.lua{text-align:center;cursor:pointer;transition:.15s}
+.lua:hover{border-color:var(--xanh);transform:translateY(-2px)}
+.lua .ma{font-size:26px;font-weight:800;color:var(--xanh)}
+.lua .ns{font-size:13px;color:var(--mo)}
+.giai{text-decoration:none;display:block}
+.giai .ten{font-weight:700;font-size:17px;margin:6px 0}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:20px;background:#e8f2ea;color:var(--xanh);margin:0 4px 4px 0}
+.tag.sap{background:var(--vang);color:#4a3b00}.tag.xong{background:#e5e7e5;color:#555}
+.mo{color:var(--mo);font-size:14px}
+.canh{background:#fff8d9;border:1px solid #f1d977;border-radius:10px;padding:10px 14px;font-size:14px;margin:12px 0}
+.canh b{color:#7a5d00}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--vien);text-align:left;vertical-align:top}
+th{background:#eef3ee;font-size:13px;color:#33413a}
+.bang-wrap{overflow-x:auto;border:1px solid var(--vien);border-radius:12px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}
+.tabs button{border:1px solid var(--vien);background:#fff;padding:7px 14px;border-radius:20px;cursor:pointer;font-weight:600;font-size:14px}
+.tabs button.on{background:var(--xanh);color:#fff;border-color:var(--xanh)}
+.ngay{font-weight:700;margin:16px 0 6px;color:var(--xanh)}
+.tran{display:grid;grid-template-columns:70px 1fr auto 1fr;gap:8px;align-items:center;background:#fff;border:1px solid var(--vien);border-radius:10px;padding:9px 12px;margin-bottom:6px;font-size:14px}
+.tran .g{font-weight:700}.tran .g small{display:block;font-weight:400;color:var(--mo);font-size:11px}
+.tran .a{text-align:right;font-weight:600}.tran .b{font-weight:600}
+.tran .ts{background:var(--xanh);color:#fff;border-radius:6px;padding:2px 10px;font-weight:800;min-width:54px;text-align:center}
+.tran .ts.chua{background:#e5e7e5;color:#777;font-weight:600}
+.tran.le{grid-template-columns:70px 1fr;background:#fffbe9}
+.nhanh{display:flex;gap:26px;overflow-x:auto;padding:8px 2px}
+.cot{display:flex;flex-direction:column;justify-content:space-around;gap:14px;min-width:190px}
+.cot h4{margin:0 0 4px;font-size:13px;color:var(--mo);text-transform:uppercase}
+.cap{background:#fff;border:1px solid var(--vien);border-radius:10px;font-size:13px;overflow:hidden}
+.cap div{padding:6px 10px;display:flex;justify-content:space-between}
+.cap div+div{border-top:1px solid var(--vien)}
+.cap .m{background:#eef3ee;font-size:11px;color:var(--mo);padding:3px 10px}
+.form label{display:block;font-weight:600;font-size:14px;margin:12px 0 4px}
+.form input,.form select{width:100%;padding:10px;border:1px solid var(--vien);border-radius:8px;font-size:15px}
+.kq{margin-top:16px;border-left:5px solid var(--vang)}
+.kq .lon{font-size:28px;font-weight:800;color:var(--xanh)}
+.diem{font-size:22px;font-weight:800;color:var(--xanh)}
+.len{color:#0f7a28;font-weight:700;font-size:13px}.xuong{color:var(--do);font-weight:700;font-size:13px}
+.mau{background:#fde2e1;color:#9b1c1c}
+tr.bam{cursor:pointer}tr.bam:hover td{background:#f7faf7}
+.top3 td:first-child{font-weight:800;color:#b8860b}
+.tru{display:grid;grid-template-columns:150px 1fr 40px;gap:10px;align-items:center;margin:8px 0;font-size:14px}
+.tru .bar{background:#ffffff26;border-radius:6px;height:12px;overflow:hidden}.tru .bar div{height:100%;background:var(--vang)}
+.the .tru .bar{background:#eef3ee}.the .tru .bar div{background:var(--xanh2)}
+.muc{display:inline-block;background:var(--vang);color:#4a3b00;font-weight:800;border-radius:20px;padding:3px 12px;font-size:14px}
+.tag.muc2{background:#fff3c4;color:#6b5300}
+.tag.vuot{background:#e3ecff;color:#1d4ed8}
+.thang{display:flex;flex-wrap:wrap;gap:6px}.thang>div{flex:1 1 140px;border-radius:10px;padding:10px;background:#fff;border:1px solid var(--vien)}
+.trong{text-align:center;padding:30px;color:var(--mo)}
+footer{background:#06300f;color:#cfe0d2;font-size:14px;padding:22px 16px;text-align:center}
+footer b{color:var(--vang)}
+@media(max-width:700px){.xh th:nth-child(3),.xh td:nth-child(3),.xh th:nth-child(8),.xh td:nth-child(8){display:none}.top{flex-wrap:wrap}nav{margin:0;width:100%;overflow-x:auto;flex-wrap:nowrap}nav a{white-space:nowrap}.hero h1{font-size:24px}.tran{grid-template-columns:52px 1fr auto 1fr;font-size:13px}}
+</style>
+</head>
+<body>
+<header><div class="top">
+ <a href="#/"><img src="logo.png" alt="4YOU SPORT"></a>
+ <b>4YOU <span>GIẢI ĐẤU</span></b>
+ <nav id="nav">
+  <a href="#/" data-k="">Trang chủ</a>
+  <a href="#/giai" data-k="giai">Giải đấu</a>
+  <a href="#/lua" data-k="lua">Lứa tuổi</a>
+  <a href="#/xephang" data-k="xephang">Điểm trình</a>
+  <a href="#/cachcham" data-k="cachcham">Cách chấm</a>
+  <a href="#/dangky" data-k="dangky" class="cta">Tra cứu cho con</a>
+ </nav>
+</div></header>
+<main id="app"><p class="trong">Đang tải...</p></main>
+<footer>Trung tâm Bóng đá <b>4YOU SPORT</b> Nghệ An - LET'S DO IT<br>Hotline <b id="hl"></b><br><span style="opacity:.6;font-size:12px">Bản mẫu nội bộ - cập nhật <span id="cn"></span>. Chỗ ghi "cần xác nhận" chưa được chốt.</span></footer>
+<script>
+let D, $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fd=s=>{if(!s||s.length<10)return s||"";const[y,m,d]=s.split("-");return d+"/"+m+"/"+y};
+const thu=s=>["CN","T2","T3","T4","T5","T6","T7"][new Date(s).getDay()];
+const nsLua=l=>l.nam_tu?l.nam_tu+" - "+l.nam_den:l.nam_den+" trở về trước";
+const tenLua=m=>(D.lua.find(l=>l.ma==m)||{ten:m}).ten;
+/* diem trinh: diem hien tai = lan HLV cham moi nhat, xep hang trong tung lua */
+function hvTinh(){
+ D.hoc_vien.forEach(h=>{const l=luaTheoNam(h.nam);h.lua=l?l.ma:"";const n=h.ls.length;
+  h.diem=n?h.ls[n-1].diem:null;h.truoc=n>1?h.ls[n-2].diem:null;h.lan=n?h.ls[n-1].ngay:""});
+ D.lua.forEach(l=>{const ds=D.hoc_vien.filter(h=>h.lua==l.ma&&h.diem!=null&&!h.nghi).sort((a,b)=>b.diem-a.diem||a.ten.localeCompare(b.ten,"vi"));
+  let hang=0,cu=null;ds.forEach((h,i)=>{if(h.diem!==cu){hang=i+1;cu=h.diem}h.hang=hang;h.tong=ds.length})});
+}
+const doiDiem=h=>h.truoc==null?"":h.diem>h.truoc?`<span class="len">&#9650; +${+(h.diem-h.truoc).toFixed(2)}</span>`:h.diem<h.truoc?`<span class="xuong">&#9660; ${+(h.diem-h.truoc).toFixed(2)}</span>`:`<span class="mo">=</span>`;
+const tenTru=m=>(D.tru.find(t=>t.ma==m)||{ten:m}).ten;
+const barTru=(goc,cu)=>D.tru.map(t=>{const v=goc[t.ma],d=cu?v-cu[t.ma]:0;return `<div class="tru"><span>${esc(t.ten)}</span><div class="bar"><div style="width:${v}%"></div></div><b>${v}${d?`<span class="${d>0?"len":"xuong"}" style="font-size:11px"> ${d>0?"+":""}${d}</span>`:""}</b></div>`}).join("");
+const nhanMau=h=>h.mau?` <span class="tag mau">MẪU</span>`:"";
+const quyDoi=h=>h.diem==null||!h.he_so?null:Math.round(h.diem*h.he_so);
+const soVN=x=>String(x).replace(".",",");
+const nhanVuot=h=>h.vuot?` <span class="tag vuot">Đá vượt ${esc(tenLua(h.vuot))}</span>`:"";
+
+function luaTheoNam(y){
+ y=+y;for(const l of D.lua){if(l.nam_tu?y>=l.nam_tu&&y<=l.nam_den:y<=l.nam_den)return l}
+ return null;
+}
+
+/* ---------- trang ---------- */
+function trangChu(){
+ const sap=D.giai.filter(g=>g.trang_thai=="sap");
+ return `<section class="hero"><h1>Mỗi bé một <span>điểm trình riêng</span></h1>
+ <p>Hệ thống giải đấu và điểm trình cá nhân của 4YOU SPORT Nghệ An. HLV chấm điểm sau mỗi giải, mỗi khoá học và mỗi đợt kiểm tra, để phụ huynh và các con biết mình đang ở đâu mà phấn đấu.</p>
+ <a class="btn" href="#/dangky">Tra cứu cho con</a> <a class="btn phu" href="#/xephang">Xem điểm trình</a></section>
+ <h2>7 lứa thi đấu</h2>
+ <div class="luoi">${D.lua.map(l=>`<div class="the lua" onclick="location.hash='#/xephang/${l.ma}'"><div class="ma">${esc(l.ten)}</div><div class="ns">${l.nam_tu?"Sinh "+nsLua(l):"Trên 17 tuổi"}</div></div>`).join("")}</div>
+ <h2>Giải sắp diễn ra</h2>
+ <div class="luoi to">${sap.map(theGiai).join("")||'<p class="mo">Chưa có giải sắp diễn ra.</p>'}</div>
+ <h2>Điểm trình được chấm khi nào</h2>
+ <div class="luoi to">${[["Sau mỗi giải đấu","HLV chấm theo phong độ thi đấu của từng bé trong giải."],["Sau mỗi khoá học","HLV chấm mức tiến bộ cuối khoá."],["Sau mỗi đợt kiểm tra","HLV chấm theo bài kiểm tra kỹ năng định kỳ."]].map(([a,b])=>`<div class="the"><b>${a}</b><div class="mo">${b}</div></div>`).join("")}</div>`;
+}
+function theGiai(g){
+ return `<a class="the giai" href="#/giai/${g.slug}"><span class="tag ${g.trang_thai}">${g.trang_thai=="sap"?"Sắp diễn ra":"Đã kết thúc"}</span>${g.lua.map(l=>`<span class="tag">${esc(tenLua(l))}</span>`).join("")}
+ <div class="ten">${esc(g.ten)}</div><div class="mo">${g.den?fd(g.tu)+" - "+fd(g.den):esc(g.tu)}<br>${esc(g.dia_diem)}</div></a>`;
+}
+function dsGiai(){
+ const s=D.giai.filter(g=>g.trang_thai=="sap"),x=D.giai.filter(g=>g.trang_thai!="sap");
+ return `<h2>Giải sắp diễn ra</h2><div class="luoi to">${s.map(theGiai).join("")}</div>
+ <h2>Giải đã kết thúc</h2><div class="luoi to">${x.map(theGiai).join("")}</div>
+ <div class="canh"><b>Cần bổ sung:</b> các giải cũ 2023-2026 (4YOUSPORT Cup nhiều mùa, U14 League, U14 Super Cup, 3x3, Summer Cup...) kèm kết quả để đưa vào kho giải.</div>`;
+}
+
+let tabGiai="lich",luaGiai="";
+function trangGiai(slug){
+ const g=D.giai.find(x=>x.slug==slug);if(!g)return `<p class="trong">Không thấy giải.</p>`;
+ if(!luaGiai||!g.lua.includes(luaGiai))luaGiai=g.lua[0];
+ let h=`<p><a href="#/giai" class="mo">&larr; Tất cả giải</a></p>
+ <section class="hero"><span class="tag ${g.trang_thai}">${g.trang_thai=="sap"?"Sắp diễn ra":"Đã kết thúc"}</span>
+ <h1>${esc(g.ten)}</h1><p>${g.den?fd(g.tu)+" - "+fd(g.den):esc(g.tu)} &middot; ${esc(g.dia_diem)}<br>Lứa: ${g.lua.map(l=>esc(tenLua(l))+" (sinh "+nsLua(D.lua.find(x=>x.ma==l))+")").join(", ")}</p>
+ ${g.form&&g.trang_thai=="sap"?`<a class="btn" href="${esc(g.form)}" target="_blank">Đăng ký</a> `:""}</section>`;
+ if(g.ghi_chu)h+=`<div class="canh">${esc(g.ghi_chu)}</div>`;
+ if(g.can_xac_nhan)h+=`<div class="canh"><b>Đang chờ BTC xác nhận:</b><br>${g.can_xac_nhan.map(esc).join("<br>")}</div>`;
+ if(g.le_phi)h+=`<div class="luoi to" style="margin-top:14px"><div class="the"><b>Lệ phí</b>${g.le_phi.map(r=>`<div class="mo">${esc(r[0])}: <b style="color:var(--chu)">${esc(r[1])}</b></div>`).join("")}</div>
+ <div class="the"><b>Thể thức</b><div class="mo">${esc(g.the_thuc)}</div></div>
+ <div class="the"><b>Danh hiệu</b><div class="mo">${g.danh_hieu.map(esc).join("<br>")}</div></div></div>`;
+ if(!g.doi.length)return h;
+ h+=`<div class="tabs">${g.lua.map(l=>`<button class="${l==luaGiai?"on":""}" onclick="luaGiai='${l}';ve()">${esc(tenLua(l))}</button>`).join("")}</div>
+ <div class="tabs">${[["lich","Lịch thi đấu"],["doi","Đội & bảng"],["bxh","Bảng xếp hạng"],["nhanh","Nhánh đấu"]].map(([k,t])=>`<button class="${k==tabGiai?"on":""}" onclick="tabGiai='${k}';ve()">${t}</button>`).join("")}</div>`;
+ const tr=g.tran.filter(t=>t.lua==luaGiai||t.lua=="Chung"),doi=g.doi.filter(d=>d.lua==luaGiai);
+ if(tabGiai=="lich"){let n="";for(const t of tr){if(t.ngay!=n){n=t.ngay;h+=`<div class="ngay">${thu(t.ngay)}, ${fd(t.ngay)}</div>`}
+  if(!t.b){h+=`<div class="tran le"><div class="g">${t.gio}</div><div><b>${esc(t.vong)}</b> <span class="mo">${esc(t.a)}</span></div></div>`;continue}
+  const co=t.ba!=null&&t.bb!=null;
+  h+=`<div class="tran"><div class="g">${t.gio}<small>${esc(t.vong)}${t.bang?" "+t.bang:""}</small></div><div class="a">${esc(t.a)}</div><div class="ts ${co?"":"chua"}">${co?t.ba+" - "+t.bb:"vs"}</div><div class="b">${esc(t.b)}</div></div>`}}
+ if(tabGiai=="doi"){h+=`<div class="luoi to">${[...new Set(doi.map(d=>d.bang))].map(b=>`<div class="the"><b>Bảng ${b}</b>${doi.filter(d=>d.bang==b).map(d=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--vien)"><span>${esc(d.ten)}</span><span class="mo">${d.so_be}/${d.toi_da} bé</span></div>`).join("")}</div>`).join("")}</div>
+  <p class="mo">Danh sách cầu thủ từng đội sẽ hiện khi BTC nhập vào file quản lý giải (tên bé, SĐT phụ huynh che 3 số cuối).</p>`}
+ if(tabGiai=="bxh"){h+=[...new Set(doi.map(d=>d.bang))].map(b=>{const rows=bxh(doi.filter(d=>d.bang==b),tr);
+  return `<h3>Bảng ${b}</h3><div class="bang-wrap"><table><tr><th>#</th><th>Đội</th><th>Tr</th><th>T</th><th>H</th><th>B</th><th>BT</th><th>BB</th><th>HS</th><th>Đ</th></tr>${rows.map((r,i)=>`<tr><td>${i+1}</td><td><b>${esc(r.ten)}</b></td><td>${r.tr}</td><td>${r.t}</td><td>${r.h}</td><td>${r.b}</td><td>${r.bt}</td><td>${r.bb}</td><td>${r.bt-r.bb}</td><td><b>${r.d}</b></td></tr>`).join("")}</table></div>`}).join("")+`<p class="mo">Tự tính khi BTC nhập tỉ số vào file quản lý giải. Thắng 3, hoà 1 (theo bảng điểm trong file BTC, cần xác nhận cách tính luân lưu).</p>`}
+ if(tabGiai=="nhanh"){const v=x=>tr.filter(t=>t.vong==x);
+  const cot=(ten,ds)=>`<div class="cot"><h4>${ten}</h4>${ds.map(t=>`<div class="cap"><div class="m">${esc(t.ma)} &middot; ${thu(t.ngay)} ${fd(t.ngay).slice(0,5)} ${t.gio}</div><div><span>${esc(t.a)}</span><b>${t.ba??""}</b></div><div><span>${esc(t.b)}</span><b>${t.bb??""}</b></div></div>`).join("")}</div>`;
+  h+=`<div class="nhanh">${cot("Play-off",v("Play-off"))}${cot("Bán kết",v("Bán kết"))}${cot("Chung kết",v("Chung kết"))}</div><p class="mo">Tên đội tự điền khi có kết quả vòng trước.</p>`}
+ return h;
+}
+function bxh(doi,tr){
+ const m={};doi.forEach(d=>m[d.ten]={ten:d.ten,tr:0,t:0,h:0,b:0,bt:0,bb:0,d:0});
+ tr.filter(t=>t.vong=="Vòng bảng"&&t.ba!=null&&t.bb!=null&&m[t.a]&&m[t.b]).forEach(t=>{
+  const A=m[t.a],B=m[t.b];A.tr++;B.tr++;A.bt+=t.ba;A.bb+=t.bb;B.bt+=t.bb;B.bb+=t.ba;
+  if(t.ba>t.bb){A.t++;B.b++;A.d+=3}else if(t.ba<t.bb){B.t++;A.b++;B.d+=3}else{A.h++;B.h++;A.d++;B.d++}});
+ return Object.values(m).sort((x,y)=>y.d-x.d||(y.bt-y.bb)-(x.bt-x.bb)||y.bt-x.bt);
+}
+
+function trangLua(){
+ return `<h2>Lứa tuổi mùa ${D.mua}</h2>
+ <div class="bang-wrap"><table><tr><th>Lứa</th><th>Năm sinh</th><th>Ghi chú</th></tr>${D.lua.map(l=>`<tr><td><b>${esc(l.ten)}</b></td><td>${nsLua(l)}</td><td class="mo">${esc(l.ghi_chu||"")}</td></tr>`).join("")}</table></div>
+ <p class="mo">Lứa Ux nhận bé sinh năm (${D.mua} - x) và năm liền sau. Ngoại hạng là người trên 17 tuổi. Sang mùa mới, năm sinh tự dịch lên 1.</p>
+ <h2>Điểm trình cá nhân</h2>
+ <div class="the"><ol style="margin:0;padding-left:20px">
+ <li>Mỗi học viên có 1 điểm trình riêng do HLV chấm. Điểm này để xếp trình độ cá nhân, không phải xếp hạng đội.</li>
+ <li>Admin cập nhật điểm sau mỗi giải đấu, mỗi khoá học và mỗi đợt kiểm tra. Điểm hiện tại là lần chấm gần nhất, các lần trước giữ lại để xem con tiến bộ ra sao.</li>
+ <li>Học viên được xếp thứ hạng trong đúng lứa tuổi của mình.</li>
+ <li>Mỗi số điện thoại phụ huynh và họ tên bé chỉ có 1 hồ sơ, tránh trùng.</li></ol></div>
+ <p><a class="btn" href="#/cachcham">Xem cách chấm điểm</a></p>
+ <h2>Đá vượt lứa</h2>
+ <div class="the"><ol style="margin:0;padding-left:20px">
+ <li>Học viên chỉ được đá vượt lên <b>tối đa 1 lứa</b> so với lứa theo năm sinh. Ví dụ bé U9 được đá U11, không được đá U13.</li>
+ <li>Không được đá xuống lứa nhỏ hơn.</li>
+ <li>Bé U17 đá vượt 1 lứa là lên Ngoại hạng.</li>
+ <li>Điểm trình vẫn tính và xếp hạng ở lứa theo năm sinh của bé.</li>
+ <li>Khi xếp đội ở lứa trên, HLV dùng <b>điểm quy đổi</b> = điểm trình x hệ số, vì điểm của bé được chấm theo chuẩn lứa dưới. Bé đá vượt có ghi chú riêng của HLV.</li>
+ <li>Hệ số hạ ${soVN(D.ha_moi_tuoi??0.2)} cho mỗi tuổi bé nhỏ hơn năm sinh nhỏ nhất của lứa trên: nhỏ hơn 1 tuổi thì x ${soVN(+(1-(D.ha_moi_tuoi??0.2)).toFixed(2))}, nhỏ hơn 2 tuổi thì x ${soVN(+(1-2*(D.ha_moi_tuoi??0.2)).toFixed(2))}. Ví dụ mùa ${D.mua}, U13 là sinh ${D.mua-13}-${D.mua-12}: bé sinh ${D.mua-11} đá U13 được 70 điểm thì quy đổi còn ${Math.round(70*(1-(D.ha_moi_tuoi??0.2)))}; bé sinh ${D.mua-10} còn ${Math.round(70*(1-2*(D.ha_moi_tuoi??0.2)))}.</li></ol></div>`;
+}
+
+let luaXH="";
+let timXH="";
+function trangXH(ma){
+ luaXH=ma||luaXH||"U9";
+ const l=D.lua.find(x=>x.ma==luaXH);
+ return `<h2>Điểm trình cá nhân</h2>
+ <div class="tabs">${D.lua.map(x=>`<button class="${x.ma==luaXH?"on":""}" onclick="location.hash='#/xephang/${x.ma}'">${esc(x.ten)}</button>`).join("")}</div>
+ <p class="mo">${esc(l.ten)}: ${l.nam_tu?"sinh "+nsLua(l):"trên 17 tuổi"}. Bấm vào tên để xem lịch sử điểm.</p>
+ <div class="form" style="max-width:420px"><input id="tim" placeholder="Tìm theo tên hoặc số điện thoại" value="${esc(timXH)}" oninput="timXH=this.value;veXH()"></div>
+ <div id="dsxh" style="margin-top:10px">${bangXH()}</div>
+ ${D.hoc_vien.some(h=>h.mau)?`<div class="canh"><b>Đang hiện dữ liệu MẪU</b> để chị xem giao diện. Sổ điểm đã có danh sách học viên thật, nhưng chưa có lần chấm nào. Bé chưa được chấm sẽ không hiện trên web. Có lần chấm thật thì xoá các dòng mẫu.</div>`:""}`;
+}
+function veXH(){$("#dsxh").innerHTML=bangXH()}
+function bangXH(){
+ const q=timXH.trim().toLowerCase(),qs=q.replace(/\D/g,"");
+ let ds=D.hoc_vien.filter(h=>h.lua==luaXH&&h.diem!=null&&!h.nghi).sort((a,b)=>a.hang-b.hang||a.ten.localeCompare(b.ten,"vi"));
+ if(q)ds=ds.filter(h=>h.ten.toLowerCase().includes(q)||(qs.length>=3&&h.sdt.replace(/\D/g,"").includes(qs)));
+ if(!ds.length)return `<p class="trong">${q?"Không thấy học viên khớp.":"Lứa này chưa có học viên được chấm điểm."}</p>`;
+ return `<div class="bang-wrap"><table class="xh"><tr><th>Hạng</th><th>Học viên</th><th>Năm sinh</th><th>SĐT phụ huynh</th><th>Điểm trình</th><th>Mức</th><th>Thay đổi</th><th>Chấm gần nhất</th></tr>
+ ${ds.map(h=>`<tr class="bam ${h.hang<=3?"top3":""}" onclick="location.hash='#/hv/${h.ma}'"><td>${h.hang}</td><td><b>${esc(h.ten)}</b>${nhanMau(h)}${nhanVuot(h)}${h.co_so?`<div class="mo">${esc(h.co_so)}</div>`:""}</td><td>${h.nam}</td><td style="white-space:nowrap">${esc(h.sdt)}</td><td class="diem">${h.diem}</td><td><span class="tag muc2">${esc(h.ls[h.ls.length-1].muc)}</span></td><td>${doiDiem(h)}</td><td class="mo">${fd(h.lan)}</td></tr>`).join("")}</table></div>${bangVuot()}`;
+}
+function bangVuot(){
+ const ds=D.hoc_vien.filter(h=>h.vuot==luaXH&&h.diem!=null&&!h.nghi).sort((a,b)=>quyDoi(b)-quyDoi(a));
+ if(!ds.length)return "";
+ return `<h3>Đá vượt lên ${esc(tenLua(luaXH))}</h3><p class="mo">Các bé này xếp hạng ở lứa theo năm sinh. Khi xếp đội ${esc(tenLua(luaXH))}, HLV dùng điểm quy đổi = điểm trình x hệ số (hạ ${soVN(D.ha_moi_tuoi??0.2)} mỗi tuổi bé nhỏ hơn).</p>
+ <div class="bang-wrap"><table class="xh"><tr><th>Học viên</th><th>Lứa gốc</th><th>Điểm trình</th><th>Hệ số</th><th>Điểm quy đổi</th><th>HLV ghi chú</th></tr>
+ ${ds.map(h=>`<tr class="bam" onclick="location.hash='#/hv/${h.ma}'"><td><b>${esc(h.ten)}</b>${nhanMau(h)}</td><td>${esc(tenLua(h.lua))}</td><td>${h.diem}</td><td>x ${soVN(h.he_so)}<div class="mo">nhỏ ${h.tuoi_nho} tuổi</div></td><td class="diem">${quyDoi(h)??""}</td><td class="mo">${esc(h.vuot_gc||"")}</td></tr>`).join("")}</table></div>`;
+}
+function trangHV(ma){
+ const h=D.hoc_vien.find(x=>x.ma==ma);if(!h)return `<p class="trong">Không thấy học viên.</p>`;
+ const n=h.ls.length,c=n?h.ls[n-1]:null,tr=n>1?h.ls[n-2]:null;
+ let o=`<p><a href="#/xephang/${h.lua}" class="mo">&larr; Bảng điểm ${esc(tenLua(h.lua))}</a></p>
+ <section class="hero"><span class="tag sap">${esc(tenLua(h.lua))}</span>${nhanVuot(h)}${h.vi_tri?`<span class="tag">${esc(h.vi_tri)}</span>`:""}${nhanMau(h)}<h1>${esc(h.ten)}</h1>
+ <p>Sinh ${h.nam}${h.co_so?" &middot; "+esc(h.co_so):""} ${h.sdt?" &middot; SĐT phụ huynh "+esc(h.sdt):""}</p>`;
+ if(h.vuot&&c)o+=`<div class="canh" style="color:var(--chu)"><b>Đá vượt lên ${esc(tenLua(h.vuot))}.</b> Điểm trình ${c.diem} chấm theo chuẩn ${esc(tenLua(h.lua))}. Điểm quy đổi khi xếp đội ${esc(tenLua(h.vuot))}: <b>${quyDoi(h)}</b> (= ${c.diem} x ${soVN(h.he_so)}, bé nhỏ hơn ${h.tuoi_nho} tuổi so với năm sinh nhỏ nhất của ${esc(tenLua(h.vuot))}).${h.vuot_gc?`<br>HLV ghi chú: ${esc(h.vuot_gc)}`:""}</div>`;
+ if(!c)return o+`</section><p class="trong">Chưa có lần chấm nào.</p>`;
+ const xs=D.tru.map(t=>[t.ma,c.goc[t.ma]]).sort((a,b)=>b[1]-a[1]);
+ o+=`<div style="display:flex;gap:30px;flex-wrap:wrap;align-items:flex-start">
+ <div><div style="opacity:.8;font-size:13px">Điểm trình</div><div style="font-size:52px;font-weight:800;color:var(--vang);line-height:1.1">${c.diem}<span style="font-size:18px;opacity:.7">/100</span></div><span class="muc">${esc(c.muc)}</span></div>
+ ${h.hang?`<div><div style="opacity:.8;font-size:13px">Hạng trong lứa</div><div style="font-size:52px;font-weight:800;line-height:1.1">${h.hang}<span style="font-size:18px;opacity:.7">/${h.tong}</span></div></div>`:""}
+ <div style="flex:1 1 300px;min-width:260px">${barTru(c.goc,tr&&tr.goc)}</div></div>
+ <p style="margin:14px 0 0;font-size:13px;opacity:.8">Chấm ngày ${fd(c.ngay)} &middot; ${esc(c.loai)}: ${esc(c.dot)}${c.hlv?" &middot; HLV "+esc(c.hlv):""}</p></section>
+ <div class="luoi to" style="margin-top:14px">
+ <div class="the"><b>Mạnh nhất</b><div class="diem">${esc(tenTru(xs[0][0]))}</div><div class="mo">${xs[0][1]} điểm</div></div>
+ <div class="the"><b>Cần cải thiện</b><div class="diem" style="color:var(--do)">${esc(tenTru(xs[3][0]))}</div><div class="mo">${xs[3][1]} điểm</div></div>
+ <div class="the" style="border-left:5px solid var(--vang)"><b>HLV giao tập tiếp</b><div>${esc(c.can_tap)||'<span class="mo">Chưa ghi</span>'}</div>${c.nx?`<div class="mo" style="margin-top:6px">Nhận xét: ${esc(c.nx)}</div>`:""}</div></div>
+ <h2>Tiến bộ qua các lần chấm</h2>
+ <div class="the">${h.ls.map(x=>`<div style="display:grid;grid-template-columns:86px 1fr 46px;gap:10px;align-items:center;margin:6px 0"><span class="mo">${fd(x.ngay)}</span><div style="background:#eef3ee;border-radius:6px;overflow:hidden"><div style="width:${x.diem}%;background:var(--xanh2);height:14px"></div></div><b>${x.diem}</b></div>`).join("")}</div>
+ <div class="bang-wrap" style="margin-top:12px"><table><tr><th>Ngày</th><th>Đợt</th>${D.tru.map(t=>`<th>${esc(t.ten)}</th>`).join("")}<th>Điểm</th><th>Mức</th></tr>${[...h.ls].reverse().map(x=>`<tr><td>${fd(x.ngay)}</td><td><span class="tag">${esc(x.loai)}</span><div class="mo">${esc(x.dot)}</div></td>${D.tru.map(t=>`<td>${x.goc[t.ma]}</td>`).join("")}<td><b>${x.diem}</b></td><td>${esc(x.muc)}</td></tr>`).join("")}</table></div>
+ <h2>Chi tiết lần chấm gần nhất</h2><div class="luoi to">${(()=>{let i=0;return D.tru.map(t=>`<div class="the"><b>${esc(t.ten)}</b>${t.tc.map(k=>{const v=c.tc[i++];return `<div class="tru" style="grid-template-columns:1fr 90px 26px"><span class="mo">${esc(k)}</span><div class="bar"><div style="width:${v*10}%"></div></div><b>${v}</b></div>`}).join("")}</div>`).join("")})()}</div>
+ <p class="mo">HLV chấm mỗi tiêu chí 1-10, so với chuẩn của lứa ${esc(tenLua(h.lua))}.</p>`;
+ if(h.tl.length){const f=h.tl[0],l=h.tl[h.tl.length-1],tot=[-1,1,1,1];
+  o+=`<h2>Kiểm tra thể lực</h2><div class="bang-wrap"><table><tr><th>Bài đo</th><th>Lần đầu (${fd(f.ngay)})</th><th>Gần nhất (${fd(l.ngay)})</th><th>Thay đổi</th></tr>${D.test.map((t,i)=>{const a=f.kq[i],b=l.kq[i];if(a==null&&b==null)return "";const d=a!=null&&b!=null&&h.tl.length>1?+(b-a).toFixed(2):null;
+  return `<tr><td>${esc(t)}</td><td>${a??"-"}</td><td><b>${b??"-"}</b></td><td>${d==null||d==0?"-":`<span class="${d*tot[i]>0?"len":"xuong"}">${d>0?"+":""}${d}</span>`}</td></tr>`}).join("")}</table></div>
+  <p class="mo">Số đo chỉ để con so với chính mình, không cộng vào điểm trình. Chỉ so các lần đo cùng cách bấm giờ.</p>`}
+ return o;
+}
+
+function trangDK(){
+ const sap=D.giai.filter(g=>g.trang_thai=="sap"&&g.form);
+ return `<h2>Tra cứu cho con</h2>
+ <div class="luoi to"><div class="the form">
+ <b>Con thi đấu lứa nào?</b>
+ <label>Năm sinh</label><input id="ns" type="number" min="1950" max="${D.mua}" placeholder="vd 2016">
+ <p><button class="btn" onclick="tra()">Xem lứa</button></p><div id="kq"></div></div>
+ <div class="the form"><b>Điểm trình của con</b>
+ <label>Họ tên con hoặc số điện thoại phụ huynh (7 số đầu)</label><input id="tk" placeholder="vd Nguyễn Minh An hoặc 0912345">
+ <p><button class="btn" onclick="traHV()">Tìm</button></p><div id="kq2"></div></div></div>
+ ${sap.length?`<h2>Giải đang mở đăng ký</h2><div class="luoi to">${sap.map(theGiai).join("")}</div>`:""}`;
+}
+function tra(){
+ const y=$("#ns").value,l=luaTheoNam(y),el=$("#kq");
+ if(!y||y<1950||y>D.mua){el.innerHTML=`<p style="color:var(--do)">Nhập năm sinh hợp lệ.</p>`;return}
+ if(!l){el.innerHTML=`<div class="the kq">Bé sinh ${esc(y)} còn nhỏ hơn lứa U7 (sinh ${D.lua[0].nam_tu} - ${D.lua[0].nam_den}). Phụ huynh liên hệ hotline để được tư vấn lớp phù hợp.</div>`;return}
+ const i=D.lua.findIndex(x=>x.ma==l.ma),v=D.lua[i+1];
+ const g=D.giai.filter(x=>x.trang_thai=="sap"&&x.lua.includes(l.ma));
+ el.innerHTML=`<div class="the kq"><div class="mo">Lứa thi đấu</div><div class="lon">${esc(l.ten)}</div>
+ <p class="mo">${v?`Được đá vượt tối đa 1 lứa, lên ${esc(v.ten)}. Khi xếp đội ${esc(v.ten)}, điểm trình của bé nhân hệ số ${soVN(+(1-(D.ha_moi_tuoi??0.2)*Math.max(1,y-v.nam_den)).toFixed(2))} (bé nhỏ hơn ${Math.max(1,y-v.nam_den)} tuổi so với năm sinh nhỏ nhất của ${esc(v.ten)}). Không đá xuống lứa nhỏ hơn.`:"Không đá xuống lứa nhỏ hơn."}</p>
+ ${g.length?g.map(x=>`<a class="btn" target="_blank" href="${esc(x.form)}">Đăng ký ${esc(x.ten)}</a>`).join(" "):`<p class="mo">Hiện chưa có giải mở cho lứa ${esc(l.ten)}. Phụ huynh để lại số qua hotline để được báo khi mở giải.</p>`}</div>`;
+}
+function traHV(){
+ const q=$("#tk").value.trim().toLowerCase(),qs=q.replace(/\D/g,""),el=$("#kq2");
+ if(q.length<2){el.innerHTML=`<p style="color:var(--do)">Nhập họ tên hoặc số điện thoại.</p>`;return}
+ const ds=D.hoc_vien.filter(h=>qs.length>=7?h.sdt.replace(/\D/g,"").startsWith(qs.slice(0,7)):h.ten.toLowerCase().includes(q));
+ el.innerHTML=ds.length?ds.map(h=>`<a class="the kq giai" style="margin-top:8px" href="#/hv/${h.ma}"><b>${esc(h.ten)}</b>${nhanMau(h)} <span class="tag">${esc(tenLua(h.lua))}</span><div class="mo">SĐT ${esc(h.sdt)}</div><div class="diem">${h.diem??"Chưa chấm"}${h.hang?` <span class="mo" style="font-size:14px">hạng ${h.hang}/${h.tong}</span>`:""}</div></a>`).join(""):`<p class="mo">Chưa thấy hồ sơ. Phụ huynh nhắn hotline để admin kiểm tra.</p>`;
+}
+
+function trangCach(){
+ return `<h2>Cách 4YOU chấm điểm trình</h2>
+ <div class="the"><p style="margin-top:0">Điểm trình là con số 0-100 cho biết <b>trình độ hiện tại</b> của con so với chuẩn của lứa tuổi. Điểm không phải dự đoán con sau này có thành cầu thủ chuyên nghiệp hay không. Mục đích là để phụ huynh và con biết con đang ở đâu, mạnh gì, cần tập gì.</p>
+ <p class="mo" style="margin-bottom:0">HLV 4YOU chấm sau mỗi giải đấu, mỗi khoá học và mỗi đợt kiểm tra. Điểm hiện tại là lần chấm gần nhất.</p></div>
+ <h2>4 trụ, 14 tiêu chí</h2>
+ <div class="luoi to">${D.tru.map(t=>`<div class="the"><div style="display:flex;justify-content:space-between"><b>${esc(t.ten)}</b><span class="tag">${Math.round(t.w*100)}% điểm</span></div><ul style="margin:8px 0 0;padding-left:18px">${t.tc.map(k=>`<li>${esc(k)}</li>`).join("")}</ul></div>`).join("")}</div>
+ <p class="mo">Mỗi tiêu chí HLV chấm 1-10 so với các bạn cùng lứa. Điểm mỗi trụ = trung bình các tiêu chí x 10. Điểm trình = tổng 4 trụ nhân tỉ lệ ở trên.</p>
+ <h2>6 mức trình</h2>
+ <div class="thang">${D.muc.map(([d,m],i)=>`<div style="${i==0?"border-color:var(--vang);background:#fffbe6":""}"><div class="diem">${d}+</div><b>${esc(m)}</b></div>`).join("")}</div>
+ <h2>Bài kiểm tra thể lực</h2>
+ <div class="the"><ul style="margin:0;padding-left:18px">${D.test.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>
+ <p class="mo" style="margin-bottom:0">Đo theo cách cố định, ghi riêng, KHÔNG cộng vào điểm trình. Con chỉ so với chính mình lần trước để thấy tiến bộ.</p></div>
+ <p class="mo">Khung học theo footballreach.com (mô hình 4 góc của Liên đoàn bóng đá Anh), ở 4YOU do HLV chấm thay vì học viên tự chấm.</p>`;
+}
+
+/* ---------- dieu huong ---------- */
+function ve(){
+ const p=location.hash.replace(/^#\/?/,"").split("/"),k=p[0]||"";
+ document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.dataset.k==(k=="hv"?"xephang":k)));
+ $("#app").innerHTML=k=="giai"?(p[1]?trangGiai(p[1]):dsGiai()):k=="lua"?trangLua():k=="xephang"?trangXH(p[1]):k=="hv"?trangHV(p[1]):k=="cachcham"?trangCach():k=="dangky"?trangDK():trangChu();
+}
+let cu="";addEventListener("hashchange",()=>{if(location.hash!=cu){cu=location.hash;scrollTo(0,0)}ve()});
+fetch("./data.json").then(r=>r.json()).then(d=>{D=d;hvTinh();$("#hl").textContent=d.hotline;$("#cn").textContent=d.cap_nhat;cu=location.hash;ve()})
+ .catch(()=>$("#app").innerHTML=`<p class="trong">Không tải được dữ liệu.</p>`);
+</script>
+</body>
+</html>
