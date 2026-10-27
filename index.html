@@ -5,89 +5,188 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>4YOU SPORT - Giải đấu và xếp hạng bóng đá trẻ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
-:root{--xanh:#0B5D1E;--xanh2:#0f7a28;--vang:#FFD200;--nen:#f4f6f3;--chu:#1b231d;--mo:#6b756d;--vien:#dfe5df;--do:#c0392b}
+/* Giao dien theo kieu footballreach.com: xanh san co dam, vang 4YOU lam diem nhan, chu so lon, vach thuoc do */
+:root{--xanh:#0a7a3f;--xanh2:#0f8a48;--sau:#06331d;--dem:#052616;--vang:#FFD200;--nen:#f6f7f2;--nen2:#edefe6;--mat:#fdfdfb;--chu:#101609;--chu2:#46503f;--mo:#6a7360;--vien:#dfe3d6;--do:#b93226;--xanh-nhat:#e9f4ec;
+--fd:'Bricolage Grotesque','Segoe UI',Arial,sans-serif;--fb:'Be Vietnam Pro','Segoe UI',Roboto,Arial,sans-serif;--fm:'JetBrains Mono',ui-monospace,Consolas,monospace;
+--bong:0 10px 30px -12px rgba(5,38,22,.18);--bong2:0 24px 60px -20px rgba(5,38,22,.35);
+--hat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")}
 *{box-sizing:border-box}
-body{margin:0;font-family:"Segoe UI",Roboto,Arial,sans-serif;background:var(--nen);color:var(--chu);line-height:1.5}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--fb);background:var(--nen);color:var(--chu);line-height:1.6;font-size:15.5px;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-header{background:var(--xanh);color:#fff;position:sticky;top:0;z-index:5;box-shadow:0 2px 8px #0003}
-.top{max-width:1100px;margin:auto;display:flex;align-items:center;gap:12px;padding:8px 16px}
-.top img{height:44px}
-.top b{font-size:17px;letter-spacing:.5px}.top b span{color:var(--vang)}
-nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
-nav a{text-decoration:none;padding:7px 12px;border-radius:8px;font-size:14px;font-weight:600;opacity:.9}
-nav a.on,nav a:hover{background:#ffffff22;opacity:1}
-nav a.cta{background:var(--vang);color:var(--xanh)}
-main{max-width:1100px;margin:auto;padding:20px 16px 60px}
-.hero{background:linear-gradient(135deg,var(--xanh),#063a12);color:#fff;border-radius:18px;padding:34px 28px;position:relative;overflow:hidden}
-.hero h1{margin:0 0 8px;font-size:30px;line-height:1.2}.hero h1 span{color:var(--vang)}
-.hero p{margin:0 0 18px;opacity:.9;max-width:620px}
-.hero:after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;border:30px solid #ffffff10}
-.btn{display:inline-block;background:var(--vang);color:var(--xanh);font-weight:700;padding:10px 18px;border-radius:10px;text-decoration:none;border:0;cursor:pointer;font-size:15px}
-.btn.phu{background:#fff;color:var(--xanh);border:1px solid var(--vien)}
-h2{font-size:21px;margin:30px 0 12px;display:flex;align-items:center;gap:10px}
-h2:before{content:"";width:6px;height:22px;background:var(--vang);border-radius:3px}
-.luoi{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+::selection{background:var(--vang);color:var(--dem)}
+/* ---- nen san co toi dung chung cho man dang nhap va hero ---- */
+.san{position:relative;overflow:hidden;color:#fff;background:radial-gradient(900px 500px at 85% 10%,#1f9a55aa,transparent 60%),radial-gradient(700px 500px at 10% 100%,#0a7a3f99,transparent 60%),linear-gradient(160deg,#0b5a2e,var(--sau) 55%,var(--dem))}
+.san:before{content:"";position:absolute;inset:0;background:var(--hat);opacity:.18;mix-blend-mode:overlay;pointer-events:none}
+.san:after{content:"";position:absolute;right:-140px;top:50%;width:520px;height:520px;border-radius:50%;border:1.5px solid #ffffff14;transform:translateY(-50%);box-shadow:0 0 0 110px #ffffff05;pointer-events:none}
+.may{font-family:var(--fm);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--vang);display:inline-flex;align-items:center;gap:10px}
+.may:before{content:"";width:22px;height:11px;background:repeating-linear-gradient(90deg,currentColor 0 1.5px,transparent 1.5px 6px);opacity:.8}
+/* ---- dang nhap ---- */
+#login{min-height:100vh;display:none;align-items:center}
+body.khoa #login{display:flex}body.khoa header,body.khoa main,body.khoa footer{display:none}
+.dn{position:relative;z-index:1;max-width:1140px;margin:auto;width:100%;padding:40px 22px;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.dn h1{font-family:var(--fd);font-weight:800;font-size:clamp(38px,6vw,68px);line-height:1;letter-spacing:-.035em;margin:18px 0 20px}
+.dn h1 span{color:var(--vang)}
+.dn .gt{font-size:17px;opacity:.88;max-width:520px;margin:0 0 22px}
+.chips{display:flex;flex-wrap:wrap;gap:8px 20px;font-family:var(--fm);font-size:12.5px;opacity:.85}
+.chips span:before{content:"";display:inline-block;width:7px;height:7px;background:var(--vang);margin-right:8px;vertical-align:1px}
+.thuoc{margin-top:34px;max-width:460px;font-family:var(--fm);font-size:11px;opacity:.6}
+.thuoc .v{height:16px;background:repeating-linear-gradient(90deg,#fff 0 1px,transparent 1px 11.5px);opacity:.6;position:relative}
+.thuoc .v i{position:absolute;left:72%;top:-4px;width:3px;height:24px;background:var(--vang);border-radius:2px}
+.thuoc .s{display:flex;justify-content:space-between;margin-top:6px}
+.kinh{background:linear-gradient(160deg,#ffffff1f,#ffffff0a);border:1px solid #ffffff2a;border-radius:24px;padding:30px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:var(--bong2)}
+.kinh .dau{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.kinh .dau img{height:56px;background:#fff;border-radius:50%;padding:3px}
+.kinh .dau b{font-family:var(--fd);font-size:22px;display:block;line-height:1.1}
+.kinh .dau small{opacity:.7;font-size:13px}
+.kinh label{display:block;font-family:var(--fm);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.o-mk{position:relative}
+.o-mk input{width:100%;padding:15px 58px 15px 16px;border-radius:14px;border:1.5px solid #ffffff33;background:#0006;color:#fff;font-size:17px;font-family:var(--fm);letter-spacing:.06em;outline:0;transition:.2s}
+.o-mk input::placeholder{color:#ffffff66;letter-spacing:0;font-family:var(--fb);font-size:15px}
+.o-mk input:focus{border-color:var(--vang);background:#0008}
+.o-mk button{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;color:#fff;opacity:.7;cursor:pointer;padding:8px;font-size:13px;font-family:var(--fb)}
+.nut-dn{margin-top:16px;width:100%;padding:15px;border:0;border-radius:14px;background:var(--vang);color:var(--dem);font-weight:800;font-size:16px;font-family:var(--fb);cursor:pointer;transition:.2s;box-shadow:0 10px 24px -10px #ffd20099}
+.nut-dn:hover{transform:translateY(-1px);background:#ffdc33}.nut-dn:disabled{opacity:.6;cursor:wait;transform:none}
+.loi-dn{min-height:22px;margin-top:10px;font-size:14px;color:#ffb4a8}
+.kinh .ghi{font-size:13px;opacity:.65;border-top:1px solid #ffffff1f;padding-top:14px;margin-top:6px}
+.lac{animation:lac .4s}@keyframes lac{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+/* ---- the diem mau (vong tron) ---- */
+.the-diem{background:linear-gradient(160deg,#0f6b39,#063d22);border:1px solid #ffffff26;border-radius:22px;padding:22px 22px 16px;width:240px;box-shadow:var(--bong2);color:#fff;transform:rotate(2deg)}
+.vong{position:relative;width:130px;height:130px;margin:0 auto}
+.vong svg{width:100%;height:100%;transform:rotate(-90deg)}
+.vong .so{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.vong .so b{font-family:var(--fd);font-size:44px;line-height:1}
+.vong .so small{font-family:var(--fm);font-size:9.5px;letter-spacing:.14em;opacity:.7}
+.the-diem .nhan{display:block;text-align:center;margin:14px 0 12px;font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:.14em;border-radius:6px;background:var(--vang);color:var(--dem);padding:4px}
+.the-diem .tr{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;font-family:var(--fm);font-size:10px;opacity:.85;margin:7px 0}
+.the-diem .tr i{display:block;height:5px;border-radius:3px;background:#ffffff22;overflow:hidden}.the-diem .tr i:after{content:"";display:block;height:100%;width:var(--w);background:linear-gradient(90deg,#1fae5c,var(--vang))}
+.the-diem .chu-nho{display:block;text-align:center;margin-top:12px;font-family:var(--fm);font-size:9.5px;letter-spacing:.14em;opacity:.55}
+/* ---- khung trang ---- */
+header{background:#f6f7f2e6;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);position:sticky;top:0;z-index:5;border-bottom:1px solid var(--vien)}
+.top{max-width:1140px;margin:auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
+.top img{height:42px}
+.top b{font-family:var(--fd);font-size:19px;letter-spacing:-.01em}.top b span{color:var(--xanh)}
+nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+nav a{text-decoration:none;padding:8px 13px;border-radius:10px;font-size:14.5px;font-weight:600;color:var(--chu2);transition:.15s}
+nav a.on,nav a:hover{color:var(--chu);background:var(--nen2)}
+nav a.cta{background:var(--xanh);color:#fff;margin-left:6px;box-shadow:0 8px 18px -10px #0a7a3f}
+nav a.cta:hover{background:#086b37}
+nav .thoat{background:none;border:0;color:var(--mo);font-size:13px;cursor:pointer;padding:8px;font-family:var(--fb);white-space:nowrap}
+main{max-width:1140px;margin:auto;padding:24px 22px 70px}
+.hero{border-radius:24px;padding:44px 40px;box-shadow:var(--bong)}
+.hero>*{position:relative;z-index:1}
+.hero h1{margin:14px 0 12px;font-family:var(--fd);font-weight:800;font-size:clamp(30px,4.6vw,52px);line-height:1.04;letter-spacing:-.03em}.hero h1 span{color:var(--vang)}
+.hero p{margin:0 0 22px;opacity:.88;max-width:620px;font-size:16.5px}
+.hero-chu{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.btn{display:inline-block;background:var(--vang);color:var(--dem);font-weight:700;padding:13px 22px;border-radius:12px;text-decoration:none;border:0;cursor:pointer;font-size:15px;font-family:var(--fb);transition:.2s;margin:0 6px 6px 0}
+.btn:hover{transform:translateY(-1px)}
+.btn.phu{background:transparent;color:#fff;border:1.5px solid #ffffff55}
+.btn.xanh{background:var(--xanh);color:#fff}
+.bang-chay{display:flex;gap:34px;overflow:hidden;white-space:nowrap;margin:26px -40px -44px;padding:13px 40px;background:#00000033;border-top:1px solid #ffffff14;font-family:var(--fm);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.bang-chay span:before{content:"\25C6";color:var(--vang);margin-right:14px}
+h2{font-family:var(--fd);font-size:clamp(23px,3vw,30px);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin:44px 0 16px;display:flex;align-items:center;gap:12px}
+h2:before{content:"";width:16px;height:16px;background:repeating-linear-gradient(90deg,var(--xanh) 0 2px,transparent 2px 5px);flex:none}
+h3{font-family:var(--fd);font-size:20px;margin:28px 0 10px}
+.luoi{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(132px,1fr))}
+.lua .ma.dai{font-size:24px;line-height:48px;white-space:nowrap}
 .luoi.to{grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr))}
-.the{background:#fff;border:1px solid var(--vien);border-radius:14px;padding:16px}
-.lua{text-align:center;cursor:pointer;transition:.15s}
-.lua:hover{border-color:var(--xanh);transform:translateY(-2px)}
-.lua .ma{font-size:26px;font-weight:800;color:var(--xanh)}
+.the{background:var(--mat);border:1px solid var(--vien);border-radius:18px;padding:20px;box-shadow:0 1px 2px #05261608;position:relative}
+.lua{text-align:center;cursor:pointer;transition:.2s;overflow:hidden}
+.lua:hover{border-color:var(--xanh);transform:translateY(-3px);box-shadow:var(--bong)}
+.lua .ma{font-family:var(--fd);font-size:32px;font-weight:800;color:var(--xanh);letter-spacing:-.02em}
 .lua .ns{font-size:13px;color:var(--mo)}
-.giai{text-decoration:none;display:block}
-.giai .ten{font-weight:700;font-size:17px;margin:6px 0}
-.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:20px;background:#e8f2ea;color:var(--xanh);margin:0 4px 4px 0}
-.tag.sap{background:var(--vang);color:#4a3b00}.tag.xong{background:#e5e7e5;color:#555}
+.lua .dem{font-family:var(--fm);font-size:11px;color:var(--chu2);margin-top:8px;padding-top:8px;border-top:1px dashed var(--vien)}
+.buoc{overflow:hidden;min-height:150px}
+.buoc .so-to{position:absolute;right:16px;bottom:2px;font-family:var(--fd);font-weight:800;font-size:68px;line-height:1;color:transparent;-webkit-text-stroke:1.5px #0a7a3f33}
+.buoc b{font-family:var(--fd);font-size:18px;display:block;margin-bottom:6px}
+.giai{text-decoration:none;display:block;transition:.2s}.giai:hover{border-color:var(--xanh);box-shadow:var(--bong)}
+.giai .ten{font-family:var(--fd);font-weight:700;font-size:20px;margin:8px 0 4px;line-height:1.2}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:20px;background:var(--xanh-nhat);color:var(--xanh);margin:0 4px 4px 0}
+.hero .tag{background:#ffffff1f;color:#fff}
+.tag.sap,.hero .tag.sap{background:var(--vang);color:#3d3000}.tag.xong{background:#e5e7e0;color:#555}
 .mo{color:var(--mo);font-size:14px}
-.canh{background:#fff8d9;border:1px solid #f1d977;border-radius:10px;padding:10px 14px;font-size:14px;margin:12px 0}
+.canh{background:#fff8d9;border:1px solid #f1d977;border-radius:14px;padding:12px 16px;font-size:14px;margin:14px 0}
 .canh b{color:#7a5d00}
-table{width:100%;border-collapse:collapse;background:#fff;font-size:14px}
-th,td{padding:8px 10px;border-bottom:1px solid var(--vien);text-align:left;vertical-align:top}
-th{background:#eef3ee;font-size:13px;color:#33413a}
-.bang-wrap{overflow-x:auto;border:1px solid var(--vien);border-radius:12px}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}
-.tabs button{border:1px solid var(--vien);background:#fff;padding:7px 14px;border-radius:20px;cursor:pointer;font-weight:600;font-size:14px}
+table{width:100%;border-collapse:collapse;background:var(--mat);font-size:14px}
+th,td{padding:11px 12px;border-bottom:1px solid var(--vien);text-align:left;vertical-align:top}
+th{background:var(--nen2);font-family:var(--fm);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--chu2);font-weight:700}
+tr:last-child td{border-bottom:0}
+.bang-wrap{overflow-x:auto;border:1px solid var(--vien);border-radius:16px;background:var(--mat)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}
+.tabs button{border:1px solid var(--vien);background:var(--mat);padding:8px 16px;border-radius:999px;cursor:pointer;font-weight:600;font-size:14px;font-family:var(--fb);color:var(--chu2);transition:.15s}
+.tabs button:hover{border-color:var(--xanh)}
 .tabs button.on{background:var(--xanh);color:#fff;border-color:var(--xanh)}
-.ngay{font-weight:700;margin:16px 0 6px;color:var(--xanh)}
-.tran{display:grid;grid-template-columns:70px 1fr auto 1fr;gap:8px;align-items:center;background:#fff;border:1px solid var(--vien);border-radius:10px;padding:9px 12px;margin-bottom:6px;font-size:14px}
-.tran .g{font-weight:700}.tran .g small{display:block;font-weight:400;color:var(--mo);font-size:11px}
+.tabs button small{font-family:var(--fm);opacity:.7;margin-left:4px}
+.ngay{font-family:var(--fm);font-weight:700;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;margin:20px 0 8px;color:var(--xanh)}
+.tran{display:grid;grid-template-columns:70px 1fr auto 1fr;gap:8px;align-items:center;background:var(--mat);border:1px solid var(--vien);border-radius:12px;padding:10px 14px;margin-bottom:6px;font-size:14px}
+.tran .g{font-weight:700;font-family:var(--fm);font-size:13px}.tran .g small{display:block;font-weight:400;color:var(--mo);font-size:10.5px;font-family:var(--fb)}
 .tran .a{text-align:right;font-weight:600}.tran .b{font-weight:600}
-.tran .ts{background:var(--xanh);color:#fff;border-radius:6px;padding:2px 10px;font-weight:800;min-width:54px;text-align:center}
-.tran .ts.chua{background:#e5e7e5;color:#777;font-weight:600}
+.tran .ts{background:var(--sau);color:var(--vang);border-radius:8px;padding:3px 10px;font-weight:800;min-width:58px;text-align:center;font-family:var(--fm)}
+.tran .ts.chua{background:var(--nen2);color:#777;font-weight:600}
 .tran.le{grid-template-columns:70px 1fr;background:#fffbe9}
 .nhanh{display:flex;gap:26px;overflow-x:auto;padding:8px 2px}
-.cot{display:flex;flex-direction:column;justify-content:space-around;gap:14px;min-width:190px}
-.cot h4{margin:0 0 4px;font-size:13px;color:var(--mo);text-transform:uppercase}
-.cap{background:#fff;border:1px solid var(--vien);border-radius:10px;font-size:13px;overflow:hidden}
-.cap div{padding:6px 10px;display:flex;justify-content:space-between}
+.cot{display:flex;flex-direction:column;justify-content:space-around;gap:14px;min-width:200px}
+.cot h4{margin:0 0 4px;font-family:var(--fm);font-size:11.5px;letter-spacing:.1em;color:var(--mo);text-transform:uppercase}
+.cap{background:var(--mat);border:1px solid var(--vien);border-radius:12px;font-size:13px;overflow:hidden}
+.cap div{padding:7px 12px;display:flex;justify-content:space-between}
 .cap div+div{border-top:1px solid var(--vien)}
-.cap .m{background:#eef3ee;font-size:11px;color:var(--mo);padding:3px 10px}
-.form label{display:block;font-weight:600;font-size:14px;margin:12px 0 4px}
-.form input,.form select{width:100%;padding:10px;border:1px solid var(--vien);border-radius:8px;font-size:15px}
+.cap .m{background:var(--nen2);font-size:11px;color:var(--mo);padding:4px 12px;font-family:var(--fm)}
+.form label{display:block;font-weight:600;font-size:14px;margin:14px 0 6px}
+.form input,.form select{width:100%;padding:12px 14px;border:1.5px solid var(--vien);border-radius:12px;font-size:15px;font-family:var(--fb);background:#fff;outline:0;transition:.15s}
+.form input:focus{border-color:var(--xanh);box-shadow:0 0 0 4px #0a7a3f1a}
 .kq{margin-top:16px;border-left:5px solid var(--vang)}
-.kq .lon{font-size:28px;font-weight:800;color:var(--xanh)}
-.diem{font-size:22px;font-weight:800;color:var(--xanh)}
+.kq .lon{font-family:var(--fd);font-size:34px;font-weight:800;color:var(--xanh)}
+.diem{font-family:var(--fd);font-size:24px;font-weight:800;color:var(--xanh)}
 .len{color:#0f7a28;font-weight:700;font-size:13px}.xuong{color:var(--do);font-weight:700;font-size:13px}
 .mau{background:#fde2e1;color:#9b1c1c}
-tr.bam{cursor:pointer}tr.bam:hover td{background:#f7faf7}
-.top3 td:first-child{font-weight:800;color:#b8860b}
-.tru{display:grid;grid-template-columns:150px 1fr 40px;gap:10px;align-items:center;margin:8px 0;font-size:14px}
-.tru .bar{background:#ffffff26;border-radius:6px;height:12px;overflow:hidden}.tru .bar div{height:100%;background:var(--vang)}
-.the .tru .bar{background:#eef3ee}.the .tru .bar div{background:var(--xanh2)}
-.muc{display:inline-block;background:var(--vang);color:#4a3b00;font-weight:800;border-radius:20px;padding:3px 12px;font-size:14px}
+.tag.nghi{background:#eceae4;color:#7a776c}
+.tag.chua{background:#f1f3ec;color:var(--mo)}
+tr.bam{cursor:pointer}tr.bam:hover td{background:#f3f8f2}
+.top3 td:first-child{font-family:var(--fd);font-size:20px;font-weight:800;color:#b8860b}
+.tru{display:grid;grid-template-columns:150px 1fr 40px;gap:10px;align-items:center;margin:9px 0;font-size:14px}
+.tru .bar{background:#ffffff26;border-radius:6px;height:10px;overflow:hidden}.tru .bar div{height:100%;background:linear-gradient(90deg,#1fae5c,var(--vang));border-radius:6px}
+.the .tru .bar{background:var(--nen2)}.the .tru .bar div{background:linear-gradient(90deg,var(--xanh),var(--xanh2))}
+.muc{display:inline-block;background:var(--vang);color:#3d3000;font-weight:800;border-radius:20px;padding:4px 14px;font-size:12.5px;font-family:var(--fm);letter-spacing:.06em;text-transform:uppercase}
 .tag.muc2{background:#fff3c4;color:#6b5300}
 .tag.vuot{background:#e3ecff;color:#1d4ed8}
-.thang{display:flex;flex-wrap:wrap;gap:6px}.thang>div{flex:1 1 140px;border-radius:10px;padding:10px;background:#fff;border:1px solid var(--vien)}
+.thang{display:flex;flex-wrap:wrap;gap:8px}.thang>div{flex:1 1 140px;border-radius:14px;padding:14px;background:var(--mat);border:1px solid var(--vien)}
 .trong{text-align:center;padding:30px;color:var(--mo)}
-footer{background:#06300f;color:#cfe0d2;font-size:14px;padding:22px 16px;text-align:center}
+.so-lieu{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:6px;max-width:640px}
+.so-lieu div{border-left:2px solid var(--vang);padding:2px 0 2px 14px}
+.so-lieu b{display:block;font-family:var(--fd);font-size:30px;line-height:1.1}.so-lieu span{font-family:var(--fm);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+.them{display:block;margin:12px auto 0;background:var(--mat);border:1px solid var(--vien);border-radius:12px;padding:10px 18px;cursor:pointer;font-weight:600;font-family:var(--fb)}
+.them:hover{border-color:var(--xanh)}
+footer{background:var(--dem);color:#cfe0d2;font-size:14px;padding:34px 22px 0;text-align:center;overflow:hidden}
 footer b{color:var(--vang)}
-@media(max-width:700px){.xh th:nth-child(3),.xh td:nth-child(3),.xh th:nth-child(8),.xh td:nth-child(8){display:none}.top{flex-wrap:wrap}nav{margin:0;width:100%;overflow-x:auto;flex-wrap:nowrap}nav a{white-space:nowrap}.hero h1{font-size:24px}.tran{grid-template-columns:52px 1fr auto 1fr;font-size:13px}}
+footer .chu-to{font-family:var(--fd);font-weight:800;font-size:clamp(60px,14vw,180px);line-height:.8;color:transparent;-webkit-text-stroke:1px #ffffff22;margin-top:24px;letter-spacing:-.02em;white-space:nowrap}
+@media(max-width:860px){.dn{grid-template-columns:1fr;gap:28px;padding:28px 18px}.dn .thuoc{display:none}.hero-chu{grid-template-columns:1fr}.hero-chu .the-diem{display:none}}
+@media(max-width:700px){.xh th:nth-child(3),.xh td:nth-child(3),.xh th:nth-child(8),.xh td:nth-child(8){display:none}.top{flex-wrap:wrap;padding:8px 14px}nav{margin:0;width:100%;overflow-x:auto;flex-wrap:nowrap}nav a{white-space:nowrap}.hero{padding:30px 22px}.bang-chay{margin:20px -22px -30px;padding:12px 22px}main{padding:18px 14px 60px}.tran{grid-template-columns:52px 1fr auto 1fr;font-size:13px}.tru{grid-template-columns:110px 1fr 34px}}
 </style>
 </head>
-<body>
+<body class="khoa">
+<section id="login" class="san"><div class="dn">
+ <div>
+  <span class="may">Dành cho phụ huynh và học viên 4YOU</span>
+  <h1>Biết con đang ở đâu, <span>cần tập gì tiếp</span></h1>
+  <p class="gt">Điểm trình cá nhân 0-100 do HLV 4YOU SPORT chấm sau mỗi giải đấu, khoá học và đợt kiểm tra. Xem lứa thi đấu, lịch giải và hành trình tiến bộ của con.</p>
+  <div class="chips"><span>7 lứa U7 đến Ngoại hạng</span><span>4 trụ, 14 tiêu chí</span><span>HLV chấm, không tự chấm</span></div>
+  <div class="thuoc"><div class="v"><i></i></div><div class="s"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div></div>
+ </div>
+ <form class="kinh" id="fdn" onsubmit="dangNhap(event)">
+  <div class="dau"><img src="logo.png" alt=""><div><b>4YOU Giải đấu</b><small>Trung tâm Bóng đá 4YOU SPORT Nghệ An</small></div></div>
+  <label for="mk">Mã truy cập</label>
+  <div class="o-mk"><input id="mk" type="password" autocomplete="current-password" placeholder="Nhập mã 4YOU cấp" required><button type="button" onclick="const i=$('#mk');i.type=i.type=='password'?'text':'password';this.textContent=i.type=='password'?'Hiện':'Ẩn'">Hiện</button></div>
+  <button class="nut-dn" id="nutdn">Đăng nhập</button>
+  <div class="loi-dn" id="loidn"></div>
+  <div class="ghi">Bản xem trước nội bộ. Dữ liệu học viên được mã hoá, chỉ mở được khi có mã truy cập.</div>
+ </form>
+</div></section>
 <header><div class="top">
  <a href="#/"><img src="logo.png" alt="4YOU SPORT"></a>
- <b>4YOU <span>GIẢI ĐẤU</span></b>
+ <b>4YOU <span>Giải đấu</span></b>
  <nav id="nav">
   <a href="#/" data-k="">Trang chủ</a>
   <a href="#/giai" data-k="giai">Giải đấu</a>
@@ -95,10 +194,11 @@ footer b{color:var(--vang)}
   <a href="#/xephang" data-k="xephang">Điểm trình</a>
   <a href="#/cachcham" data-k="cachcham">Cách chấm</a>
   <a href="#/dangky" data-k="dangky" class="cta">Tra cứu cho con</a>
+  <button class="thoat" onclick="dangXuat()">Đăng xuất</button>
  </nav>
 </div></header>
 <main id="app"><p class="trong">Đang tải...</p></main>
-<footer>Trung tâm Bóng đá <b>4YOU SPORT</b> Nghệ An - LET'S DO IT<br>Hotline <b id="hl"></b><br><span style="opacity:.6;font-size:12px">Bản mẫu nội bộ - cập nhật <span id="cn"></span>. Chỗ ghi "cần xác nhận" chưa được chốt.</span></footer>
+<footer>Trung tâm Bóng đá <b>4YOU SPORT</b> Nghệ An - LET'S DO IT<br>Hotline <b id="hl"></b><br><span style="opacity:.6;font-size:12px">Bản xem trước nội bộ - cập nhật <span id="cn"></span>. Chỗ ghi "cần xác nhận" chưa được chốt.</span><div class="chu-to">4YOU SPORT</div></footer>
 <script>
 let D, $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -108,7 +208,8 @@ const nsLua=l=>l.nam_tu?l.nam_tu+" - "+l.nam_den:l.nam_den+" trở về trước
 const tenLua=m=>(D.lua.find(l=>l.ma==m)||{ten:m}).ten;
 /* diem trinh: diem hien tai = lan HLV cham moi nhat, xep hang trong tung lua */
 function hvTinh(){
- D.hoc_vien.forEach(h=>{const l=luaTheoNam(h.nam);h.lua=l?l.ma:"";const n=h.ls.length;
+ D.hoc_vien.forEach(h=>{h.ls=h.ls||[];h.tl=h.tl||[];h.sdt=h.sdt||"";h.co_so=h.co_so||"";h.vi_tri=h.vi_tri||"";
+  const l=h.nam?luaTheoNam(h.nam):null;h.lua=l?l.ma:"";const n=h.ls.length;
   h.diem=n?h.ls[n-1].diem:null;h.truoc=n>1?h.ls[n-2].diem:null;h.lan=n?h.ls[n-1].ngay:""});
  D.lua.forEach(l=>{const ds=D.hoc_vien.filter(h=>h.lua==l.ma&&h.diem!=null&&!h.nghi).sort((a,b)=>b.diem-a.diem||a.ten.localeCompare(b.ten,"vi"));
   let hang=0,cu=null;ds.forEach((h,i)=>{if(h.diem!==cu){hang=i+1;cu=h.diem}h.hang=hang;h.tong=ds.length})});
@@ -128,16 +229,27 @@ function luaTheoNam(y){
 
 /* ---------- trang ---------- */
 function trangChu(){
- const sap=D.giai.filter(g=>g.trang_thai=="sap");
- return `<section class="hero"><h1>Mỗi bé một <span>điểm trình riêng</span></h1>
- <p>Hệ thống giải đấu và điểm trình cá nhân của 4YOU SPORT Nghệ An. HLV chấm điểm sau mỗi giải, mỗi khoá học và mỗi đợt kiểm tra, để phụ huynh và các con biết mình đang ở đâu mà phấn đấu.</p>
- <a class="btn" href="#/dangky">Tra cứu cho con</a> <a class="btn phu" href="#/xephang">Xem điểm trình</a></section>
- <h2>7 lứa thi đấu</h2>
- <div class="luoi">${D.lua.map(l=>`<div class="the lua" onclick="location.hash='#/xephang/${l.ma}'"><div class="ma">${esc(l.ten)}</div><div class="ns">${l.nam_tu?"Sinh "+nsLua(l):"Trên 17 tuổi"}</div></div>`).join("")}</div>
+ const sap=D.giai.filter(g=>g.trang_thai=="sap"),hv=D.hoc_vien.filter(h=>!h.mau);
+ const dem=m=>hv.filter(h=>h.lua==m&&!h.nghi).length;
+ return `<section class="hero san"><div class="hero-chu"><div>
+ <span class="may">Giải đấu và điểm trình cá nhân</span>
+ <h1>Mỗi bé một <span>điểm trình riêng</span></h1>
+ <p>HLV 4YOU SPORT chấm điểm sau mỗi giải, mỗi khoá học và mỗi đợt kiểm tra, để phụ huynh và các con biết mình đang ở đâu mà phấn đấu.</p>
+ <a class="btn" href="#/dangky">Tra cứu cho con</a><a class="btn phu" href="#/xephang">Xem điểm trình</a>
+ <div class="so-lieu"><div><b>${hv.length.toLocaleString("vi")}</b><span>học viên trong sổ</span></div><div><b>${hv.filter(h=>!h.nghi).length.toLocaleString("vi")}</b><span>đang học</span></div><div><b>${hv.filter(h=>h.ls.length).length}</b><span>đã được chấm</span></div></div>
+ </div>${theDiemMau()}</div>
+ <div class="bang-chay"><span>Thang điểm 0-100</span><span>4 trụ phát triển</span><span>HLV chấm sau mỗi giải</span><span>Đá vượt tối đa 1 lứa</span><span>Let's do it</span></div></section>
+ <h2>7 lứa thi đấu mùa ${D.mua}</h2>
+ <div class="luoi">${D.lua.map(l=>`<div class="the lua" onclick="location.hash='#/xephang/${l.ma}'"><div class="ma${l.ten.length>4?" dai":""}">${esc(l.ten)}</div><div class="ns">${l.nam_tu?"Sinh "+nsLua(l):"Trên 17 tuổi"}</div><div class="dem">${dem(l.ma)} bé đang học</div></div>`).join("")}</div>
  <h2>Giải sắp diễn ra</h2>
  <div class="luoi to">${sap.map(theGiai).join("")||'<p class="mo">Chưa có giải sắp diễn ra.</p>'}</div>
  <h2>Điểm trình được chấm khi nào</h2>
- <div class="luoi to">${[["Sau mỗi giải đấu","HLV chấm theo phong độ thi đấu của từng bé trong giải."],["Sau mỗi khoá học","HLV chấm mức tiến bộ cuối khoá."],["Sau mỗi đợt kiểm tra","HLV chấm theo bài kiểm tra kỹ năng định kỳ."]].map(([a,b])=>`<div class="the"><b>${a}</b><div class="mo">${b}</div></div>`).join("")}</div>`;
+ <div class="luoi to">${[["Sau mỗi giải đấu","HLV chấm theo phong độ thi đấu của từng bé trong giải."],["Sau mỗi khoá học","HLV chấm mức tiến bộ cuối khoá."],["Sau mỗi đợt kiểm tra","HLV chấm theo bài kiểm tra kỹ năng định kỳ."]].map(([a,b],i)=>`<div class="the buoc"><b>${a}</b><div class="mo">${b}</div><span class="so-to">0${i+1}</span></div>`).join("")}</div>`;
+}
+function theDiemMau(){
+ const d=78,c=2*Math.PI*56;
+ return `<div class="the-diem"><div class="vong"><svg viewBox="0 0 130 130"><circle cx="65" cy="65" r="56" fill="none" stroke="#ffffff1f" stroke-width="9"/><circle cx="65" cy="65" r="56" fill="none" stroke="#FFD200" stroke-width="9" stroke-linecap="round" stroke-dasharray="${c*d/100} ${c}"/></svg><div class="so"><b>${d}</b><small>TRÊN 100</small></div></div>
+ <span class="nhan">GIỎI</span>${[["KTC",80],["THL",66],["TÂM",72],["TẬP",64]].map(([a,b])=>`<div class="tr"><span>${a}</span><i style="--w:${b}%"></i></div>`).join("")}<span class="chu-nho">THẺ ĐIỂM MINH HOẠ</span></div>`;
 }
 function theGiai(g){
  return `<a class="the giai" href="#/giai/${g.slug}"><span class="tag ${g.trang_thai}">${g.trang_thai=="sap"?"Sắp diễn ra":"Đã kết thúc"}</span>${g.lua.map(l=>`<span class="tag">${esc(tenLua(l))}</span>`).join("")}
@@ -155,7 +267,7 @@ function trangGiai(slug){
  const g=D.giai.find(x=>x.slug==slug);if(!g)return `<p class="trong">Không thấy giải.</p>`;
  if(!luaGiai||!g.lua.includes(luaGiai))luaGiai=g.lua[0];
  let h=`<p><a href="#/giai" class="mo">&larr; Tất cả giải</a></p>
- <section class="hero"><span class="tag ${g.trang_thai}">${g.trang_thai=="sap"?"Sắp diễn ra":"Đã kết thúc"}</span>
+ <section class="hero san"><span class="tag ${g.trang_thai}">${g.trang_thai=="sap"?"Sắp diễn ra":"Đã kết thúc"}</span>
  <h1>${esc(g.ten)}</h1><p>${g.den?fd(g.tu)+" - "+fd(g.den):esc(g.tu)} &middot; ${esc(g.dia_diem)}<br>Lứa: ${g.lua.map(l=>esc(tenLua(l))+" (sinh "+nsLua(D.lua.find(x=>x.ma==l))+")").join(", ")}</p>
  ${g.form&&g.trang_thai=="sap"?`<a class="btn" href="${esc(g.form)}" target="_blank">Đăng ký</a> `:""}</section>`;
  if(g.ghi_chu)h+=`<div class="canh">${esc(g.ghi_chu)}</div>`;
@@ -219,16 +331,32 @@ function trangXH(ma){
  <p class="mo">${esc(l.ten)}: ${l.nam_tu?"sinh "+nsLua(l):"trên 17 tuổi"}. Bấm vào tên để xem lịch sử điểm.</p>
  <div class="form" style="max-width:420px"><input id="tim" placeholder="Tìm theo tên hoặc số điện thoại" value="${esc(timXH)}" oninput="timXH=this.value;veXH()"></div>
  <div id="dsxh" style="margin-top:10px">${bangXH()}</div>
- ${D.hoc_vien.some(h=>h.mau)?`<div class="canh"><b>Đang hiện dữ liệu MẪU</b> để chị xem giao diện. Sổ điểm đã có danh sách học viên thật, nhưng chưa có lần chấm nào. Bé chưa được chấm sẽ không hiện trên web. Có lần chấm thật thì xoá các dòng mẫu.</div>`:""}`;
+ ${D.hoc_vien.some(h=>h.mau)?`<div class="canh"><b>Các bạn gắn nhãn MẪU là dữ liệu mẫu</b> để xem giao diện. Học viên thật đã có đủ trong sổ nhưng chưa được HLV chấm lần nào. Có lần chấm thật thì xoá các dòng mẫu.</div>`:""}
+ ${(n=>n?`<p class="mo">${n} học viên chưa có năm sinh nên chưa xếp được lứa. Tìm theo tên ở trang Tra cứu cho con; admin điền năm sinh vào sổ điểm thì bé tự vào đúng lứa.</p>`:"")(D.hoc_vien.filter(h=>!h.nam).length)}`;
 }
-function veXH(){$("#dsxh").innerHTML=bangXH()}
+let locXH="hoc",soHien=50;
+function veXH(){soHien=50;$("#dsxh").innerHTML=bangXH()}
+function khopTim(h,q,qs){return h.ten.toLowerCase().includes(q)||(qs.length>=3&&h.sdt.replace(/\D/g,"").includes(qs))}
 function bangXH(){
  const q=timXH.trim().toLowerCase(),qs=q.replace(/\D/g,"");
  let ds=D.hoc_vien.filter(h=>h.lua==luaXH&&h.diem!=null&&!h.nghi).sort((a,b)=>a.hang-b.hang||a.ten.localeCompare(b.ten,"vi"));
- if(q)ds=ds.filter(h=>h.ten.toLowerCase().includes(q)||(qs.length>=3&&h.sdt.replace(/\D/g,"").includes(qs)));
- if(!ds.length)return `<p class="trong">${q?"Không thấy học viên khớp.":"Lứa này chưa có học viên được chấm điểm."}</p>`;
- return `<div class="bang-wrap"><table class="xh"><tr><th>Hạng</th><th>Học viên</th><th>Năm sinh</th><th>SĐT phụ huynh</th><th>Điểm trình</th><th>Mức</th><th>Thay đổi</th><th>Chấm gần nhất</th></tr>
- ${ds.map(h=>`<tr class="bam ${h.hang<=3?"top3":""}" onclick="location.hash='#/hv/${h.ma}'"><td>${h.hang}</td><td><b>${esc(h.ten)}</b>${nhanMau(h)}${nhanVuot(h)}${h.co_so?`<div class="mo">${esc(h.co_so)}</div>`:""}</td><td>${h.nam}</td><td style="white-space:nowrap">${esc(h.sdt)}</td><td class="diem">${h.diem}</td><td><span class="tag muc2">${esc(h.ls[h.ls.length-1].muc)}</span></td><td>${doiDiem(h)}</td><td class="mo">${fd(h.lan)}</td></tr>`).join("")}</table></div>${bangVuot()}`;
+ if(q)ds=ds.filter(h=>khopTim(h,q,qs));
+ const tatCa=D.hoc_vien.filter(h=>h.lua==luaXH&&h.diem==null);
+ let o=ds.length?`<div class="bang-wrap"><table class="xh"><tr><th>Hạng</th><th>Học viên</th><th>Năm sinh</th><th>SĐT phụ huynh</th><th>Điểm trình</th><th>Mức</th><th>Thay đổi</th><th>Chấm gần nhất</th></tr>
+ ${ds.map(h=>`<tr class="bam ${h.hang<=3?"top3":""}" onclick="location.hash='#/hv/${h.ma}'"><td>${h.hang}</td><td><b>${esc(h.ten)}</b>${nhanMau(h)}${nhanVuot(h)}${h.co_so?`<div class="mo">${esc(h.co_so)}</div>`:""}</td><td>${h.nam}</td><td style="white-space:nowrap">${esc(h.sdt)}</td><td class="diem">${h.diem}</td><td><span class="tag muc2">${esc(h.ls[h.ls.length-1].muc)}</span></td><td>${doiDiem(h)}</td><td class="mo">${fd(h.lan)}</td></tr>`).join("")}</table></div>`
+  :`<p class="trong">${q?"Không thấy học viên đã chấm khớp.":"Lứa này chưa có học viên được chấm điểm."}</p>`;
+ o+=bangVuot();
+ // Hoc vien chua cham: hien day du danh sach de admin, HLV thay ai can cham
+ const dem=k=>tatCa.filter(h=>k=="hoc"?!h.nghi:k=="nghi"?h.nghi:1).length;
+ let cc=tatCa.filter(h=>locXH=="hoc"?!h.nghi:locXH=="nghi"?h.nghi:1);
+ if(q)cc=cc.filter(h=>khopTim(h,q,qs));
+ cc.sort((a,b)=>(a.nghi?1:0)-(b.nghi?1:0)||a.ten.split(" ").pop().localeCompare(b.ten.split(" ").pop(),"vi")||a.ten.localeCompare(b.ten,"vi"));
+ o+=`<h3>Chưa được chấm điểm</h3><div class="tabs">${[["hoc","Đang học"],["nghi","Đã nghỉ"],["tat","Tất cả"]].map(([k,t])=>`<button class="${k==locXH?"on":""}" onclick="locXH='${k}';veXH()">${t}<small>${dem(k)}</small></button>`).join("")}</div>`;
+ if(!cc.length)return o+`<p class="trong">${q?"Không thấy học viên khớp.":"Không có học viên."}</p>`;
+ o+=`<div class="bang-wrap"><table class="xh"><tr><th>#</th><th>Học viên</th><th>Năm sinh</th><th>SĐT phụ huynh</th><th>Trạng thái</th></tr>
+ ${cc.slice(0,soHien).map((h,i)=>`<tr class="bam" onclick="location.hash='#/hv/${h.ma}'"><td class="mo">${i+1}</td><td><b>${esc(h.ten)}</b>${nhanVuot(h)}${h.co_so?`<div class="mo">${esc(h.co_so)}</div>`:""}</td><td>${h.nam}</td><td style="white-space:nowrap">${esc(h.sdt)}</td><td>${h.nghi?`<span class="tag nghi">Đã nghỉ</span>`:`<span class="tag chua">Chưa chấm</span>`}</td></tr>`).join("")}</table></div>`;
+ if(cc.length>soHien)o+=`<button class="them" onclick="soHien+=100;$('#dsxh').innerHTML=bangXH()">Xem thêm (còn ${cc.length-soHien} bé)</button>`;
+ return o;
 }
 function bangVuot(){
  const ds=D.hoc_vien.filter(h=>h.vuot==luaXH&&h.diem!=null&&!h.nghi).sort((a,b)=>quyDoi(b)-quyDoi(a));
@@ -240,11 +368,11 @@ function bangVuot(){
 function trangHV(ma){
  const h=D.hoc_vien.find(x=>x.ma==ma);if(!h)return `<p class="trong">Không thấy học viên.</p>`;
  const n=h.ls.length,c=n?h.ls[n-1]:null,tr=n>1?h.ls[n-2]:null;
- let o=`<p><a href="#/xephang/${h.lua}" class="mo">&larr; Bảng điểm ${esc(tenLua(h.lua))}</a></p>
- <section class="hero"><span class="tag sap">${esc(tenLua(h.lua))}</span>${nhanVuot(h)}${h.vi_tri?`<span class="tag">${esc(h.vi_tri)}</span>`:""}${nhanMau(h)}<h1>${esc(h.ten)}</h1>
- <p>Sinh ${h.nam}${h.co_so?" &middot; "+esc(h.co_so):""} ${h.sdt?" &middot; SĐT phụ huynh "+esc(h.sdt):""}</p>`;
+ let o=`<p><a href="${h.lua?"#/xephang/"+h.lua:"#/dangky"}" class="mo">&larr; ${h.lua?"Bảng điểm "+esc(tenLua(h.lua)):"Tra cứu"}</a></p>
+ <section class="hero san"><span class="may">Hồ sơ học viên &middot; ${esc(h.ma)}</span><br><span class="tag sap">${h.lua?esc(tenLua(h.lua)):"Chưa xếp lứa"}</span>${nhanVuot(h)}${h.vi_tri?`<span class="tag">${esc(h.vi_tri)}</span>`:""}${h.nghi?`<span class="tag">Đã nghỉ</span>`:""}${nhanMau(h)}<h1>${esc(h.ten)}</h1>
+ <p>${h.nam?"Sinh "+h.nam:"Chưa có năm sinh"}${h.co_so?" &middot; "+esc(h.co_so):""} ${h.sdt?" &middot; SĐT phụ huynh "+esc(h.sdt):""}</p>`;
  if(h.vuot&&c)o+=`<div class="canh" style="color:var(--chu)"><b>Đá vượt lên ${esc(tenLua(h.vuot))}.</b> Điểm trình ${c.diem} chấm theo chuẩn ${esc(tenLua(h.lua))}. Điểm quy đổi khi xếp đội ${esc(tenLua(h.vuot))}: <b>${quyDoi(h)}</b> (= ${c.diem} x ${soVN(h.he_so)}, bé nhỏ hơn ${h.tuoi_nho} tuổi so với năm sinh nhỏ nhất của ${esc(tenLua(h.vuot))}).${h.vuot_gc?`<br>HLV ghi chú: ${esc(h.vuot_gc)}`:""}</div>`;
- if(!c)return o+`</section><p class="trong">Chưa có lần chấm nào.</p>`;
+ if(!c)return o+`</section><div class="the" style="margin-top:14px;text-align:center;padding:34px"><div class="diem">Chưa có điểm trình</div><p class="mo" style="margin:6px 0 0">Bé chưa được HLV chấm lần nào. Điểm sẽ hiện sau giải đấu, khoá học hoặc đợt kiểm tra gần nhất.</p></div>`;
  const xs=D.tru.map(t=>[t.ma,c.goc[t.ma]]).sort((a,b)=>b[1]-a[1]);
  o+=`<div style="display:flex;gap:30px;flex-wrap:wrap;align-items:flex-start">
  <div><div style="opacity:.8;font-size:13px">Điểm trình</div><div style="font-size:52px;font-weight:800;color:var(--vang);line-height:1.1">${c.diem}<span style="font-size:18px;opacity:.7">/100</span></div><span class="muc">${esc(c.muc)}</span></div>
@@ -293,7 +421,7 @@ function traHV(){
  const q=$("#tk").value.trim().toLowerCase(),qs=q.replace(/\D/g,""),el=$("#kq2");
  if(q.length<2){el.innerHTML=`<p style="color:var(--do)">Nhập họ tên hoặc số điện thoại.</p>`;return}
  const ds=D.hoc_vien.filter(h=>qs.length>=7?h.sdt.replace(/\D/g,"").startsWith(qs.slice(0,7)):h.ten.toLowerCase().includes(q));
- el.innerHTML=ds.length?ds.map(h=>`<a class="the kq giai" style="margin-top:8px" href="#/hv/${h.ma}"><b>${esc(h.ten)}</b>${nhanMau(h)} <span class="tag">${esc(tenLua(h.lua))}</span><div class="mo">SĐT ${esc(h.sdt)}</div><div class="diem">${h.diem??"Chưa chấm"}${h.hang?` <span class="mo" style="font-size:14px">hạng ${h.hang}/${h.tong}</span>`:""}</div></a>`).join(""):`<p class="mo">Chưa thấy hồ sơ. Phụ huynh nhắn hotline để admin kiểm tra.</p>`;
+ el.innerHTML=ds.length?(ds.length>20?`<p class="mo">Có ${ds.length} học viên khớp, đang hiện 20. Gõ thêm họ tên đầy đủ để lọc.</p>`:"")+ds.slice(0,20).map(h=>`<a class="the kq giai" style="margin-top:8px" href="#/hv/${h.ma}"><b>${esc(h.ten)}</b>${nhanMau(h)} <span class="tag">${h.lua?esc(tenLua(h.lua)):"Chưa xếp lứa"}</span>${h.nghi?`<span class="tag nghi">Đã nghỉ</span>`:""}<div class="mo">${h.nam?"Sinh "+h.nam+" &middot; ":""}${h.sdt?"SĐT "+esc(h.sdt):""}${h.co_so?" &middot; "+esc(h.co_so):""}</div><div class="diem">${h.diem??`<span class="mo" style="font-size:15px">Chưa chấm</span>`}${h.hang?` <span class="mo" style="font-size:14px">hạng ${h.hang}/${h.tong}</span>`:""}</div></a>`).join(""):`<p class="mo">Chưa thấy hồ sơ. Phụ huynh nhắn hotline để admin kiểm tra.</p>`;
 }
 
 function trangCach(){
@@ -312,14 +440,34 @@ function trangCach(){
 }
 
 /* ---------- dieu huong ---------- */
-function ve(){
+function ve(){if(!D)return;
  const p=location.hash.replace(/^#\/?/,"").split("/"),k=p[0]||"";
  document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.dataset.k==(k=="hv"?"xephang":k)));
  $("#app").innerHTML=k=="giai"?(p[1]?trangGiai(p[1]):dsGiai()):k=="lua"?trangLua():k=="xephang"?trangXH(p[1]):k=="hv"?trangHV(p[1]):k=="cachcham"?trangCach():k=="dangky"?trangDK():trangChu();
 }
 let cu="";addEventListener("hashchange",()=>{if(location.hash!=cu){cu=location.hash;scrollTo(0,0)}ve()});
-fetch("./data.json").then(r=>r.json()).then(d=>{D=d;hvTinh();$("#hl").textContent=d.hotline;$("#cn").textContent=d.cap_nhat;cu=location.hash;ve()})
- .catch(()=>$("#app").innerHTML=`<p class="trong">Không tải được dữ liệu.</p>`);
+/* ---------- dang nhap: data.enc ma hoa AES-GCM, khoa sinh tu ma truy cap (PBKDF2) ---------- */
+const KHOA="4y_giai_mk";let GOI=null;
+const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function giaiMa(mk){
+ if(!GOI)GOI=await fetch("./data.enc",{cache:"no-store"}).then(r=>{if(!r.ok)throw 0;return r.json()});
+ const k0=await crypto.subtle.importKey("raw",new TextEncoder().encode(mk),"PBKDF2",false,["deriveKey"]);
+ const k=await crypto.subtle.deriveKey({name:"PBKDF2",salt:b64(GOI.salt),iterations:GOI.lap,hash:"SHA-256"},k0,{name:"AES-GCM",length:256},false,["decrypt"]);
+ const raw=await crypto.subtle.decrypt({name:"AES-GCM",iv:b64(GOI.iv)},k,b64(GOI.ct));
+ return JSON.parse(new TextDecoder().decode(raw));
+}
+function moWeb(d){D=d;hvTinh();$("#hl").textContent=d.hotline;$("#cn").textContent=d.cap_nhat;document.body.classList.remove("khoa");cu=location.hash;ve()}
+async function dangNhap(e){
+ e&&e.preventDefault();const mk=$("#mk").value.trim(),nut=$("#nutdn"),loi=$("#loidn");if(!mk)return;
+ nut.disabled=true;nut.textContent="Đang mở...";loi.textContent="";
+ try{const d=await giaiMa(mk);try{localStorage.setItem(KHOA,mk)}catch(_){}moWeb(d)}
+ catch(x){loi.textContent=GOI?"Mã truy cập chưa đúng, thử lại nhé.":"Không tải được dữ liệu, kiểm tra mạng rồi thử lại.";const f=$("#fdn");f.classList.remove("lac");void f.offsetWidth;f.classList.add("lac")}
+ nut.disabled=false;nut.textContent="Đăng nhập";
+}
+function dangXuat(){try{localStorage.removeItem(KHOA)}catch(_){}D=null;$("#app").innerHTML="";$("#mk").value="";document.body.classList.add("khoa");scrollTo(0,0)}
+(async()=>{let mk="";try{mk=localStorage.getItem(KHOA)||""}catch(_){}
+ if(mk){try{moWeb(await giaiMa(mk));return}catch(_){try{localStorage.removeItem(KHOA)}catch(__){}}}
+ $("#mk").focus()})();
 </script>
 </body>
 </html>
