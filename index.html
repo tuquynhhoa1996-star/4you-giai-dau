@@ -231,17 +231,16 @@ function luaTheoNam(y){
 /* ---------- trang ---------- */
 function trangChu(){
  const sap=D.giai.filter(g=>g.trang_thai=="sap"),hv=D.hoc_vien.filter(h=>!h.mau);
- const dem=m=>hv.filter(h=>h.lua==m&&!h.nghi).length;
  return `<section class="hero san"><div class="hero-chu"><div>
  <span class="may">Giải đấu và điểm trình cá nhân</span>
  <h1>Mỗi bé một <span>điểm trình riêng</span></h1>
  <p>HLV 4YOU SPORT chấm điểm sau mỗi giải, mỗi khoá học và mỗi đợt kiểm tra, để phụ huynh và các con biết mình đang ở đâu mà phấn đấu.</p>
  <a class="btn" href="#/dangky">Tra cứu cho con</a><a class="btn phu" href="#/xephang">Xem điểm trình</a>
- <div class="so-lieu"><div><b>${hv.length.toLocaleString("vi")}</b><span>học viên trong sổ</span></div><div><b>${hv.filter(h=>!h.nghi).length.toLocaleString("vi")}</b><span>đang học</span></div><div><b>${hv.filter(h=>h.ls.length).length}</b><span>đã được chấm</span></div></div>
+ <div class="so-lieu"><div><b>7</b><span>lứa U7 đến Ngoại hạng</span></div><div><b>14</b><span>tiêu chí HLV chấm</span></div><div><b>4</b><span>trụ phát triển</span></div></div>
  </div>${theDiemMau()}</div>
  <div class="bang-chay"><span>Thang điểm 0-100</span><span>4 trụ phát triển</span><span>HLV chấm sau mỗi giải</span><span>Đá vượt tối đa 1 lứa</span><span>Let's do it</span></div></section>
  <h2>7 lứa thi đấu mùa ${D.mua}</h2>
- <div class="luoi">${D.lua.map(l=>`<div class="the lua" onclick="location.hash='#/xephang/${l.ma}'"><div class="ma${l.ten.length>4?" dai":""}">${esc(l.ten)}</div><div class="ns">${l.nam_tu?"Sinh "+nsLua(l):"Trên 17 tuổi"}</div><div class="dem">${dem(l.ma)} bé đang học</div></div>`).join("")}</div>
+ <div class="luoi">${D.lua.map(l=>`<div class="the lua" onclick="location.hash='#/xephang/${l.ma}'"><div class="ma${l.ten.length>4?" dai":""}">${esc(l.ten)}</div><div class="ns">${l.nam_tu?"Sinh "+nsLua(l):"Trên 17 tuổi"}</div><div class="dem">Xem điểm trình</div></div>`).join("")}</div>
  <h2>Giải sắp diễn ra</h2>
  <div class="luoi to">${sap.map(theGiai).join("")||'<p class="mo">Chưa có giải sắp diễn ra.</p>'}</div>
  <h2>Điểm trình được chấm khi nào</h2>
@@ -333,7 +332,7 @@ function trangXH(ma){
  <div class="form" style="max-width:420px"><input id="tim" placeholder="Tìm theo tên hoặc số điện thoại" value="${esc(timXH)}" oninput="timXH=this.value;veXH()"></div>
  <div id="dsxh" style="margin-top:10px">${bangXH()}</div>
  ${D.hoc_vien.some(h=>h.mau)?`<div class="canh"><b>Các bạn gắn nhãn MẪU là dữ liệu mẫu</b> để xem giao diện. Học viên thật đã có đủ trong sổ nhưng chưa được HLV chấm lần nào. Có lần chấm thật thì xoá các dòng mẫu.</div>`:""}
- ${(n=>n?`<p class="mo">${n} học viên chưa có năm sinh nên chưa xếp được lứa. Tìm theo tên ở trang Tra cứu cho con; admin điền năm sinh vào sổ điểm thì bé tự vào đúng lứa.</p>`:"")(D.hoc_vien.filter(h=>!h.nam).length)}`;
+ ${(n=>n?`<p class="mo">Học viên chưa có năm sinh thì chưa xếp được lứa. Tìm theo tên ở trang Tra cứu cho con; admin điền năm sinh vào sổ điểm thì bé tự vào đúng lứa.</p>`:"")(D.hoc_vien.filter(h=>!h.nam).length)}`;
 }
 let locXH="hoc",soHien=50;
 function veXH(){soHien=50;$("#dsxh").innerHTML=bangXH()}
@@ -348,15 +347,14 @@ function bangXH(){
   :`<p class="trong">${q?"Không thấy học viên đã chấm khớp.":"Lứa này chưa có học viên được chấm điểm."}</p>`;
  o+=bangVuot();
  // Hoc vien chua cham: hien day du danh sach de admin, HLV thay ai can cham
- const dem=k=>tatCa.filter(h=>k=="hoc"?!h.nghi:k=="nghi"?h.nghi:1).length;
  let cc=tatCa.filter(h=>locXH=="hoc"?!h.nghi:locXH=="nghi"?h.nghi:1);
  if(q)cc=cc.filter(h=>khopTim(h,q,qs));
  cc.sort((a,b)=>(a.nghi?1:0)-(b.nghi?1:0)||a.ten.split(" ").pop().localeCompare(b.ten.split(" ").pop(),"vi")||a.ten.localeCompare(b.ten,"vi"));
- o+=`<h3>Chưa được chấm điểm</h3><div class="tabs">${[["hoc","Đang học"],["nghi","Đã nghỉ"],["tat","Tất cả"]].map(([k,t])=>`<button class="${k==locXH?"on":""}" onclick="locXH='${k}';veXH()">${t}<small>${dem(k)}</small></button>`).join("")}</div>`;
+ o+=`<h3>Chưa được chấm điểm</h3><div class="tabs">${[["hoc","Đang học"],["nghi","Đã nghỉ"],["tat","Tất cả"]].map(([k,t])=>`<button class="${k==locXH?"on":""}" onclick="locXH='${k}';veXH()">${t}</button>`).join("")}</div>`;
  if(!cc.length)return o+`<p class="trong">${q?"Không thấy học viên khớp.":"Không có học viên."}</p>`;
- o+=`<div class="bang-wrap"><table class="xh"><tr><th>#</th><th>Học viên</th><th>Năm sinh</th><th>SĐT phụ huynh</th><th>Trạng thái</th></tr>
- ${cc.slice(0,soHien).map((h,i)=>`<tr class="bam" onclick="location.hash='#/hv/${h.ma}'"><td class="mo">${i+1}</td><td><b>${esc(h.ten)}</b>${nhanVuot(h)}${h.co_so?`<div class="mo">${esc(h.co_so)}</div>`:""}</td><td>${h.nam}</td><td style="white-space:nowrap">${esc(h.sdt)}</td><td>${h.nghi?`<span class="tag nghi">Đã nghỉ</span>`:`<span class="tag chua">Chưa chấm</span>`}</td></tr>`).join("")}</table></div>`;
- if(cc.length>soHien)o+=`<button class="them" onclick="soHien+=100;$('#dsxh').innerHTML=bangXH()">Xem thêm (còn ${cc.length-soHien} bé)</button>`;
+ o+=`<div class="bang-wrap"><table class="xh"><tr><th>Học viên</th><th>Năm sinh</th><th>SĐT phụ huynh</th><th>Trạng thái</th></tr>
+ ${cc.slice(0,soHien).map(h=>`<tr class="bam" onclick="location.hash='#/hv/${h.ma}'"><td><b>${esc(h.ten)}</b>${nhanVuot(h)}${h.co_so?`<div class="mo">${esc(h.co_so)}</div>`:""}</td><td>${h.nam}</td><td style="white-space:nowrap">${esc(h.sdt)}</td><td>${h.nghi?`<span class="tag nghi">Đã nghỉ</span>`:`<span class="tag chua">Chưa chấm</span>`}</td></tr>`).join("")}</table></div>`;
+ if(cc.length>soHien)o+=`<button class="them" onclick="soHien+=100;$('#dsxh').innerHTML=bangXH()">Xem thêm</button>`;
  return o;
 }
 function bangVuot(){
@@ -377,7 +375,7 @@ function trangHV(ma){
  const xs=D.tru.map(t=>[t.ma,c.goc[t.ma]]).sort((a,b)=>b[1]-a[1]);
  o+=`<div style="display:flex;gap:30px;flex-wrap:wrap;align-items:flex-start">
  <div><div style="opacity:.8;font-size:13px">Điểm trình</div><div style="font-size:52px;font-weight:800;color:var(--vang);line-height:1.1">${c.diem}<span style="font-size:18px;opacity:.7">/100</span></div><span class="muc">${esc(c.muc)}</span></div>
- ${h.hang?`<div><div style="opacity:.8;font-size:13px">Hạng trong lứa</div><div style="font-size:52px;font-weight:800;line-height:1.1">${h.hang}<span style="font-size:18px;opacity:.7">/${h.tong}</span></div></div>`:""}
+ ${h.hang?`<div><div style="opacity:.8;font-size:13px">Hạng trong lứa</div><div style="font-size:52px;font-weight:800;line-height:1.1">${h.hang}</div></div>`:""}
  <div style="flex:1 1 300px;min-width:260px">${barTru(c.goc,tr&&tr.goc)}</div></div>
  <p style="margin:14px 0 0;font-size:13px;opacity:.8">Chấm ngày ${fd(c.ngay)} &middot; ${esc(c.loai)}: ${esc(c.dot)}${c.hlv?" &middot; HLV "+esc(c.hlv):""}</p></section>
  <div class="luoi to" style="margin-top:14px">
@@ -422,7 +420,7 @@ function traHV(){
  const q=$("#tk").value.trim().toLowerCase(),qs=q.replace(/\D/g,""),el=$("#kq2");
  if(q.length<2){el.innerHTML=`<p style="color:var(--do)">Nhập họ tên hoặc số điện thoại.</p>`;return}
  const ds=D.hoc_vien.filter(h=>qs.length>=7?h.sdt.replace(/\D/g,"").startsWith(qs.slice(0,7)):h.ten.toLowerCase().includes(q));
- el.innerHTML=ds.length?(ds.length>20?`<p class="mo">Có ${ds.length} học viên khớp, đang hiện 20. Gõ thêm họ tên đầy đủ để lọc.</p>`:"")+ds.slice(0,20).map(h=>`<a class="the kq giai" style="margin-top:8px" href="#/hv/${h.ma}"><b>${esc(h.ten)}</b>${nhanMau(h)} <span class="tag">${h.lua?esc(tenLua(h.lua)):"Chưa xếp lứa"}</span>${h.nghi?`<span class="tag nghi">Đã nghỉ</span>`:""}<div class="mo">${h.nam?"Sinh "+h.nam+" &middot; ":""}${h.sdt?"SĐT "+esc(h.sdt):""}${h.co_so?" &middot; "+esc(h.co_so):""}</div><div class="diem">${h.diem??`<span class="mo" style="font-size:15px">Chưa chấm</span>`}${h.hang?` <span class="mo" style="font-size:14px">hạng ${h.hang}/${h.tong}</span>`:""}</div></a>`).join(""):`<p class="mo">Chưa thấy hồ sơ. Phụ huynh nhắn hotline để admin kiểm tra.</p>`;
+ el.innerHTML=ds.length?(ds.length>20?`<p class="mo">Có nhiều học viên khớp. Gõ thêm họ tên đầy đủ để lọc.</p>`:"")+ds.slice(0,20).map(h=>`<a class="the kq giai" style="margin-top:8px" href="#/hv/${h.ma}"><b>${esc(h.ten)}</b>${nhanMau(h)} <span class="tag">${h.lua?esc(tenLua(h.lua)):"Chưa xếp lứa"}</span>${h.nghi?`<span class="tag nghi">Đã nghỉ</span>`:""}<div class="mo">${h.nam?"Sinh "+h.nam+" &middot; ":""}${h.sdt?"SĐT "+esc(h.sdt):""}${h.co_so?" &middot; "+esc(h.co_so):""}</div><div class="diem">${h.diem??`<span class="mo" style="font-size:15px">Chưa chấm</span>`}${h.hang?` <span class="mo" style="font-size:14px">hạng ${h.hang}</span>`:""}</div></a>`).join(""):`<p class="mo">Chưa thấy hồ sơ. Phụ huynh nhắn hotline để admin kiểm tra.</p>`;
 }
 
 function trangCach(){
