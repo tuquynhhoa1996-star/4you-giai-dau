@@ -234,6 +234,33 @@ ul.ds,ol.ds{margin:0;padding-left:20px}ul.ds li,ol.ds li{margin:5px 0}
 footer{background:#031c0d;color:var(--mo);font-size:14.5px;padding:30px 18px 0;text-align:center;overflow:hidden;border-top:1px solid var(--vien)}
 footer img{height:64px}
 footer b{color:var(--chanh)}
+footer .lk{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:16px auto 12px;max-width:560px}
+footer .lk a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:#fff;font-weight:700;font-size:14px;padding:9px 14px;border-radius:999px;border:1px solid var(--vien2);background:rgba(255,255,255,.04)}
+footer .lk a:hover{border-color:var(--chanh);color:var(--chanh)}
+footer .lk-tde{font-size:12.5px;font-weight:800;letter-spacing:.12em;color:var(--mo2);margin-top:18px}
+/* cau thu noi bat */
+.nb{display:flex;gap:12px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding-bottom:4px}
+.nb::-webkit-scrollbar{display:none}
+.nb-the{flex:0 0 172px;scroll-snap-align:start;background:var(--san2);border:1px solid var(--vien);border-radius:var(--r);padding:16px 14px;text-decoration:none;text-align:center;position:relative}
+.nb-the:hover{border-color:var(--chanh)}
+.nb-the .so-hang{position:absolute;top:10px;left:10px;width:30px;height:30px;border-radius:9px;font-size:14px}
+.nb-the .av{width:64px;height:64px;border-radius:50%;margin:4px auto 10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px;color:var(--toi);background:var(--chanh)}
+.nb-the b{display:block;font-size:15px;line-height:1.3;overflow-wrap:anywhere}
+.nb-the .d{font-size:26px;font-weight:900;color:var(--chanh);line-height:1.1;margin-top:8px}
+.nb-the small{display:block;color:var(--mo);font-size:12.5px}
+/* bang vinh danh */
+.bvd{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:8px;align-items:end;margin-top:12px}
+.bvd>div{border-radius:16px;padding:14px 8px;text-align:center;border:1px solid var(--vien);background:var(--san2)}
+.bvd .huy{font-size:28px;line-height:1}
+.bvd .hang{font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--mo);margin:6px 0 4px}
+.bvd .ten{font-weight:800;font-size:15px;overflow-wrap:anywhere}
+.bvd .v1{background:linear-gradient(170deg,rgba(255,228,138,.22),var(--san2));border-color:rgba(255,228,138,.5);padding-top:22px}
+.bvd .v1 .ten{color:#ffe48a}
+.bvd .chua{color:var(--mo2);font-weight:600;font-size:13.5px}
+.dh-cn .dong{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid var(--vien)}
+.dh-cn .dong:first-of-type{border-top:0}
+.dh-cn .dong span:last-child{text-align:right;font-weight:700}
+.dh-cn .dong>span:first-child{white-space:nowrap}
 footer .chu-to{font-weight:900;font-size:clamp(46px,13vw,150px);line-height:.85;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.14);margin-top:22px;letter-spacing:-.01em;white-space:nowrap}
 
 @media(min-width:760px){
@@ -299,7 +326,9 @@ footer .chu-to{font-weight:900;font-size:clamp(46px,13vw,150px);line-height:.85;
  </nav>
 </div></header>
 <main id="app"><p class="trong">Đang tải...</p></main>
-<footer><img src="logo.png" alt=""><br>Trung tâm Bóng đá <b>4YOU SPORT</b> Nghệ An<br>Hotline <b id="hl"></b><br><span style="opacity:.7;font-size:12.5px">Bản xem trước nội bộ, cập nhật <span id="cn"></span>. Chỗ ghi "cần xác nhận" chưa được chốt.</span><div class="chu-to">LET'S DO IT</div></footer>
+<footer><img src="logo.png" alt=""><br>Trung tâm Bóng đá <b>4YOU SPORT</b> Nghệ An<br>Hotline <b id="hl"></b>
+<div class="lk-tde">LIÊN KẾT NHANH</div>
+<div class="lk"><a href="https://www.facebook.com/TTbongda.4you/" target="_blank" rel="noopener">f&nbsp; Fanpage 4YOU</a><a href="https://zalo.me/0934411662" target="_blank" rel="noopener">💬 Nhắn Zalo</a><a href="tel:0934411662">☎ Gọi hotline</a><a href="https://4yousport.ygroupsport.com/" target="_blank" rel="noopener">⚽ Đăng ký học thử</a></div><span style="opacity:.7;font-size:12.5px">Bản xem trước nội bộ, cập nhật <span id="cn"></span>. Chỗ ghi "cần xác nhận" chưa được chốt.</span><div class="chu-to">LET'S DO IT</div></footer>
 <script>
 let D, $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -350,14 +379,42 @@ function trangChu(){
  </div><img class="hero-logo" src="logo.png" alt="4YOU SPORT"></div></section>
  <h2>7 lứa thi đấu mùa ${D.mua}<small>Bấm vào lứa để xem bảng điểm trình</small></h2>
  <div class="luoi-lua">${D.lua.map(l=>`<a class="lua${l.nam_tu?"":" rong"}" href="#/xephang/${l.ma}"><div class="ma${l.ten.length>4?" dai":""}">${esc(l.ten)}</div><div class="ns">${l.nam_tu?"Sinh "+nsLua(l):"Trên 17 tuổi"}</div><span class="di">Điểm trình &rarr;</span></a>`).join("")}</div>
+ ${noiBat()}
  <h2>Giải sắp diễn ra</h2>
  <div class="luoi">${sap.map(theGiai).join("")||'<p class="mo">Chưa có giải sắp diễn ra.</p>'}</div>
  <h2>Điểm trình được chấm khi nào</h2>
  <div class="luoi">${[["Sau mỗi giải đấu","HLV chấm theo phong độ thi đấu của từng bé trong giải."],["Sau mỗi khoá học","HLV chấm mức tiến bộ cuối khoá."],["Sau mỗi đợt kiểm tra","HLV chấm theo bài kiểm tra kỹ năng định kỳ."]].map(([a,b],i)=>`<div class="the buoc"><span class="so">${i+1}</span><div><b>${a}</b><div class="mo">${b}</div></div></div>`).join("")}</div>`;
 }
+/* Cau thu noi bat: top 3 diem trinh moi lua, chi ban noi bo (phu huynh chi xem con minh). Khong hien so dem. */
+function noiBat(){
+ if(D.chiCon)return "";
+ const ds=D.lua.flatMap(l=>D.hoc_vien.filter(h=>h.lua==l.ma&&h.diem!=null&&!h.nghi&&h.hang<=3).sort((a,b)=>a.hang-b.hang||a.ten.localeCompare(b.ten,"vi")).slice(0,3));
+ if(!ds.length)return "";
+ return `<h2>Cầu thủ nổi bật<small>Top 3 điểm trình mỗi lứa, vuốt ngang để xem, bấm vào để mở hồ sơ</small></h2>
+ <div class="nb">${ds.map(h=>`<a class="nb-the${hang3(h)}" href="#/hv/${h.ma}"><span class="so-hang">${h.hang}</span><div class="av">${esc(chuDau(h.ten))}</div><b>${esc(h.ten)}</b><small>${esc(tenLua(h.lua))}${h.co_so?" &middot; "+esc(h.co_so):""}</small><div class="d">${h.diem}</div><small>${esc(h.ls[h.ls.length-1].muc)}</small>${h.mau?`<div style="margin-top:6px"><span class="tag mau">MẪU</span></div>`:""}</a>`).join("")}</div>`;
+}
+/* Bang vinh danh: lay tu tran Chung ket/Ban ket co ti so (hoac g.vinh_danh dien tay), danh hieu ca nhan tu g.ca_nhan,
+   Chiec giay Vang tu dong lay nguoi ghi nhieu ban nhat khi giai da ket thuc. */
+function vinhDanh(g,l){
+ const tr=(g.tran||[]).filter(t=>t.lua==l&&t.b&&t.ba!=null&&t.bb!=null&&t.ba!=t.bb),vd=(g.vinh_danh||{})[l];
+ let nhat="",nhi="",ba=[];
+ if(vd){nhat=vd.nhat||"";nhi=vd.nhi||"";ba=vd.ba||[]}
+ else{const ck=tr.find(t=>t.vong=="Chung kết");if(ck){nhat=ck.ba>ck.bb?ck.a:ck.b;nhi=ck.ba>ck.bb?ck.b:ck.a}
+  ba=tr.filter(t=>t.vong=="Bán kết").map(t=>t.ba<t.bb?t.a:t.b)}
+ const gb=(g.ghi_ban||[]).filter(x=>x.lua==l),cn={...((g.ca_nhan||{})[l]||{})};
+ if(!cn["Chiếc giày Vàng"]&&g.trang_thai=="xong"&&gb.length)cn["Chiếc giày Vàng"]=gb.filter(x=>x.ban==gb[0].ban).map(x=>x.ten+" ("+gb[0].ban+" bàn)").join(", ");
+ const tenDh=(g.danh_hieu||[]).filter(x=>!/Nhất|Nhì/.test(x)),dh=[...new Set([...tenDh,...Object.keys(cn)])];
+ if(!nhat&&!ba.length&&!dh.length&&!gb.length)return "";
+ const o=(cls,huy,hang,ten)=>`<div class="${cls}"><div class="huy">${huy}</div><div class="hang">${hang}</div><div class="${ten?"ten":"chua"}">${ten?esc(ten):"Chờ kết quả"}</div></div>`;
+ return `<h3>Bảng vinh danh ${esc(tenLua(l))}</h3>
+ <div class="bvd">${o("v2","🥈","GIẢI NHÌ",nhi)}${o("v1","🏆","VÔ ĐỊCH",nhat)}${o("v3","🥉","ĐỒNG GIẢI BA",ba.join(", "))}</div>
+ ${dh.length?`<div class="the dh-cn" style="margin-top:12px"><b>Danh hiệu cá nhân</b>${dh.map(x=>`<div class="dong"><span>${esc(x)}</span><span class="${cn[x]?"":"mo"}">${cn[x]?esc(cn[x]):"Trao sau chung kết"}</span></div>`).join("")}</div>`:""}
+ ${gb.length?`<div class="the dh-cn" style="margin-top:12px"><b>Top ghi bàn</b>${gb.slice(0,5).map((x,i)=>`<div class="dong"><span>${i+1}. ${esc(x.ten)} <span class="mo nho">${esc(x.doi)}</span></span><span>${x.ban} bàn</span></div>`).join("")}</div>`:""}`;
+}
 function theGiai(g){
+ const vo=g.lua.map(l=>{const vd=(g.vinh_danh||{})[l];if(vd&&vd.nhat)return [l,vd.nhat];const ck=(g.tran||[]).find(t=>t.lua==l&&t.vong=="Chung kết"&&t.ba!=null&&t.bb!=null&&t.ba!=t.bb);return ck?[l,ck.ba>ck.bb?ck.a:ck.b]:null}).filter(Boolean);
  return `<a class="the giai" href="#/giai/${g.slug}">${nhanGiai(g)}${g.lua.map(l=>`<span class="tag">${esc(tenLua(l))}</span>`).join("")}
- <div class="ten">${esc(g.ten)}</div><div class="mo nho">${ngayGiai(g)}<br>${esc(g.dia_diem)}</div><span class="di">${g.doi&&g.doi.length?"Lịch, bảng đấu, nhánh đấu":"Xem chi tiết"} &rarr;</span></a>`;
+ <div class="ten">${esc(g.ten)}</div><div class="mo nho">${ngayGiai(g)}<br>${esc(g.dia_diem)}</div>${vo.map(([l,t])=>`<div class="nho" style="margin-top:6px">🏆 Vô địch ${esc(tenLua(l))}: <b>${esc(t)}</b></div>`).join("")}<span class="di">${g.doi&&g.doi.length?"Lịch, bảng đấu, vinh danh":"Xem chi tiết"} &rarr;</span></a>`;
 }
 function dsGiai(){
  const s=D.giai.filter(g=>g.trang_thai=="sap"),x=D.giai.filter(g=>g.trang_thai!="sap");
@@ -381,9 +438,9 @@ function trangGiai(slug){
  if(g.le_phi)h+=`<div class="luoi" style="margin-top:12px"><div class="the"><b>Lệ phí</b>${g.le_phi.map(r=>`<div class="mo">${esc(r[0])}: <b style="color:#fff">${esc(r[1])}</b></div>`).join("")}</div>
  <div class="the"><b>Thể thức</b><div class="mo">${esc(g.the_thuc)}</div></div>
  <div class="the"><b>Danh hiệu</b><ul class="ds mo">${g.danh_hieu.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div></div>`;
- if(!g.doi.length)return h;
+ if(!g.doi.length)return h+g.lua.map(l=>vinhDanh(g,l)).join("");
  h+=`<div class="thanh-tab"><div class="cuon"><div class="doan">${g.lua.map(l=>`<button class="${l==luaGiai?"on":""}" onclick="luaGiai='${l}';ve()">${esc(tenLua(l))}</button>`).join("")}</div></div>
- <div class="cuon tabs nho">${[["lich","Lịch thi đấu"],["doi","Đội & bảng"],["bxh","Bảng xếp hạng"],["nhanh","Nhánh đấu"]].map(([k,t])=>`<button class="${k==tabGiai?"on":""}" onclick="tabGiai='${k}';ve()">${t}</button>`).join("")}</div></div>`;
+ <div class="cuon tabs nho">${[["lich","Lịch thi đấu"],["doi","Đội & bảng"],["bxh","Bảng xếp hạng"],["nhanh","Nhánh đấu"],["vinh","Vinh danh"]].map(([k,t])=>`<button class="${k==tabGiai?"on":""}" onclick="tabGiai='${k}';ve()">${t}</button>`).join("")}</div></div>`;
  const tr=g.tran.filter(t=>t.lua==luaGiai||t.lua=="Chung"),doi=g.doi.filter(d=>d.lua==luaGiai);
  if(tabGiai=="lich"){let n="";for(const t of tr){if(t.ngay!=n){n=t.ngay;h+=`<div class="ngay">${thu(t.ngay)}, ${fd(t.ngay)}</div>`}
   if(!t.b){h+=`<div class="tran le"><div class="meta"><b>${t.gio}</b><span>${esc(t.vong)}</span></div><div>${esc(t.a)}</div></div>`;continue}
@@ -394,6 +451,7 @@ function trangGiai(slug){
   <p class="mo nho" style="margin-top:12px">Danh sách cầu thủ từng đội sẽ hiện khi BTC nhập vào file quản lý giải (tên bé, SĐT phụ huynh che 3 số cuối).</p>`}
  if(tabGiai=="bxh"){h+=[...new Set(doi.map(d=>d.bang))].map(b=>{const rows=bxh(doi.filter(d=>d.bang==b),tr);
   return `<h3>Bảng ${b}</h3><div class="bang-wrap"><table class="bxh"><tr><th class="so">#</th><th>Đội</th><th class="so">Tr</th><th class="so">T</th><th class="so">H</th><th class="so">B</th><th class="so an-dt">BT</th><th class="so an-dt">BB</th><th class="so">HS</th><th class="so">Đ</th></tr>${rows.map((r,i)=>`<tr class="${i==0?"vao":""}"><td class="so">${i+1}</td><td>${esc(r.ten)}</td><td class="so">${r.tr}</td><td class="so">${r.t}</td><td class="so">${r.h}</td><td class="so">${r.b}</td><td class="so an-dt">${r.bt}</td><td class="so an-dt">${r.bb}</td><td class="so">${r.bt-r.bb}</td><td class="so"><b>${r.d}</b></td></tr>`).join("")}</table></div>`}).join("")+`<p class="mo nho" style="margin-top:12px">Tr: trận, T/H/B: thắng/hoà/thua, HS: hiệu số, Đ: điểm. Tự tính khi BTC nhập tỉ số vào file quản lý giải. Thắng 3, hoà 1 (theo bảng điểm trong file BTC, cần xác nhận cách tính luân lưu). Nhất bảng vào bán kết.</p>`}
+ if(tabGiai=="vinh")h+=vinhDanh(g,luaGiai)||'<p class="trong">Chưa có kết quả.</p>';
  if(tabGiai=="nhanh"){const v=x=>tr.filter(t=>t.vong==x);
   const cot=(ten,ds)=>`<div class="cot"><h4>${ten}</h4>${ds.map(t=>`<div class="cap"><div class="m">${esc(t.ma)} &middot; ${thu(t.ngay)} ${fd(t.ngay).slice(0,5)} &middot; ${t.gio}</div><div class="d"><span>${esc(t.a)}</span><b>${t.ba??""}</b></div><div class="d"><span>${esc(t.b)}</span><b>${t.bb??""}</b></div></div>`).join("")||'<p class="mo nho">Chưa có trận.</p>'}</div>`;
   h+=`<div class="nhanh" style="margin-top:12px">${cot("Play-off",v("Play-off"))}${cot("Bán kết",v("Bán kết"))}${cot("Chung kết",v("Chung kết"))}</div><p class="mo nho">Tên đội tự điền khi có kết quả vòng trước.</p>`}
