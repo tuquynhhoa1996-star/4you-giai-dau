@@ -4,202 +4,297 @@
 <meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>4YOU SPORT - Giải đấu và xếp hạng bóng đá trẻ</title>
+<meta name="theme-color" content="#052e18">
+<title>4YOU SPORT - Giải đấu và điểm trình bóng đá trẻ</title>
+<link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap">
 <style>
-/* Giao dien theo kieu footballreach.com: xanh san co dam, vang 4YOU lam diem nhan, chu so lon, vach thuoc do */
-:root{--xanh:#0a7a3f;--xanh2:#0f8a48;--sau:#06331d;--dem:#052616;--vang:#FFD200;--nen:#f6f7f2;--nen2:#edefe6;--mat:#fdfdfb;--chu:#101609;--chu2:#46503f;--mo:#6a7360;--vien:#dfe3d6;--do:#b93226;--xanh-nhat:#e9f4ec;
---fd:'Bricolage Grotesque','Segoe UI',Arial,sans-serif;--fb:'Be Vietnam Pro','Segoe UI',Roboto,Arial,sans-serif;--fm:'JetBrains Mono',ui-monospace,Consolas,monospace;
---bong:0 10px 30px -12px rgba(5,38,22,.18);--bong2:0 24px 60px -20px rgba(5,38,22,.35);
---hat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")}
+/* Giao dien 4YOU SPORT v2 (27/10/2026): nen san co xanh la dam, tieu de vang chanh, chu trang, vang anh kim cho chu 4YOU.
+   Uu tien dien thoai: chu to, the bo goc, tab dinh dau, bang khong tran ngang o 390px. Ban goc: index.bak-2026-10-27.html */
+:root{--san:#052e18;--san1:#073a1f;--san2:#0b4727;--san3:#105a33;--vien:rgba(255,255,255,.13);--vien2:rgba(255,255,255,.22);
+--chanh:#E6F53A;--vang:#F6C445;--chu:#fff;--mo:#b9d2c1;--mo2:#8fb09b;--do:#ff9b8c;--len:#86f0a3;--toi:#06210f;
+--f:'Be Vietnam Pro','Segoe UI',Roboto,Arial,sans-serif;--r:18px;--hd:110px;
+--kim:linear-gradient(180deg,#fff6c2 0%,#f8d35a 38%,#c8901a 58%,#ffe48a 100%)}
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;font-family:var(--fb);background:var(--nen);color:var(--chu);line-height:1.6;font-size:15.5px;-webkit-font-smoothing:antialiased}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--hd) + 12px)}
+body{margin:0;font-family:var(--f);color:var(--chu);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;
+background:var(--san);background-image:repeating-linear-gradient(180deg,rgba(255,255,255,.022) 0 140px,transparent 140px 280px);min-height:100vh}
 a{color:inherit}
-::selection{background:var(--vang);color:var(--dem)}
-/* ---- nen san co toi dung chung cho man dang nhap va hero ---- */
-.san{position:relative;overflow:hidden;color:#fff;background:radial-gradient(900px 500px at 85% 10%,#1f9a55aa,transparent 60%),radial-gradient(700px 500px at 10% 100%,#0a7a3f99,transparent 60%),linear-gradient(160deg,#0b5a2e,var(--sau) 55%,var(--dem))}
-.san:before{content:"";position:absolute;inset:0;background:var(--hat);opacity:.18;mix-blend-mode:overlay;pointer-events:none}
-.san:after{content:"";position:absolute;right:-140px;top:50%;width:520px;height:520px;border-radius:50%;border:1.5px solid #ffffff14;transform:translateY(-50%);box-shadow:0 0 0 110px #ffffff05;pointer-events:none}
-.may{font-family:var(--fm);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--vang);display:inline-flex;align-items:center;gap:10px}
-.may:before{content:"";width:22px;height:11px;background:repeating-linear-gradient(90deg,currentColor 0 1.5px,transparent 1.5px 6px);opacity:.8}
-/* ---- dang nhap ---- */
-#login{min-height:100vh;display:none;align-items:center}
+::selection{background:var(--chanh);color:var(--toi)}
+button,input{font-family:var(--f)}
+.kim{background:var(--kim);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cuon{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.cuon::-webkit-scrollbar{display:none}
+
+/* ---------- dang nhap ---------- */
+#login{min-height:100vh;display:none;align-items:center;justify-content:center;padding:28px 18px;
+background:radial-gradient(600px 420px at 50% 0%,rgba(230,245,58,.12),transparent 70%),radial-gradient(800px 600px at 50% 120%,#0f6a3a,transparent 70%),var(--san)}
 body.khoa #login{display:flex}body.khoa header,body.khoa main,body.khoa footer{display:none}
-.dn{position:relative;z-index:1;max-width:1140px;margin:auto;width:100%;padding:40px 22px;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
-.dn h1{font-family:var(--fd);font-weight:800;font-size:clamp(38px,6vw,68px);line-height:1;letter-spacing:-.035em;margin:18px 0 20px}
-.dn h1 span{color:var(--vang)}
-.dn .gt{font-size:17px;opacity:.88;max-width:520px;margin:0 0 22px}
-.chips{display:flex;flex-wrap:wrap;gap:8px 20px;font-family:var(--fm);font-size:12.5px;opacity:.85}
-.chips span:before{content:"";display:inline-block;width:7px;height:7px;background:var(--vang);margin-right:8px;vertical-align:1px}
-.thuoc{margin-top:34px;max-width:460px;font-family:var(--fm);font-size:11px;opacity:.6}
-.thuoc .v{height:16px;background:repeating-linear-gradient(90deg,#fff 0 1px,transparent 1px 11.5px);opacity:.6;position:relative}
-.thuoc .v i{position:absolute;left:72%;top:-4px;width:3px;height:24px;background:var(--vang);border-radius:2px}
-.thuoc .s{display:flex;justify-content:space-between;margin-top:6px}
-.kinh{background:linear-gradient(160deg,#ffffff1f,#ffffff0a);border:1px solid #ffffff2a;border-radius:24px;padding:30px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:var(--bong2)}
-.kinh .dau{display:flex;align-items:center;gap:12px;margin-bottom:22px}
-.kinh .dau img{height:56px;background:#fff;border-radius:50%;padding:3px}
-.kinh .dau b{font-family:var(--fd);font-size:22px;display:block;line-height:1.1}
-.kinh .dau small{opacity:.7;font-size:13px}
-.kinh label{display:block;font-family:var(--fm);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.dn{width:100%;max-width:440px;text-align:center}
+.dn>img{width:132px;height:auto;filter:drop-shadow(0 14px 30px rgba(0,0,0,.45))}
+.dn h1{font-size:30px;font-weight:900;line-height:1.15;margin:14px 0 6px;letter-spacing:-.01em}
+.dn h1 span{color:var(--chanh)}
+.dn .gt{color:var(--mo);margin:0 0 22px;font-size:15.5px}
+.hop{background:var(--san2);border:1px solid var(--vien);border-radius:22px;padding:22px;text-align:left;box-shadow:0 24px 60px -24px rgba(0,0,0,.6)}
+.hop label{display:block;font-weight:700;font-size:14px;margin-bottom:8px;color:var(--chanh)}
 .o-mk{position:relative}
-.o-mk input{width:100%;padding:15px 58px 15px 16px;border-radius:14px;border:1.5px solid #ffffff33;background:#0006;color:#fff;font-size:17px;font-family:var(--fm);letter-spacing:.06em;outline:0;transition:.2s}
-.o-mk input::placeholder{color:#ffffff66;letter-spacing:0;font-family:var(--fb);font-size:15px}
-.o-mk input:focus{border-color:var(--vang);background:#0008}
-.o-mk button{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;color:#fff;opacity:.7;cursor:pointer;padding:8px;font-size:13px;font-family:var(--fb)}
-.nut-dn{margin-top:16px;width:100%;padding:15px;border:0;border-radius:14px;background:var(--vang);color:var(--dem);font-weight:800;font-size:16px;font-family:var(--fb);cursor:pointer;transition:.2s;box-shadow:0 10px 24px -10px #ffd20099}
-.nut-dn:hover{transform:translateY(-1px);background:#ffdc33}.nut-dn:disabled{opacity:.6;cursor:wait;transform:none}
-.loi-dn{min-height:22px;margin-top:10px;font-size:14px;color:#ffb4a8}
-.kinh .ghi{font-size:13px;opacity:.65;border-top:1px solid #ffffff1f;padding-top:14px;margin-top:6px}
+.o-mk input{width:100%;min-height:54px;padding:12px 70px 12px 16px;border-radius:14px;border:1.5px solid var(--vien2);background:var(--toi);color:#fff;font-size:17px;outline:0}
+.o-mk input::placeholder{color:#7f9c89}
+.o-mk input:focus{border-color:var(--chanh)}
+.o-mk button{position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--mo);cursor:pointer;padding:10px;font-size:14px;font-weight:600}
+.nut-dn{margin-top:14px;width:100%;min-height:54px;border:0;border-radius:14px;background:var(--chanh);color:var(--toi);font-weight:800;font-size:17px;cursor:pointer}
+.nut-dn:disabled{opacity:.6;cursor:wait}
+.loi-dn{min-height:22px;margin-top:10px;font-size:14px;color:var(--do)}
+.hop .ghi{font-size:13px;color:var(--mo2);border-top:1px solid var(--vien);padding-top:12px;margin-top:4px}
+.dn .slogan{margin-top:20px;font-weight:900;letter-spacing:.18em;font-size:13px;color:var(--vang)}
 .lac{animation:lac .4s}@keyframes lac{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
-/* ---- the diem mau (vong tron) ---- */
-.the-diem{background:linear-gradient(160deg,#0f6b39,#063d22);border:1px solid #ffffff26;border-radius:22px;padding:22px 22px 16px;width:240px;box-shadow:var(--bong2);color:#fff;transform:rotate(2deg)}
-.vong{position:relative;width:130px;height:130px;margin:0 auto}
+
+/* ---------- dau trang ---------- */
+header{position:sticky;top:0;z-index:20;background:rgba(4,35,18,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--vien)}
+.top{max-width:1180px;margin:auto;display:flex;align-items:center;gap:10px;padding:8px 16px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+.logo img{height:46px;width:auto}
+.logo b{font-size:20px;font-weight:900;letter-spacing:.01em;line-height:1.05;display:block}
+.logo small{display:block;font-size:12px;color:var(--mo);font-weight:600}
+.thoat{margin-left:auto;background:none;border:1px solid var(--vien2);color:var(--mo);border-radius:999px;font-size:13px;font-weight:600;cursor:pointer;padding:7px 14px;white-space:nowrap}
+nav{max-width:1180px;margin:auto;padding:0 16px 10px}
+nav a{flex:none;text-decoration:none;padding:9px 16px;border-radius:999px;font-size:15px;font-weight:700;color:var(--mo);background:var(--san1);border:1px solid var(--vien);white-space:nowrap}
+nav a.on{background:var(--chanh);color:var(--toi);border-color:var(--chanh)}
+nav a.cta:not(.on){color:var(--chanh);border-color:rgba(230,245,58,.55)}
+
+main{max-width:1180px;margin:auto;padding:16px 16px 56px}
+h2{font-size:23px;font-weight:900;color:var(--chanh);line-height:1.2;margin:34px 0 14px;letter-spacing:-.01em}
+h2 small{display:block;font-size:14px;font-weight:600;color:var(--mo);letter-spacing:0;margin-top:4px}
+h3{font-size:18px;font-weight:800;margin:22px 0 10px}
+p{margin:0 0 12px}
+.mo{color:var(--mo)}.nho{font-size:14px}
+.lui{display:inline-block;color:var(--mo);text-decoration:none;font-weight:600;font-size:15px;margin:4px 0 12px}
+
+/* ---------- khoi chung ---------- */
+.hero{position:relative;overflow:hidden;border-radius:24px;padding:24px 20px;border:1px solid var(--vien);
+background:radial-gradient(420px 300px at 100% 0%,rgba(230,245,58,.14),transparent 70%),
+url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.07' stroke-width='2'%3E%3Ccircle cx='600' cy='200' r='90'/%3E%3Cline x1='600' y1='0' x2='600' y2='400'/%3E%3Crect x='-2' y='90' width='70' height='220'/%3E%3C/g%3E%3C/svg%3E") right center/cover no-repeat,
+linear-gradient(150deg,#0f6236,#083e21 60%,#06301a)}
+.hero h1{font-size:30px;font-weight:900;line-height:1.15;margin:10px 0 10px;letter-spacing:-.015em;overflow-wrap:anywhere}
+.hero h1 span{color:var(--chanh)}
+.hero p{color:#dcebe1;font-size:16px;max-width:620px}
+.nhan{display:inline-block;font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--chanh)}
+.the{background:var(--san2);border:1px solid var(--vien);border-radius:var(--r);padding:18px;position:relative}
+.the>b:first-child,.the .tde{display:block;font-weight:800;font-size:17px;margin-bottom:6px}
+.luoi{display:grid;gap:12px;grid-template-columns:1fr}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:48px;background:var(--chanh);color:var(--toi);font-weight:800;padding:12px 22px;border-radius:14px;text-decoration:none;border:0;cursor:pointer;font-size:16px}
+.btn.phu{background:transparent;color:#fff;border:1.5px solid var(--vien2)}
+.nut-hang{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.tag{display:inline-block;font-size:12.5px;font-weight:700;padding:3px 11px;border-radius:999px;background:rgba(255,255,255,.1);color:#fff;margin:0 4px 4px 0;line-height:1.5;vertical-align:middle}
+.tag.sap{background:var(--chanh);color:var(--toi)}.tag.xong{background:rgba(255,255,255,.08);color:var(--mo)}
+.tag.mau{background:rgba(255,120,100,.2);color:#ffc2b8}.tag.vuot{background:rgba(120,170,255,.2);color:#cfe0ff}
+.tag.nghi{background:rgba(255,255,255,.06);color:var(--mo2)}.tag.chua{background:rgba(255,255,255,.06);color:var(--mo)}
+.tag.muc{background:rgba(230,245,58,.16);color:var(--chanh)}
+.canh{background:rgba(246,196,69,.1);border:1px solid rgba(246,196,69,.4);border-radius:14px;padding:12px 16px;font-size:14.5px;margin:12px 0;color:#f6ecd0}
+.canh b{color:var(--vang)}
+.trong{text-align:center;padding:28px 16px;color:var(--mo)}
+.len{color:var(--len);font-weight:700;font-size:13px;white-space:nowrap}.xuong{color:var(--do);font-weight:700;font-size:13px;white-space:nowrap}
+
+/* tab dinh dau (duoi header) */
+.thanh-tab{position:sticky;top:var(--hd);z-index:10;margin:16px -16px 6px;padding:10px 16px;background:rgba(5,46,24,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--vien)}
+.thanh-tab .cuon+.cuon{margin-top:8px}
+.tabs button{flex:none;min-height:42px;border:1px solid var(--vien);background:var(--san1);padding:8px 16px;border-radius:999px;cursor:pointer;font-weight:700;font-size:15px;color:var(--mo);white-space:nowrap}
+.tabs button.on{background:var(--chanh);color:var(--toi);border-color:var(--chanh)}
+.tabs.nho button{min-height:36px;font-size:14px;padding:6px 14px}
+.doan{display:inline-flex;background:var(--toi);border:1px solid var(--vien);border-radius:999px;padding:4px;gap:4px}
+.doan button{border:0;background:none;color:var(--mo);font-weight:800;font-size:15px;padding:7px 18px;border-radius:999px;cursor:pointer;min-height:36px}
+.doan button.on{background:#fff;color:var(--toi)}
+
+/* ---------- trang chu ---------- */
+.hero-chu{display:grid;gap:18px;align-items:center}
+.hero-logo{display:none}
+.so-lieu{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.so-lieu div{background:rgba(0,0,0,.22);border:1px solid var(--vien);border-radius:14px;padding:10px 12px}
+.so-lieu b{display:block;font-size:28px;font-weight:900;color:var(--chanh);line-height:1.1}
+.so-lieu span{font-size:12.5px;color:var(--mo);line-height:1.3;display:block}
+.luoi-lua{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lua{display:block;text-decoration:none;text-align:left;background:linear-gradient(160deg,var(--san3),var(--san2));border:1px solid var(--vien);border-radius:var(--r);padding:16px;transition:.15s}
+.lua:hover{border-color:var(--chanh);transform:translateY(-2px)}
+.lua .ma{font-size:34px;font-weight:900;color:var(--chanh);line-height:1.1}
+.lua .ma.dai{font-size:26px}
+.lua .ns{font-size:14px;color:#dcebe1;margin-top:2px}
+.lua .di{display:block;font-size:13px;font-weight:700;color:var(--mo);margin-top:10px}
+.lua.rong{grid-column:1/-1}
+.giai{display:block;text-decoration:none;transition:.15s}.giai:hover{border-color:var(--chanh)}
+.giai .ten{font-weight:900;font-size:20px;margin:8px 0 6px;line-height:1.25}
+.giai .di{display:block;margin-top:10px;font-weight:800;color:var(--chanh);font-size:15px}
+.buoc{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start}
+.buoc .so{width:44px;height:44px;border-radius:12px;background:var(--chanh);color:var(--toi);font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center}
+.buoc b{display:block;font-size:17px;font-weight:800}
+
+/* ---------- giai ---------- */
+.tt-giai{display:grid;gap:8px;margin:14px 0 4px}
+.tt-giai>div{display:grid;grid-template-columns:86px 1fr;gap:8px;font-size:15px}
+.tt-giai>div>span{color:var(--mo);font-size:13.5px;font-weight:600;padding-top:1px}
+.ngay{font-weight:800;font-size:15px;color:var(--chanh);margin:22px 0 10px;display:flex;align-items:center;gap:10px}
+.ngay:after{content:"";flex:1;height:1px;background:var(--vien)}
+.tran{background:var(--san2);border:1px solid var(--vien);border-radius:14px;padding:10px 14px 12px;margin-bottom:8px}
+.tran .meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:13px;color:var(--mo);margin-bottom:6px}
+.tran .meta b{color:#fff;font-size:15px}
+.tran .meta .ma-tran{margin-left:auto;font-size:12px;color:var(--mo2)}
+.dau{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;font-weight:700;font-size:15.5px;line-height:1.3}
+.dau .a{text-align:right;overflow-wrap:anywhere}.dau .b{overflow-wrap:anywhere}
+.ts{background:var(--toi);color:var(--chanh);border-radius:10px;padding:5px 10px;font-weight:900;min-width:56px;text-align:center;font-size:16px}
+.ts.chua{color:var(--mo);font-weight:700;font-size:13px}
+.tran.le{background:rgba(246,196,69,.08);border-color:rgba(246,196,69,.3)}
+.bang-doi .dong{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--vien)}
+.bang-doi .dong:last-child{border-bottom:0}
+.thanh{height:6px;border-radius:4px;background:rgba(255,255,255,.1);overflow:hidden;margin-top:6px}
+.thanh i{display:block;height:100%;background:var(--chanh);border-radius:4px}
+.bang-wrap{border:1px solid var(--vien);border-radius:16px;background:var(--san2);overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{padding:10px 8px;border-bottom:1px solid var(--vien);text-align:left;vertical-align:middle}
+th{font-size:12px;font-weight:800;color:var(--mo);text-transform:uppercase;letter-spacing:.04em;background:rgba(0,0,0,.18)}
+tr:last-child td{border-bottom:0}
+td.so,th.so{text-align:center;padding-left:4px;padding-right:4px}
+.bxh td:nth-child(2){font-weight:700;overflow-wrap:anywhere}
+.bxh tr.vao td:first-child{color:var(--chanh);font-weight:900}
+.nhanh{display:grid;gap:16px;grid-template-columns:1fr}
+.cot h4{margin:0 0 8px;font-size:14px;font-weight:800;color:var(--chanh);text-transform:uppercase;letter-spacing:.06em}
+.cap{background:var(--san2);border:1px solid var(--vien);border-radius:14px;overflow:hidden;margin-bottom:10px}
+.cap .m{background:rgba(0,0,0,.2);font-size:12.5px;color:var(--mo);padding:6px 14px;font-weight:600}
+.cap .d{padding:9px 14px;display:flex;justify-content:space-between;gap:10px;font-weight:700}
+.cap .d+.d{border-top:1px solid var(--vien)}
+
+/* ---------- diem trinh ---------- */
+.o-tim input,.form input{width:100%;min-height:50px;padding:12px 16px;border:1.5px solid var(--vien2);border-radius:14px;font-size:16px;background:var(--toi);color:#fff;outline:0}
+.o-tim input::placeholder,.form input::placeholder{color:#7f9c89}
+.o-tim input:focus,.form input:focus{border-color:var(--chanh)}
+.ds-hv{display:grid;gap:8px}
+.hang-hv{display:grid;grid-template-columns:40px 1fr auto;gap:12px;align-items:center;background:var(--san2);border:1px solid var(--vien);border-radius:14px;padding:12px 14px;text-decoration:none;transition:.15s}
+.hang-hv:hover{border-color:var(--chanh)}
+.hang-hv.khong-hang{grid-template-columns:1fr auto}
+.so-hang{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px}
+.h1 .so-hang{background:linear-gradient(160deg,#ffe48a,#d9a425);color:#3a2800}
+.h2 .so-hang{background:linear-gradient(160deg,#f1f4f2,#a9b4ad);color:#1f2a24}
+.h3 .so-hang{background:linear-gradient(160deg,#f2c39a,#b7743f);color:#3a1d05}
+.hang-hv .tt{min-width:0}
+.hang-hv .tt b{font-size:16px;overflow-wrap:anywhere}
+.hang-hv .tt small{display:block;color:var(--mo);font-size:13.5px;margin-top:2px;overflow-wrap:anywhere}
+.diem-o{text-align:right}
+.diem-o b{display:block;font-size:26px;font-weight:900;color:var(--chanh);line-height:1}
+.diem-o small{display:block;font-size:12px;color:var(--mo);margin-top:3px;white-space:nowrap}
+.them{display:block;margin:14px auto 0;background:var(--san2);color:#fff;border:1px solid var(--vien2);border-radius:14px;padding:12px 22px;cursor:pointer;font-weight:700;font-size:15px}
+
+/* ---------- ho so ---------- */
+.ho-so-dau{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center}
+.vt{width:64px;height:64px;border-radius:18px;background:var(--chanh);color:var(--toi);font-weight:900;font-size:24px;display:flex;align-items:center;justify-content:center}
+.ho-so-dau h1{font-size:25px;margin:4px 0 2px}
+.bang-diem{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;margin-top:18px}
+.vong{position:relative;width:128px;height:128px}
 .vong svg{width:100%;height:100%;transform:rotate(-90deg)}
 .vong .so{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.vong .so b{font-family:var(--fd);font-size:44px;line-height:1}
-.vong .so small{font-family:var(--fm);font-size:9.5px;letter-spacing:.14em;opacity:.7}
-.the-diem .nhan{display:block;text-align:center;margin:14px 0 12px;font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:.14em;border-radius:6px;background:var(--vang);color:var(--dem);padding:4px}
-.the-diem .tr{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;font-family:var(--fm);font-size:10px;opacity:.85;margin:7px 0}
-.the-diem .tr i{display:block;height:5px;border-radius:3px;background:#ffffff22;overflow:hidden}.the-diem .tr i:after{content:"";display:block;height:100%;width:var(--w);background:linear-gradient(90deg,#1fae5c,var(--vang))}
-.the-diem .chu-nho{display:block;text-align:center;margin-top:12px;font-family:var(--fm);font-size:9.5px;letter-spacing:.14em;opacity:.55}
-/* ---- khung trang ---- */
-header{background:#f6f7f2e6;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);position:sticky;top:0;z-index:5;border-bottom:1px solid var(--vien)}
-.top{max-width:1140px;margin:auto;display:flex;align-items:center;gap:12px;padding:10px 22px}
-.top img{height:42px}
-.top b{font-family:var(--fd);font-size:19px;letter-spacing:-.01em}.top b span{color:var(--xanh)}
-nav{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap;align-items:center}
-nav a{text-decoration:none;padding:8px 13px;border-radius:10px;font-size:14.5px;font-weight:600;color:var(--chu2);transition:.15s}
-nav a.on,nav a:hover{color:var(--chu);background:var(--nen2)}
-nav a.cta{background:var(--xanh);color:#fff;margin-left:6px;box-shadow:0 8px 18px -10px #0a7a3f}
-nav a.cta:hover{background:#086b37}
-nav .thoat{background:none;border:0;color:var(--mo);font-size:13px;cursor:pointer;padding:8px;font-family:var(--fb);white-space:nowrap}
-main{max-width:1140px;margin:auto;padding:24px 22px 70px}
-.hero{border-radius:24px;padding:44px 40px;box-shadow:var(--bong)}
-.hero>*{position:relative;z-index:1}
-.hero h1{margin:14px 0 12px;font-family:var(--fd);font-weight:800;font-size:clamp(30px,4.6vw,52px);line-height:1.04;letter-spacing:-.03em}.hero h1 span{color:var(--vang)}
-.hero p{margin:0 0 22px;opacity:.88;max-width:620px;font-size:16.5px}
-.hero-chu{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
-.btn{display:inline-block;background:var(--vang);color:var(--dem);font-weight:700;padding:13px 22px;border-radius:12px;text-decoration:none;border:0;cursor:pointer;font-size:15px;font-family:var(--fb);transition:.2s;margin:0 6px 6px 0}
-.btn:hover{transform:translateY(-1px)}
-.btn.phu{background:transparent;color:#fff;border:1.5px solid #ffffff55}
-.btn.xanh{background:var(--xanh);color:#fff}
-.bang-chay{display:flex;gap:34px;overflow:hidden;white-space:nowrap;margin:26px -40px -44px;padding:13px 40px;background:#00000033;border-top:1px solid #ffffff14;font-family:var(--fm);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
-.bang-chay span:before{content:"\25C6";color:var(--vang);margin-right:14px}
-h2{font-family:var(--fd);font-size:clamp(23px,3vw,30px);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin:44px 0 16px;display:flex;align-items:center;gap:12px}
-h2:before{content:"";width:16px;height:16px;background:repeating-linear-gradient(90deg,var(--xanh) 0 2px,transparent 2px 5px);flex:none}
-h3{font-family:var(--fd);font-size:20px;margin:28px 0 10px}
-.luoi{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(132px,1fr))}
-.lua .ma.dai{font-size:20px;line-height:48px;white-space:nowrap}
-.lua{padding:18px 8px}.lua .ns{white-space:nowrap;font-size:12.5px}
-.luoi.to{grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr))}
-.the{background:var(--mat);border:1px solid var(--vien);border-radius:18px;padding:20px;box-shadow:0 1px 2px #05261608;position:relative}
-.lua{text-align:center;cursor:pointer;transition:.2s;overflow:hidden}
-.lua:hover{border-color:var(--xanh);transform:translateY(-3px);box-shadow:var(--bong)}
-.lua .ma{font-family:var(--fd);font-size:32px;font-weight:800;color:var(--xanh);letter-spacing:-.02em}
-.lua .ns{font-size:13px;color:var(--mo)}
-.lua .dem{font-family:var(--fm);font-size:11px;color:var(--chu2);margin-top:8px;padding-top:8px;border-top:1px dashed var(--vien)}
-.buoc{overflow:hidden;min-height:150px}
-.buoc .so-to{position:absolute;right:16px;bottom:2px;font-family:var(--fd);font-weight:800;font-size:68px;line-height:1;color:transparent;-webkit-text-stroke:1.5px #0a7a3f33}
-.buoc b{font-family:var(--fd);font-size:18px;display:block;margin-bottom:6px}
-.giai{text-decoration:none;display:block;transition:.2s}.giai:hover{border-color:var(--xanh);box-shadow:var(--bong)}
-.giai .ten{font-family:var(--fd);font-weight:700;font-size:20px;margin:8px 0 4px;line-height:1.2}
-.tag{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:20px;background:var(--xanh-nhat);color:var(--xanh);margin:0 4px 4px 0}
-.hero .tag{background:#ffffff1f;color:#fff}
-.tag.sap,.hero .tag.sap{background:var(--vang);color:#3d3000}.tag.xong{background:#e5e7e0;color:#555}
-.mo{color:var(--mo);font-size:14px}
-.canh{background:#fff8d9;border:1px solid #f1d977;border-radius:14px;padding:12px 16px;font-size:14px;margin:14px 0}
-.canh b{color:#7a5d00}
-table{width:100%;border-collapse:collapse;background:var(--mat);font-size:14px}
-th,td{padding:11px 12px;border-bottom:1px solid var(--vien);text-align:left;vertical-align:top}
-th{background:var(--nen2);font-family:var(--fm);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--chu2);font-weight:700}
-tr:last-child td{border-bottom:0}
-.bang-wrap{overflow-x:auto;border:1px solid var(--vien);border-radius:16px;background:var(--mat)}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}
-.tabs button{border:1px solid var(--vien);background:var(--mat);padding:8px 16px;border-radius:999px;cursor:pointer;font-weight:600;font-size:14px;font-family:var(--fb);color:var(--chu2);transition:.15s}
-.tabs button:hover{border-color:var(--xanh)}
-.tabs button.on{background:var(--xanh);color:#fff;border-color:var(--xanh)}
-.tabs button small{font-family:var(--fm);opacity:.7;margin-left:4px}
-.ngay{font-family:var(--fm);font-weight:700;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;margin:20px 0 8px;color:var(--xanh)}
-.tran{display:grid;grid-template-columns:70px 1fr auto 1fr;gap:8px;align-items:center;background:var(--mat);border:1px solid var(--vien);border-radius:12px;padding:10px 14px;margin-bottom:6px;font-size:14px}
-.tran .g{font-weight:700;font-family:var(--fm);font-size:13px}.tran .g small{display:block;font-weight:400;color:var(--mo);font-size:10.5px;font-family:var(--fb)}
-.tran .a{text-align:right;font-weight:600}.tran .b{font-weight:600}
-.tran .ts{background:var(--sau);color:var(--vang);border-radius:8px;padding:3px 10px;font-weight:800;min-width:58px;text-align:center;font-family:var(--fm)}
-.tran .ts.chua{background:var(--nen2);color:#777;font-weight:600}
-.tran.le{grid-template-columns:70px 1fr;background:#fffbe9}
-.nhanh{display:flex;gap:26px;overflow-x:auto;padding:8px 2px}
-.cot{display:flex;flex-direction:column;justify-content:space-around;gap:14px;min-width:200px}
-.cot h4{margin:0 0 4px;font-family:var(--fm);font-size:11.5px;letter-spacing:.1em;color:var(--mo);text-transform:uppercase}
-.cap{background:var(--mat);border:1px solid var(--vien);border-radius:12px;font-size:13px;overflow:hidden}
-.cap div{padding:7px 12px;display:flex;justify-content:space-between}
-.cap div+div{border-top:1px solid var(--vien)}
-.cap .m{background:var(--nen2);font-size:11px;color:var(--mo);padding:4px 12px;font-family:var(--fm)}
-.form label{display:block;font-weight:600;font-size:14px;margin:14px 0 6px}
-.form input,.form select{width:100%;padding:12px 14px;border:1.5px solid var(--vien);border-radius:12px;font-size:15px;font-family:var(--fb);background:#fff;outline:0;transition:.15s}
-.form input:focus{border-color:var(--xanh);box-shadow:0 0 0 4px #0a7a3f1a}
-.kq{margin-top:16px;border-left:5px solid var(--vang)}
-.kq .lon{font-family:var(--fd);font-size:34px;font-weight:800;color:var(--xanh)}
-.diem{font-family:var(--fd);font-size:24px;font-weight:800;color:var(--xanh)}
-.len{color:#0f7a28;font-weight:700;font-size:13px}.xuong{color:var(--do);font-weight:700;font-size:13px}
-.mau{background:#fde2e1;color:#9b1c1c}
-.tag.nghi{background:#eceae4;color:#7a776c}
-.tag.chua{background:#f1f3ec;color:var(--mo)}
-tr.bam{cursor:pointer}tr.bam:hover td{background:#f3f8f2}
-.top3 td:first-child{font-family:var(--fd);font-size:20px;font-weight:800;color:#b8860b}
-.tru{display:grid;grid-template-columns:150px 1fr 40px;gap:10px;align-items:center;margin:9px 0;font-size:14px}
-.tru .bar{background:#ffffff26;border-radius:6px;height:10px;overflow:hidden}.tru .bar div{height:100%;background:linear-gradient(90deg,#1fae5c,var(--vang));border-radius:6px}
-.the .tru .bar{background:var(--nen2)}.the .tru .bar div{background:linear-gradient(90deg,var(--xanh),var(--xanh2))}
-.muc{display:inline-block;background:var(--vang);color:#3d3000;font-weight:800;border-radius:20px;padding:4px 14px;font-size:12.5px;font-family:var(--fm);letter-spacing:.06em;text-transform:uppercase}
-.tag.muc2{background:#fff3c4;color:#6b5300}
-.tag.vuot{background:#e3ecff;color:#1d4ed8}
-.thang{display:flex;flex-wrap:wrap;gap:8px}.thang>div{flex:1 1 140px;border-radius:14px;padding:14px;background:var(--mat);border:1px solid var(--vien)}
-.trong{text-align:center;padding:30px;color:var(--mo)}
-.so-lieu{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:6px;max-width:640px}
-.so-lieu div{border-left:2px solid var(--vang);padding:2px 0 2px 14px}
-.so-lieu b{display:block;font-family:var(--fd);font-size:30px;line-height:1.1}.so-lieu span{font-family:var(--fm);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
-.them{display:block;margin:12px auto 0;background:var(--mat);border:1px solid var(--vien);border-radius:12px;padding:10px 18px;cursor:pointer;font-weight:600;font-family:var(--fb)}
-.them:hover{border-color:var(--xanh)}
-footer{background:var(--dem);color:#cfe0d2;font-size:14px;padding:34px 22px 0;text-align:center;overflow:hidden}
-footer b{color:var(--vang)}
-footer .chu-to{font-family:var(--fd);font-weight:800;font-size:clamp(60px,14vw,180px);line-height:.8;color:transparent;-webkit-text-stroke:1px #ffffff22;margin-top:24px;letter-spacing:-.02em;white-space:nowrap}
-@media(max-width:860px){.dn{grid-template-columns:1fr;gap:28px;padding:28px 18px}.dn .thuoc{display:none}.hero-chu{grid-template-columns:1fr}.hero-chu .the-diem{display:none}}
-@media(max-width:700px){.xh th:nth-child(3),.xh td:nth-child(3),.xh th:nth-child(8),.xh td:nth-child(8){display:none}.top{flex-wrap:wrap;padding:8px 14px}nav{margin:0;width:100%;overflow-x:auto;flex-wrap:nowrap}nav a{white-space:nowrap}.hero{padding:30px 22px}.bang-chay{margin:20px -22px -30px;padding:12px 22px}main{padding:18px 14px 60px}.tran{grid-template-columns:52px 1fr auto 1fr;font-size:13px}.tru{grid-template-columns:110px 1fr 34px}}
+.vong .so b{font-size:42px;font-weight:900;line-height:1}
+.vong .so small{font-size:12px;color:var(--mo)}
+.chi-so{display:grid;gap:10px}
+.chi-so .k{display:block;font-size:13px;color:var(--mo);font-weight:600;margin-bottom:2px}
+.chi-so div b{font-size:24px;font-weight:900}
+.tru{display:grid;grid-template-columns:minmax(0,1fr) minmax(70px,1.2fr) 52px;gap:10px;align-items:center;margin:10px 0;font-size:14.5px}
+.tru .bar{background:rgba(255,255,255,.1);border-radius:6px;height:10px;overflow:hidden}
+.tru .bar div{height:100%;background:linear-gradient(90deg,#3fd47a,var(--chanh));border-radius:6px}
+.tru>b{text-align:right;font-size:16px}
+.tru>b small{display:block;font-size:11.5px}
+.cap-do{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.cap-do div{border:1.5px dashed var(--vien2);border-radius:14px;padding:12px 6px;text-align:center;color:var(--mo2)}
+.cap-do div b{display:block;font-weight:900;font-size:15px;letter-spacing:.04em}
+.cap-do div small{font-size:12px}
+.cap-do div.on{border:1.5px solid var(--chanh);background:rgba(230,245,58,.12);color:var(--chanh)}
+.cho{display:inline-block;font-size:12px;font-weight:800;padding:3px 10px;border-radius:999px;border:1px dashed var(--vien2);color:var(--mo);margin-left:6px;vertical-align:middle}
+.radar{width:100%;max-width:340px;display:block;margin:auto}
+.bieu-do{width:100%;height:auto;display:block}
+.lan{display:grid;gap:10px}
+.lan .the{padding:14px 16px}
+.lan .dau-lan{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.lan .dau-lan .diem-o b{font-size:28px}
+.lan .bon{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin-top:10px;padding-top:10px;border-top:1px solid var(--vien);font-size:13.5px}
+.lan .bon div{display:flex;justify-content:space-between;gap:6px}
+.lan .bon span{color:var(--mo)}.lan .bon b{white-space:nowrap}
+.nx{border-left:4px solid var(--chanh)}
+.nx q{display:block;font-size:16px;quotes:none;margin-top:4px}
+
+/* ---------- tra cuu, cach cham ---------- */
+.form label{display:block;font-weight:700;font-size:14.5px;margin:12px 0 8px;color:var(--mo)}
+.kq{margin-top:14px;border-left:4px solid var(--chanh)}
+.kq .lon{font-size:36px;font-weight:900;color:var(--chanh);line-height:1.1}
+.thang{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.thang div{border-radius:14px;padding:12px 14px;background:var(--san2);border:1px solid var(--vien)}
+.thang div b{display:block;font-size:24px;font-weight:900;color:var(--chanh)}
+ul.ds,ol.ds{margin:0;padding-left:20px}ul.ds li,ol.ds li{margin:5px 0}
+
+footer{background:#031c0d;color:var(--mo);font-size:14.5px;padding:30px 18px 0;text-align:center;overflow:hidden;border-top:1px solid var(--vien)}
+footer img{height:64px}
+footer b{color:var(--chanh)}
+footer .chu-to{font-weight:900;font-size:clamp(46px,13vw,150px);line-height:.85;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.14);margin-top:22px;letter-spacing:-.01em;white-space:nowrap}
+
+@media(min-width:760px){
+ :root{--hd:70px}
+ header .wrap{max-width:1180px;margin:auto;display:flex;align-items:center;padding:0 16px}
+ .top{display:contents}.logo{padding:10px 0}
+ nav{padding:0;margin:0 0 0 auto;order:2}
+ .thoat{margin-left:12px;order:3}
+ .bieu-do{max-width:680px;margin:auto}
+ .tru-o{max-width:820px}
+ main{padding:24px 24px 70px}
+ .thanh-tab{margin:18px -24px 6px;padding:12px 24px}
+ h2{font-size:28px}
+ .hero{padding:40px 40px}
+ .hero h1{font-size:46px}
+ .hero-chu{grid-template-columns:1fr 260px}
+ .hero-logo{display:block;width:240px;height:auto;justify-self:end;filter:drop-shadow(0 20px 40px rgba(0,0,0,.45))}
+ .luoi{grid-template-columns:repeat(3,1fr)}
+ .luoi.hai{grid-template-columns:repeat(2,1fr)}
+ .luoi-lua{grid-template-columns:repeat(7,1fr)}
+ .lua.rong{grid-column:auto}
+ .lua{padding:16px 14px}
+ .lua .ma.dai{font-size:20px;line-height:41px;white-space:nowrap}
+ .lua .ns{font-size:13px;white-space:nowrap}
+ .nhanh{grid-template-columns:repeat(3,1fr)}
+ .ho-so-dau{grid-template-columns:84px 1fr}.vt{width:84px;height:84px;font-size:30px}
+ .ho-so-dau h1{font-size:38px}
+ .bang-diem{grid-template-columns:auto auto 1fr;gap:28px}
+ .lan .bon{grid-template-columns:repeat(4,1fr)}
+ .thang{grid-template-columns:repeat(6,1fr)}
+ #login .dn{max-width:460px}
+}
+@media(max-width:759px){.an-dt{display:none}}
 </style>
 </head>
 <body class="khoa">
-<section id="login" class="san"><div class="dn">
- <div>
-  <span class="may">Dành cho phụ huynh và học viên 4YOU</span>
-  <h1>Biết con đang ở đâu, <span>cần tập gì tiếp</span></h1>
-  <p class="gt">Điểm trình cá nhân 0-100 do HLV 4YOU SPORT chấm sau mỗi giải đấu, khoá học và đợt kiểm tra. Xem lứa thi đấu, lịch giải và hành trình tiến bộ của con.</p>
-  <div class="chips"><span>7 lứa U7 đến Ngoại hạng</span><span>4 trụ, 14 tiêu chí</span><span>HLV chấm, không tự chấm</span></div>
-  <div class="thuoc"><div class="v"><i></i></div><div class="s"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div></div>
- </div>
- <form class="kinh" id="fdn" onsubmit="dangNhap(event)">
-  <div class="dau"><img src="logo.png" alt=""><div><b>4YOU Giải đấu</b><small>Trung tâm Bóng đá 4YOU SPORT Nghệ An</small></div></div>
+<section id="login"><div class="dn">
+ <img src="logo.png" alt="4YOU SPORT">
+ <h1>Giải đấu và <span>điểm trình</span> 4YOU</h1>
+ <p class="gt">Lịch giải, bảng đấu và hành trình tiến bộ của con, do HLV 4YOU SPORT chấm sau mỗi giải, khoá học và đợt kiểm tra.</p>
+ <form class="hop" id="fdn" onsubmit="dangNhap(event)">
   <label for="mk">Mã truy cập</label>
   <div class="o-mk"><input id="mk" type="password" autocomplete="current-password" placeholder="Nhập mã 4YOU cấp" required><button type="button" onclick="const i=$('#mk');i.type=i.type=='password'?'text':'password';this.textContent=i.type=='password'?'Hiện':'Ẩn'">Hiện</button></div>
   <button class="nut-dn" id="nutdn">Đăng nhập</button>
   <div class="loi-dn" id="loidn"></div>
   <div class="ghi">Bản xem trước nội bộ. Dữ liệu học viên được mã hoá, chỉ mở được khi có mã truy cập.</div>
  </form>
+ <div class="slogan">LET'S DO IT</div>
 </div></section>
-<header><div class="top">
- <a href="#/"><img src="logo.png" alt="4YOU SPORT"></a>
- <b>4YOU <span>Giải đấu</span></b>
- <nav id="nav">
+<header><div class="wrap">
+ <div class="top">
+  <a class="logo" href="#/"><img src="logo.png" alt="4YOU SPORT"><span><b><span class="kim">4YOU</span> SPORT</b><small>Giải đấu và điểm trình</small></span></a>
+  <button class="thoat" onclick="dangXuat()">Đăng xuất</button>
+ </div>
+ <nav id="nav" class="cuon">
   <a href="#/" data-k="">Trang chủ</a>
   <a href="#/giai" data-k="giai">Giải đấu</a>
-  <a href="#/lua" data-k="lua">Lứa tuổi</a>
   <a href="#/xephang" data-k="xephang">Điểm trình</a>
-  <a href="#/cachcham" data-k="cachcham">Cách chấm</a>
   <a href="#/dangky" data-k="dangky" class="cta">Tra cứu cho con</a>
-  <button class="thoat" onclick="dangXuat()">Đăng xuất</button>
+  <a href="#/lua" data-k="lua">Lứa tuổi</a>
+  <a href="#/cachcham" data-k="cachcham">Cách chấm</a>
  </nav>
 </div></header>
 <main id="app"><p class="trong">Đang tải...</p></main>
-<footer>Trung tâm Bóng đá <b>4YOU SPORT</b> Nghệ An - LET'S DO IT<br>Hotline <b id="hl"></b><br><span style="opacity:.6;font-size:12px">Bản xem trước nội bộ - cập nhật <span id="cn"></span>. Chỗ ghi "cần xác nhận" chưa được chốt.</span><div class="chu-to">4YOU SPORT</div></footer>
+<footer><img src="logo.png" alt=""><br>Trung tâm Bóng đá <b>4YOU SPORT</b> Nghệ An<br>Hotline <b id="hl"></b><br><span style="opacity:.7;font-size:12.5px">Bản xem trước nội bộ, cập nhật <span id="cn"></span>. Chỗ ghi "cần xác nhận" chưa được chốt.</span><div class="chu-to">LET'S DO IT</div></footer>
 <script>
 let D, $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -207,8 +302,13 @@ const fd=s=>{if(!s||s.length<10)return s||"";const[y,m,d]=s.split("-");return d+
 const thu=s=>["CN","T2","T3","T4","T5","T6","T7"][new Date(s).getDay()];
 const nsLua=l=>l.nam_tu?l.nam_tu+" - "+l.nam_den:l.nam_den+" trở về trước";
 const tenLua=m=>(D.lua.find(l=>l.ma==m)||{ten:m}).ten;
+/* Cho san (placeholder) cho cap do va bieu do mang nhen: data.json co the gui kem, thieu thi dung mac dinh nay.
+   Moi hoc vien co the co: cap_do = "ROOKIE" | "STARTER" | "ALL STAR"; radar = {KT, HB, TL, TD} thang 0-100. */
+const CAP_DO_MD=[{ma:"ROOKIE",ten:"Rookie",mo_ta:"Mới bắt đầu"},{ma:"STARTER",ten:"Starter",mo_ta:"Đá chính"},{ma:"ALL STAR",ten:"All Star",mo_ta:"Ngôi sao"}];
+const RADAR_MD=[{ma:"KT",ten:"Kỹ thuật"},{ma:"HB",ten:"Hiểu biết chơi bóng"},{ma:"TL",ten:"Thể lực"},{ma:"TD",ten:"Thái độ"}];
 /* diem trinh: diem hien tai = lan HLV cham moi nhat, xep hang trong tung lua */
 function hvTinh(){
+ D.cap_do=D.cap_do||CAP_DO_MD;D.radar_nhom=D.radar_nhom||RADAR_MD;
  D.hoc_vien.forEach(h=>{h.ls=h.ls||[];h.tl=h.tl||[];h.sdt=h.sdt||"";h.co_so=h.co_so||"";h.vi_tri=h.vi_tri||"";
   const l=h.nam?luaTheoNam(h.nam):null;h.lua=l?l.ma:"";const n=h.ls.length;
   h.diem=n?h.ls[n-1].diem:null;h.truoc=n>1?h.ls[n-2].diem:null;h.lan=n?h.ls[n-1].ngay:""});
@@ -217,79 +317,80 @@ function hvTinh(){
 }
 const doiDiem=h=>h.truoc==null?"":h.diem>h.truoc?`<span class="len">&#9650; +${+(h.diem-h.truoc).toFixed(2)}</span>`:h.diem<h.truoc?`<span class="xuong">&#9660; ${+(h.diem-h.truoc).toFixed(2)}</span>`:`<span class="mo">=</span>`;
 const tenTru=m=>(D.tru.find(t=>t.ma==m)||{ten:m}).ten;
-const barTru=(goc,cu)=>D.tru.map(t=>{const v=goc[t.ma],d=cu?v-cu[t.ma]:0;return `<div class="tru"><span>${esc(t.ten)}</span><div class="bar"><div style="width:${v}%"></div></div><b>${v}${d?`<span class="${d>0?"len":"xuong"}" style="font-size:11px"> ${d>0?"+":""}${d}</span>`:""}</b></div>`}).join("");
+const barTru=(goc,cu)=>D.tru.map(t=>{const v=goc[t.ma],d=cu?v-cu[t.ma]:0;return `<div class="tru"><span>${esc(t.ten)}</span><div class="bar"><div style="width:${v}%"></div></div><b>${v}${d?`<small class="${d>0?"len":"xuong"}">${d>0?"+":""}${d}</small>`:""}</b></div>`}).join("");
 const nhanMau=h=>h.mau?` <span class="tag mau">MẪU</span>`:"";
 const quyDoi=h=>h.diem==null||!h.he_so?null:Math.round(h.diem*h.he_so);
 const soVN=x=>String(x).replace(".",",");
 const nhanVuot=h=>h.vuot?` <span class="tag vuot">Đá vượt ${esc(tenLua(h.vuot))}</span>`:"";
+const chuDau=t=>{const w=String(t).replace(/\(.*?\)/g,"").trim().split(/\s+/);return (w.length>1?w[w.length-2][0]+w[w.length-1][0]:w[0].slice(0,2)).toUpperCase()};
+const hang3=h=>h.hang&&h.hang<=3?" h"+h.hang:"";
 
 function luaTheoNam(y){
  y=+y;for(const l of D.lua){if(l.nam_tu?y>=l.nam_tu&&y<=l.nam_den:y<=l.nam_den)return l}
  return null;
 }
+const ngayGiai=g=>g.den?fd(g.tu)+" - "+fd(g.den):esc(g.tu);
+const nhanGiai=g=>`<span class="tag ${g.trang_thai}">${g.trang_thai=="sap"?"Sắp diễn ra":"Đã kết thúc"}</span>`;
 
-/* ---------- trang ---------- */
+/* ---------- trang chu ---------- */
 function trangChu(){
- const sap=D.giai.filter(g=>g.trang_thai=="sap"),hv=D.hoc_vien.filter(h=>!h.mau);
- return `<section class="hero san"><div class="hero-chu"><div>
- <span class="may">Giải đấu và điểm trình cá nhân</span>
+ const sap=D.giai.filter(g=>g.trang_thai=="sap");
+ return `<section class="hero"><div class="hero-chu"><div>
+ <span class="nhan">Giải đấu và điểm trình cá nhân</span>
  <h1>Mỗi bé một <span>điểm trình riêng</span></h1>
  <p>HLV 4YOU SPORT chấm điểm sau mỗi giải, mỗi khoá học và mỗi đợt kiểm tra, để phụ huynh và các con biết mình đang ở đâu mà phấn đấu.</p>
- <a class="btn" href="#/dangky">Tra cứu cho con</a><a class="btn phu" href="#/xephang">Xem điểm trình</a>
+ <div class="nut-hang"><a class="btn" href="#/dangky">Tra cứu cho con</a><a class="btn phu" href="#/xephang">Xem điểm trình</a></div>
  <div class="so-lieu"><div><b>7</b><span>lứa U7 đến Ngoại hạng</span></div><div><b>14</b><span>tiêu chí HLV chấm</span></div><div><b>4</b><span>trụ phát triển</span></div></div>
- </div>${theDiemMau()}</div>
- <div class="bang-chay"><span>Thang điểm 0-100</span><span>4 trụ phát triển</span><span>HLV chấm sau mỗi giải</span><span>Đá vượt tối đa 1 lứa</span><span>Let's do it</span></div></section>
- <h2>7 lứa thi đấu mùa ${D.mua}</h2>
- <div class="luoi">${D.lua.map(l=>`<div class="the lua" onclick="location.hash='#/xephang/${l.ma}'"><div class="ma${l.ten.length>4?" dai":""}">${esc(l.ten)}</div><div class="ns">${l.nam_tu?"Sinh "+nsLua(l):"Trên 17 tuổi"}</div><div class="dem">Xem điểm trình</div></div>`).join("")}</div>
+ </div><img class="hero-logo" src="logo.png" alt="4YOU SPORT"></div></section>
+ <h2>7 lứa thi đấu mùa ${D.mua}<small>Bấm vào lứa để xem bảng điểm trình</small></h2>
+ <div class="luoi-lua">${D.lua.map(l=>`<a class="lua${l.nam_tu?"":" rong"}" href="#/xephang/${l.ma}"><div class="ma${l.ten.length>4?" dai":""}">${esc(l.ten)}</div><div class="ns">${l.nam_tu?"Sinh "+nsLua(l):"Trên 17 tuổi"}</div><span class="di">Điểm trình &rarr;</span></a>`).join("")}</div>
  <h2>Giải sắp diễn ra</h2>
- <div class="luoi to">${sap.map(theGiai).join("")||'<p class="mo">Chưa có giải sắp diễn ra.</p>'}</div>
+ <div class="luoi">${sap.map(theGiai).join("")||'<p class="mo">Chưa có giải sắp diễn ra.</p>'}</div>
  <h2>Điểm trình được chấm khi nào</h2>
- <div class="luoi to">${[["Sau mỗi giải đấu","HLV chấm theo phong độ thi đấu của từng bé trong giải."],["Sau mỗi khoá học","HLV chấm mức tiến bộ cuối khoá."],["Sau mỗi đợt kiểm tra","HLV chấm theo bài kiểm tra kỹ năng định kỳ."]].map(([a,b],i)=>`<div class="the buoc"><b>${a}</b><div class="mo">${b}</div><span class="so-to">0${i+1}</span></div>`).join("")}</div>`;
-}
-function theDiemMau(){
- const d=78,c=2*Math.PI*56;
- return `<div class="the-diem"><div class="vong"><svg viewBox="0 0 130 130"><circle cx="65" cy="65" r="56" fill="none" stroke="#ffffff1f" stroke-width="9"/><circle cx="65" cy="65" r="56" fill="none" stroke="#FFD200" stroke-width="9" stroke-linecap="round" stroke-dasharray="${c*d/100} ${c}"/></svg><div class="so"><b>${d}</b><small>TRÊN 100</small></div></div>
- <span class="nhan">GIỎI</span>${[["KTC",80],["THL",66],["TÂM",72],["TẬP",64]].map(([a,b])=>`<div class="tr"><span>${a}</span><i style="--w:${b}%"></i></div>`).join("")}<span class="chu-nho">THẺ ĐIỂM MINH HOẠ</span></div>`;
+ <div class="luoi">${[["Sau mỗi giải đấu","HLV chấm theo phong độ thi đấu của từng bé trong giải."],["Sau mỗi khoá học","HLV chấm mức tiến bộ cuối khoá."],["Sau mỗi đợt kiểm tra","HLV chấm theo bài kiểm tra kỹ năng định kỳ."]].map(([a,b],i)=>`<div class="the buoc"><span class="so">${i+1}</span><div><b>${a}</b><div class="mo">${b}</div></div></div>`).join("")}</div>`;
 }
 function theGiai(g){
- return `<a class="the giai" href="#/giai/${g.slug}"><span class="tag ${g.trang_thai}">${g.trang_thai=="sap"?"Sắp diễn ra":"Đã kết thúc"}</span>${g.lua.map(l=>`<span class="tag">${esc(tenLua(l))}</span>`).join("")}
- <div class="ten">${esc(g.ten)}</div><div class="mo">${g.den?fd(g.tu)+" - "+fd(g.den):esc(g.tu)}<br>${esc(g.dia_diem)}</div></a>`;
+ return `<a class="the giai" href="#/giai/${g.slug}">${nhanGiai(g)}${g.lua.map(l=>`<span class="tag">${esc(tenLua(l))}</span>`).join("")}
+ <div class="ten">${esc(g.ten)}</div><div class="mo nho">${ngayGiai(g)}<br>${esc(g.dia_diem)}</div><span class="di">${g.doi&&g.doi.length?"Lịch, bảng đấu, nhánh đấu":"Xem chi tiết"} &rarr;</span></a>`;
 }
 function dsGiai(){
  const s=D.giai.filter(g=>g.trang_thai=="sap"),x=D.giai.filter(g=>g.trang_thai!="sap");
- return `<h2>Giải sắp diễn ra</h2><div class="luoi to">${s.map(theGiai).join("")}</div>
- <h2>Giải đã kết thúc</h2><div class="luoi to">${x.map(theGiai).join("")}</div>
+ return `<h2>Giải sắp diễn ra</h2><div class="luoi">${s.map(theGiai).join("")}</div>
+ <h2>Giải đã kết thúc</h2><div class="luoi">${x.map(theGiai).join("")}</div>
  <div class="canh"><b>Cần bổ sung:</b> các giải cũ 2023-2026 (4YOUSPORT Cup nhiều mùa, U14 League, U14 Super Cup, 3x3, Summer Cup...) kèm kết quả để đưa vào kho giải.</div>`;
 }
 
+/* ---------- trang giai ---------- */
 let tabGiai="lich",luaGiai="";
 function trangGiai(slug){
  const g=D.giai.find(x=>x.slug==slug);if(!g)return `<p class="trong">Không thấy giải.</p>`;
  if(!luaGiai||!g.lua.includes(luaGiai))luaGiai=g.lua[0];
- let h=`<p><a href="#/giai" class="mo">&larr; Tất cả giải</a></p>
- <section class="hero san"><span class="tag ${g.trang_thai}">${g.trang_thai=="sap"?"Sắp diễn ra":"Đã kết thúc"}</span>
- <h1>${esc(g.ten)}</h1><p>${g.den?fd(g.tu)+" - "+fd(g.den):esc(g.tu)} &middot; ${esc(g.dia_diem)}<br>Lứa: ${g.lua.map(l=>esc(tenLua(l))+" (sinh "+nsLua(D.lua.find(x=>x.ma==l))+")").join(", ")}</p>
- ${g.form&&g.trang_thai=="sap"?`<a class="btn" href="${esc(g.form)}" target="_blank">Đăng ký</a> `:""}</section>`;
+ let h=`<a href="#/giai" class="lui">&larr; Tất cả giải</a>
+ <section class="hero">${nhanGiai(g)}<h1>${esc(g.ten)}</h1>
+ <div class="tt-giai"><div><span>Thời gian</span><b>${ngayGiai(g)}</b></div><div><span>Địa điểm</span><div>${esc(g.dia_diem)}</div></div>
+ <div><span>Lứa</span><div>${g.lua.map(l=>esc(tenLua(l))+" (sinh "+nsLua(D.lua.find(x=>x.ma==l))+")").join("<br>")}</div></div></div>
+ ${g.form&&g.trang_thai=="sap"?`<div class="nut-hang" style="margin-top:14px"><a class="btn" href="${esc(g.form)}" target="_blank" rel="noopener">Đăng ký thi đấu</a></div>`:""}</section>`;
  if(g.ghi_chu)h+=`<div class="canh">${esc(g.ghi_chu)}</div>`;
- if(g.can_xac_nhan)h+=`<div class="canh"><b>Đang chờ BTC xác nhận:</b><br>${g.can_xac_nhan.map(esc).join("<br>")}</div>`;
- if(g.le_phi)h+=`<div class="luoi to" style="margin-top:14px"><div class="the"><b>Lệ phí</b>${g.le_phi.map(r=>`<div class="mo">${esc(r[0])}: <b style="color:var(--chu)">${esc(r[1])}</b></div>`).join("")}</div>
+ if(g.can_xac_nhan)h+=`<div class="canh"><b>Đang chờ BTC xác nhận:</b><ul class="ds">${g.can_xac_nhan.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`;
+ if(g.le_phi)h+=`<div class="luoi" style="margin-top:12px"><div class="the"><b>Lệ phí</b>${g.le_phi.map(r=>`<div class="mo">${esc(r[0])}: <b style="color:#fff">${esc(r[1])}</b></div>`).join("")}</div>
  <div class="the"><b>Thể thức</b><div class="mo">${esc(g.the_thuc)}</div></div>
- <div class="the"><b>Danh hiệu</b><div class="mo">${g.danh_hieu.map(esc).join("<br>")}</div></div></div>`;
+ <div class="the"><b>Danh hiệu</b><ul class="ds mo">${g.danh_hieu.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div></div>`;
  if(!g.doi.length)return h;
- h+=`<div class="tabs">${g.lua.map(l=>`<button class="${l==luaGiai?"on":""}" onclick="luaGiai='${l}';ve()">${esc(tenLua(l))}</button>`).join("")}</div>
- <div class="tabs">${[["lich","Lịch thi đấu"],["doi","Đội & bảng"],["bxh","Bảng xếp hạng"],["nhanh","Nhánh đấu"]].map(([k,t])=>`<button class="${k==tabGiai?"on":""}" onclick="tabGiai='${k}';ve()">${t}</button>`).join("")}</div>`;
+ h+=`<div class="thanh-tab"><div class="cuon"><div class="doan">${g.lua.map(l=>`<button class="${l==luaGiai?"on":""}" onclick="luaGiai='${l}';ve()">${esc(tenLua(l))}</button>`).join("")}</div></div>
+ <div class="cuon tabs nho">${[["lich","Lịch thi đấu"],["doi","Đội & bảng"],["bxh","Bảng xếp hạng"],["nhanh","Nhánh đấu"]].map(([k,t])=>`<button class="${k==tabGiai?"on":""}" onclick="tabGiai='${k}';ve()">${t}</button>`).join("")}</div></div>`;
  const tr=g.tran.filter(t=>t.lua==luaGiai||t.lua=="Chung"),doi=g.doi.filter(d=>d.lua==luaGiai);
  if(tabGiai=="lich"){let n="";for(const t of tr){if(t.ngay!=n){n=t.ngay;h+=`<div class="ngay">${thu(t.ngay)}, ${fd(t.ngay)}</div>`}
-  if(!t.b){h+=`<div class="tran le"><div class="g">${t.gio}</div><div><b>${esc(t.vong)}</b> <span class="mo">${esc(t.a)}</span></div></div>`;continue}
+  if(!t.b){h+=`<div class="tran le"><div class="meta"><b>${t.gio}</b><span>${esc(t.vong)}</span></div><div>${esc(t.a)}</div></div>`;continue}
   const co=t.ba!=null&&t.bb!=null;
-  h+=`<div class="tran"><div class="g">${t.gio}<small>${esc(t.vong)}${t.bang?" "+t.bang:""}</small></div><div class="a">${esc(t.a)}</div><div class="ts ${co?"":"chua"}">${co?t.ba+" - "+t.bb:"vs"}</div><div class="b">${esc(t.b)}</div></div>`}}
- if(tabGiai=="doi"){h+=`<div class="luoi to">${[...new Set(doi.map(d=>d.bang))].map(b=>`<div class="the"><b>Bảng ${b}</b>${doi.filter(d=>d.bang==b).map(d=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--vien)"><span>${esc(d.ten)}</span><span class="mo">${d.so_be}/${d.toi_da} bé</span></div>`).join("")}</div>`).join("")}</div>
-  <p class="mo">Danh sách cầu thủ từng đội sẽ hiện khi BTC nhập vào file quản lý giải (tên bé, SĐT phụ huynh che 3 số cuối).</p>`}
+  h+=`<div class="tran"><div class="meta"><b>${t.gio}</b><span>${esc(t.vong)}${t.bang?" bảng "+t.bang:""}</span><span class="ma-tran">${esc(t.ma)}</span></div>
+  <div class="dau"><div class="a">${esc(t.a)}</div><div class="ts ${co?"":"chua"}">${co?t.ba+" - "+t.bb:"VS"}</div><div class="b">${esc(t.b)}</div></div></div>`}}
+ if(tabGiai=="doi"){h+=`<div class="luoi hai" style="margin-top:12px">${[...new Set(doi.map(d=>d.bang))].map(b=>`<div class="the bang-doi"><b>Bảng ${b}</b>${doi.filter(d=>d.bang==b).map(d=>`<div class="dong"><div style="flex:1"><b>${esc(d.ten)}</b> <span class="mo nho">${esc(d.ma)}</span><div class="thanh"><i style="width:${Math.min(100,100*d.so_be/(d.toi_da||10))}%"></i></div></div><span class="mo nho">${d.so_be}/${d.toi_da} bé</span></div>`).join("")}</div>`).join("")}</div>
+  <p class="mo nho" style="margin-top:12px">Danh sách cầu thủ từng đội sẽ hiện khi BTC nhập vào file quản lý giải (tên bé, SĐT phụ huynh che 3 số cuối).</p>`}
  if(tabGiai=="bxh"){h+=[...new Set(doi.map(d=>d.bang))].map(b=>{const rows=bxh(doi.filter(d=>d.bang==b),tr);
-  return `<h3>Bảng ${b}</h3><div class="bang-wrap"><table><tr><th>#</th><th>Đội</th><th>Tr</th><th>T</th><th>H</th><th>B</th><th>BT</th><th>BB</th><th>HS</th><th>Đ</th></tr>${rows.map((r,i)=>`<tr><td>${i+1}</td><td><b>${esc(r.ten)}</b></td><td>${r.tr}</td><td>${r.t}</td><td>${r.h}</td><td>${r.b}</td><td>${r.bt}</td><td>${r.bb}</td><td>${r.bt-r.bb}</td><td><b>${r.d}</b></td></tr>`).join("")}</table></div>`}).join("")+`<p class="mo">Tự tính khi BTC nhập tỉ số vào file quản lý giải. Thắng 3, hoà 1 (theo bảng điểm trong file BTC, cần xác nhận cách tính luân lưu).</p>`}
+  return `<h3>Bảng ${b}</h3><div class="bang-wrap"><table class="bxh"><tr><th class="so">#</th><th>Đội</th><th class="so">Tr</th><th class="so">T</th><th class="so">H</th><th class="so">B</th><th class="so an-dt">BT</th><th class="so an-dt">BB</th><th class="so">HS</th><th class="so">Đ</th></tr>${rows.map((r,i)=>`<tr class="${i==0?"vao":""}"><td class="so">${i+1}</td><td>${esc(r.ten)}</td><td class="so">${r.tr}</td><td class="so">${r.t}</td><td class="so">${r.h}</td><td class="so">${r.b}</td><td class="so an-dt">${r.bt}</td><td class="so an-dt">${r.bb}</td><td class="so">${r.bt-r.bb}</td><td class="so"><b>${r.d}</b></td></tr>`).join("")}</table></div>`}).join("")+`<p class="mo nho" style="margin-top:12px">Tr: trận, T/H/B: thắng/hoà/thua, HS: hiệu số, Đ: điểm. Tự tính khi BTC nhập tỉ số vào file quản lý giải. Thắng 3, hoà 1 (theo bảng điểm trong file BTC, cần xác nhận cách tính luân lưu). Nhất bảng vào bán kết.</p>`}
  if(tabGiai=="nhanh"){const v=x=>tr.filter(t=>t.vong==x);
-  const cot=(ten,ds)=>`<div class="cot"><h4>${ten}</h4>${ds.map(t=>`<div class="cap"><div class="m">${esc(t.ma)} &middot; ${thu(t.ngay)} ${fd(t.ngay).slice(0,5)} ${t.gio}</div><div><span>${esc(t.a)}</span><b>${t.ba??""}</b></div><div><span>${esc(t.b)}</span><b>${t.bb??""}</b></div></div>`).join("")}</div>`;
-  h+=`<div class="nhanh">${cot("Play-off",v("Play-off"))}${cot("Bán kết",v("Bán kết"))}${cot("Chung kết",v("Chung kết"))}</div><p class="mo">Tên đội tự điền khi có kết quả vòng trước.</p>`}
+  const cot=(ten,ds)=>`<div class="cot"><h4>${ten}</h4>${ds.map(t=>`<div class="cap"><div class="m">${esc(t.ma)} &middot; ${thu(t.ngay)} ${fd(t.ngay).slice(0,5)} &middot; ${t.gio}</div><div class="d"><span>${esc(t.a)}</span><b>${t.ba??""}</b></div><div class="d"><span>${esc(t.b)}</span><b>${t.bb??""}</b></div></div>`).join("")||'<p class="mo nho">Chưa có trận.</p>'}</div>`;
+  h+=`<div class="nhanh" style="margin-top:12px">${cot("Play-off",v("Play-off"))}${cot("Bán kết",v("Bán kết"))}${cot("Chung kết",v("Chung kết"))}</div><p class="mo nho">Tên đội tự điền khi có kết quả vòng trước.</p>`}
  return h;
 }
 function bxh(doi,tr){
@@ -300,149 +401,190 @@ function bxh(doi,tr){
  return Object.values(m).sort((x,y)=>y.d-x.d||(y.bt-y.bb)-(x.bt-x.bb)||y.bt-x.bt);
 }
 
+/* ---------- lua tuoi ---------- */
 function trangLua(){
+ const h=D.ha_moi_tuoi??0.2;
  return `<h2>Lứa tuổi mùa ${D.mua}</h2>
- <div class="bang-wrap"><table><tr><th>Lứa</th><th>Năm sinh</th><th>Ghi chú</th></tr>${D.lua.map(l=>`<tr><td><b>${esc(l.ten)}</b></td><td>${nsLua(l)}</td><td class="mo">${esc(l.ghi_chu||"")}</td></tr>`).join("")}</table></div>
- <p class="mo">Lứa Ux nhận bé sinh năm (${D.mua} - x) và năm liền sau. Ngoại hạng là người trên 17 tuổi. Sang mùa mới, năm sinh tự dịch lên 1.</p>
+ <div class="bang-wrap"><table><tr><th>Lứa</th><th>Năm sinh</th><th>Ghi chú</th></tr>${D.lua.map(l=>`<tr><td><b style="color:var(--chanh)">${esc(l.ten)}</b></td><td>${nsLua(l)}</td><td class="mo nho">${esc(l.ghi_chu||"")}</td></tr>`).join("")}</table></div>
+ <p class="mo nho" style="margin-top:10px">Lứa Ux nhận bé sinh năm (${D.mua} - x) và năm liền sau. Ngoại hạng là người trên 17 tuổi. Sang mùa mới, năm sinh tự dịch lên 1.</p>
  <h2>Điểm trình cá nhân</h2>
- <div class="the"><ol style="margin:0;padding-left:20px">
+ <div class="the"><ol class="ds">
  <li>Mỗi học viên có 1 điểm trình riêng do HLV chấm. Điểm này để xếp trình độ cá nhân, không phải xếp hạng đội.</li>
  <li>Admin cập nhật điểm sau mỗi giải đấu, mỗi khoá học và mỗi đợt kiểm tra. Điểm hiện tại là lần chấm gần nhất, các lần trước giữ lại để xem con tiến bộ ra sao.</li>
  <li>Học viên được xếp thứ hạng trong đúng lứa tuổi của mình.</li>
  <li>Mỗi số điện thoại phụ huynh và họ tên bé chỉ có 1 hồ sơ, tránh trùng.</li></ol></div>
- <p><a class="btn" href="#/cachcham">Xem cách chấm điểm</a></p>
+ <div class="nut-hang" style="margin-top:14px"><a class="btn" href="#/cachcham">Xem cách chấm điểm</a></div>
  <h2>Đá vượt lứa</h2>
- <div class="the"><ol style="margin:0;padding-left:20px">
+ <div class="the"><ol class="ds">
  <li>Học viên chỉ được đá vượt lên <b>tối đa 1 lứa</b> so với lứa theo năm sinh. Ví dụ bé U9 được đá U11, không được đá U13.</li>
  <li>Không được đá xuống lứa nhỏ hơn.</li>
  <li>Bé U17 đá vượt 1 lứa là lên Ngoại hạng.</li>
  <li>Điểm trình vẫn tính và xếp hạng ở lứa theo năm sinh của bé.</li>
  <li>Khi xếp đội ở lứa trên, HLV dùng <b>điểm quy đổi</b> = điểm trình x hệ số, vì điểm của bé được chấm theo chuẩn lứa dưới. Bé đá vượt có ghi chú riêng của HLV.</li>
- <li>Hệ số hạ ${soVN(D.ha_moi_tuoi??0.2)} cho mỗi tuổi bé nhỏ hơn năm sinh nhỏ nhất của lứa trên: nhỏ hơn 1 tuổi thì x ${soVN(+(1-(D.ha_moi_tuoi??0.2)).toFixed(2))}, nhỏ hơn 2 tuổi thì x ${soVN(+(1-2*(D.ha_moi_tuoi??0.2)).toFixed(2))}. Ví dụ mùa ${D.mua}, U13 là sinh ${D.mua-13}-${D.mua-12}: bé sinh ${D.mua-11} đá U13 được 70 điểm thì quy đổi còn ${Math.round(70*(1-(D.ha_moi_tuoi??0.2)))}; bé sinh ${D.mua-10} còn ${Math.round(70*(1-2*(D.ha_moi_tuoi??0.2)))}.</li></ol></div>`;
+ <li>Hệ số hạ ${soVN(h)} cho mỗi tuổi bé nhỏ hơn năm sinh nhỏ nhất của lứa trên: nhỏ hơn 1 tuổi thì x ${soVN(+(1-h).toFixed(2))}, nhỏ hơn 2 tuổi thì x ${soVN(+(1-2*h).toFixed(2))}. Ví dụ mùa ${D.mua}, U13 là sinh ${D.mua-13}-${D.mua-12}: bé sinh ${D.mua-11} đá U13 được 70 điểm thì quy đổi còn ${Math.round(70*(1-h))}; bé sinh ${D.mua-10} còn ${Math.round(70*(1-2*h))}.</li></ol></div>`;
 }
 
-let luaXH="";
-let timXH="";
+/* ---------- diem trinh theo lua ---------- */
+let luaXH="",timXH="";
 function trangXH(ma){
  luaXH=ma||luaXH||"U9";
  const l=D.lua.find(x=>x.ma==luaXH);
- return `<h2>Điểm trình cá nhân</h2>
- <div class="tabs">${D.lua.map(x=>`<button class="${x.ma==luaXH?"on":""}" onclick="location.hash='#/xephang/${x.ma}'">${esc(x.ten)}</button>`).join("")}</div>
- <p class="mo">${esc(l.ten)}: ${l.nam_tu?"sinh "+nsLua(l):"trên 17 tuổi"}. Bấm vào tên để xem lịch sử điểm.</p>
- <div class="form" style="max-width:420px"><input id="tim" placeholder="Tìm theo tên hoặc số điện thoại" value="${esc(timXH)}" oninput="timXH=this.value;veXH()"></div>
- <div id="dsxh" style="margin-top:10px">${bangXH()}</div>
+ return `<h2>Điểm trình cá nhân<small>Xếp hạng trong từng lứa, bấm vào tên để xem hồ sơ</small></h2>
+ <div class="thanh-tab" style="margin-top:0"><div class="cuon tabs">${D.lua.map(x=>`<button class="${x.ma==luaXH?"on":""}" onclick="location.hash='#/xephang/${x.ma}'">${esc(x.ten)}</button>`).join("")}</div></div>
+ <p class="mo" style="margin-top:12px"><b style="color:#fff">${esc(l.ten)}</b>: ${l.nam_tu?"sinh "+nsLua(l):"trên 17 tuổi"}</p>
+ <div class="o-tim"><input id="tim" placeholder="Tìm theo tên hoặc số điện thoại" value="${esc(timXH)}" oninput="timXH=this.value;veXH()"></div>
+ <div id="dsxh" style="margin-top:14px">${bangXH()}</div>
  ${D.hoc_vien.some(h=>h.mau)?`<div class="canh"><b>Các bạn gắn nhãn MẪU là dữ liệu mẫu</b> để xem giao diện. Học viên thật đã có đủ trong sổ nhưng chưa được HLV chấm lần nào. Có lần chấm thật thì xoá các dòng mẫu.</div>`:""}
- ${(n=>n?`<p class="mo">Học viên chưa có năm sinh thì chưa xếp được lứa. Tìm theo tên ở trang Tra cứu cho con; admin điền năm sinh vào sổ điểm thì bé tự vào đúng lứa.</p>`:"")(D.hoc_vien.filter(h=>!h.nam).length)}`;
+ ${D.hoc_vien.some(h=>!h.nam)?`<p class="mo nho">Học viên chưa có năm sinh thì chưa xếp được lứa. Tìm theo tên ở trang Tra cứu cho con; admin điền năm sinh vào sổ điểm thì bé tự vào đúng lứa.</p>`:""}`;
 }
 let locXH="hoc",soHien=50;
 function veXH(){soHien=50;$("#dsxh").innerHTML=bangXH()}
 function khopTim(h,q,qs){return h.ten.toLowerCase().includes(q)||(qs.length>=3&&h.sdt.replace(/\D/g,"").includes(qs))}
+const phu=h=>[h.nam?"Sinh "+h.nam:"",h.sdt,h.co_so].filter(Boolean).map(esc).join(" &middot; ");
 function bangXH(){
  const q=timXH.trim().toLowerCase(),qs=q.replace(/\D/g,"");
  let ds=D.hoc_vien.filter(h=>h.lua==luaXH&&h.diem!=null&&!h.nghi).sort((a,b)=>a.hang-b.hang||a.ten.localeCompare(b.ten,"vi"));
  if(q)ds=ds.filter(h=>khopTim(h,q,qs));
  const tatCa=D.hoc_vien.filter(h=>h.lua==luaXH&&h.diem==null);
- let o=ds.length?`<div class="bang-wrap"><table class="xh"><tr><th>Hạng</th><th>Học viên</th><th>Năm sinh</th><th>SĐT phụ huynh</th><th>Điểm trình</th><th>Mức</th><th>Thay đổi</th><th>Chấm gần nhất</th></tr>
- ${ds.map(h=>`<tr class="bam ${h.hang<=3?"top3":""}" onclick="location.hash='#/hv/${h.ma}'"><td>${h.hang}</td><td><b>${esc(h.ten)}</b>${nhanMau(h)}${nhanVuot(h)}${h.co_so?`<div class="mo">${esc(h.co_so)}</div>`:""}</td><td>${h.nam}</td><td style="white-space:nowrap">${esc(h.sdt)}</td><td class="diem">${h.diem}</td><td><span class="tag muc2">${esc(h.ls[h.ls.length-1].muc)}</span></td><td>${doiDiem(h)}</td><td class="mo">${fd(h.lan)}</td></tr>`).join("")}</table></div>`
+ let o=ds.length?`<div class="ds-hv">${ds.map(h=>`<a class="hang-hv${hang3(h)}" href="#/hv/${h.ma}"><span class="so-hang">${h.hang}</span><div class="tt"><b>${esc(h.ten)}</b>${nhanMau(h)}${nhanVuot(h)}<small>${phu(h)}</small></div><div class="diem-o"><b>${h.diem}</b><small>${esc(h.ls[h.ls.length-1].muc)}</small>${doiDiem(h)}</div></a>`).join("")}</div>`
   :`<p class="trong">${q?"Không thấy học viên đã chấm khớp.":"Lứa này chưa có học viên được chấm điểm."}</p>`;
  o+=bangVuot();
  // Hoc vien chua cham: hien day du danh sach de admin, HLV thay ai can cham
  let cc=tatCa.filter(h=>locXH=="hoc"?!h.nghi:locXH=="nghi"?h.nghi:1);
  if(q)cc=cc.filter(h=>khopTim(h,q,qs));
  cc.sort((a,b)=>(a.nghi?1:0)-(b.nghi?1:0)||a.ten.split(" ").pop().localeCompare(b.ten.split(" ").pop(),"vi")||a.ten.localeCompare(b.ten,"vi"));
- o+=`<h3>Chưa được chấm điểm</h3><div class="tabs">${[["hoc","Đang học"],["nghi","Đã nghỉ"],["tat","Tất cả"]].map(([k,t])=>`<button class="${k==locXH?"on":""}" onclick="locXH='${k}';veXH()">${t}</button>`).join("")}</div>`;
+ o+=`<h3>Chưa được chấm điểm</h3><div class="cuon tabs nho" style="margin-bottom:10px">${[["hoc","Đang học"],["nghi","Đã nghỉ"],["tat","Tất cả"]].map(([k,t])=>`<button class="${k==locXH?"on":""}" onclick="locXH='${k}';veXH()">${t}</button>`).join("")}</div>`;
  if(!cc.length)return o+`<p class="trong">${q?"Không thấy học viên khớp.":"Không có học viên."}</p>`;
- o+=`<div class="bang-wrap"><table class="xh"><tr><th>Học viên</th><th>Năm sinh</th><th>SĐT phụ huynh</th><th>Trạng thái</th></tr>
- ${cc.slice(0,soHien).map(h=>`<tr class="bam" onclick="location.hash='#/hv/${h.ma}'"><td><b>${esc(h.ten)}</b>${nhanVuot(h)}${h.co_so?`<div class="mo">${esc(h.co_so)}</div>`:""}</td><td>${h.nam}</td><td style="white-space:nowrap">${esc(h.sdt)}</td><td>${h.nghi?`<span class="tag nghi">Đã nghỉ</span>`:`<span class="tag chua">Chưa chấm</span>`}</td></tr>`).join("")}</table></div>`;
- if(cc.length>soHien)o+=`<button class="them" onclick="soHien+=100;$('#dsxh').innerHTML=bangXH()">Xem thêm</button>`;
+ o+=`<div class="ds-hv">${cc.slice(0,soHien).map(h=>`<a class="hang-hv khong-hang" href="#/hv/${h.ma}"><div class="tt"><b>${esc(h.ten)}</b>${nhanVuot(h)}<small>${phu(h)}</small></div><div>${h.nghi?`<span class="tag nghi">Đã nghỉ</span>`:`<span class="tag chua">Chưa chấm</span>`}</div></a>`).join("")}</div>`;
+ if(cc.length>soHien)o+=`<button class="them" onclick="soHien+=100;$('#dsxh').innerHTML=bangXH()">Xem thêm (${cc.length-soHien} bé)</button>`;
  return o;
 }
 function bangVuot(){
  const ds=D.hoc_vien.filter(h=>h.vuot==luaXH&&h.diem!=null&&!h.nghi).sort((a,b)=>quyDoi(b)-quyDoi(a));
  if(!ds.length)return "";
- return `<h3>Đá vượt lên ${esc(tenLua(luaXH))}</h3><p class="mo">Các bé này xếp hạng ở lứa theo năm sinh. Khi xếp đội ${esc(tenLua(luaXH))}, HLV dùng điểm quy đổi = điểm trình x hệ số (hạ ${soVN(D.ha_moi_tuoi??0.2)} mỗi tuổi bé nhỏ hơn).</p>
- <div class="bang-wrap"><table class="xh"><tr><th>Học viên</th><th>Lứa gốc</th><th>Điểm trình</th><th>Hệ số</th><th>Điểm quy đổi</th><th>HLV ghi chú</th></tr>
- ${ds.map(h=>`<tr class="bam" onclick="location.hash='#/hv/${h.ma}'"><td><b>${esc(h.ten)}</b>${nhanMau(h)}</td><td>${esc(tenLua(h.lua))}</td><td>${h.diem}</td><td>x ${soVN(h.he_so)}<div class="mo">nhỏ ${h.tuoi_nho} tuổi</div></td><td class="diem">${quyDoi(h)??""}</td><td class="mo">${esc(h.vuot_gc||"")}</td></tr>`).join("")}</table></div>`;
+ return `<h3>Đá vượt lên ${esc(tenLua(luaXH))}</h3><p class="mo nho">Các bé này xếp hạng ở lứa theo năm sinh. Khi xếp đội ${esc(tenLua(luaXH))}, HLV dùng điểm quy đổi = điểm trình x hệ số (hạ ${soVN(D.ha_moi_tuoi??0.2)} mỗi tuổi bé nhỏ hơn).</p>
+ <div class="ds-hv">${ds.map(h=>`<a class="hang-hv khong-hang" href="#/hv/${h.ma}"><div class="tt"><b>${esc(h.ten)}</b>${nhanMau(h)}<small>Lứa gốc ${esc(tenLua(h.lua))} &middot; ${h.diem} x ${soVN(h.he_so)} (nhỏ ${h.tuoi_nho} tuổi)${h.vuot_gc?" &middot; HLV: "+esc(h.vuot_gc):""}</small></div><div class="diem-o"><b>${quyDoi(h)??""}</b><small>quy đổi</small></div></a>`).join("")}</div>`;
+}
+
+/* ---------- ho so hoc vien ---------- */
+function vong(d){const c=2*Math.PI*54;return `<div class="vong"><svg viewBox="0 0 128 128"><circle cx="64" cy="64" r="54" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="11"/><circle cx="64" cy="64" r="54" fill="none" stroke="#E6F53A" stroke-width="11" stroke-linecap="round" stroke-dasharray="${c*d/100} ${c}"/></svg><div class="so"><b>${d}</b><small>trên 100</small></div></div>`}
+function radar(vals){
+ // 4 truc: tren KT, phai HB, duoi TL, trai TD. vals null = cho du lieu
+ const cx=150,cy=112,R=72,nh=D.radar_nhom,goc=[-90,0,90,180].map(a=>a*Math.PI/180);
+ const pt=(i,r)=>[cx+r*Math.cos(goc[i]),cy+r*Math.sin(goc[i])];
+ const da=(k,dash)=>`<polygon points="${goc.map((_,i)=>pt(i,R*k).join(",")).join(" ")}" fill="none" stroke="rgba(255,255,255,${k==1?.3:.14})" ${dash?'stroke-dasharray="4 4"':""}/>`;
+ let s=`<svg class="radar" viewBox="0 0 300 228" role="img" aria-label="Biểu đồ năng lực 4 nhóm">${[.25,.5,.75,1].map(k=>da(k,!vals)).join("")}${goc.map((_,i)=>`<line x1="${cx}" y1="${cy}" x2="${pt(i,R)[0]}" y2="${pt(i,R)[1]}" stroke="rgba(255,255,255,.14)"/>`).join("")}`;
+ if(vals)s+=`<polygon points="${nh.map((n,i)=>pt(i,R*Math.max(0,Math.min(100,vals[n.ma]||0))/100).join(",")).join(" ")}" fill="rgba(230,245,58,.28)" stroke="#E6F53A" stroke-width="2.5"/>`;
+ const nhan=[[cx,cy-R-12,"middle"],[cx+R+10,cy-4,"start"],[cx,cy+R+22,"middle"],[cx-R-10,cy-4,"end"]];
+ nh.forEach((n,i)=>{const [x,y,a]=nhan[i],w=n.ten.split(" "),dong=w.length>2?[w.slice(0,2).join(" "),w.slice(2).join(" ")]:[n.ten];
+  s+=`<text x="${x}" y="${y}" text-anchor="${a}" fill="#fff" font-size="13" font-weight="700" font-family="Be Vietnam Pro, sans-serif">${dong.map((d,j)=>`<tspan x="${x}" dy="${j?15:0}">${esc(d)}</tspan>`).join("")}${vals?`<tspan x="${x}" dy="15" fill="#E6F53A">${vals[n.ma]??"-"}</tspan>`:""}</text>`});
+ return s+`</svg>`;
+}
+function bieuDo(ls){
+ const W=340,H=180,l=30,r=24,t=24,b=30,n=ls.length,x=i=>n<2?(l+W-r)/2:l+i*(W-l-r)/(n-1),y=v=>t+(100-v)*(H-t-b)/100;
+ let s=`<svg class="bieu-do" viewBox="0 0 ${W} ${H}" role="img" aria-label="Biểu đồ tiến bộ điểm trình">`;
+ [0,25,50,75,100].forEach(v=>s+=`<line x1="${l}" x2="${W-r}" y1="${y(v)}" y2="${y(v)}" stroke="rgba(255,255,255,.1)"/><text x="${l-6}" y="${y(v)+4}" text-anchor="end" font-size="10" fill="#8fb09b">${v}</text>`);
+ const p=ls.map((z,i)=>[x(i),y(z.diem)]);
+ if(n>1)s+=`<polygon points="${p[0][0]},${y(0)} ${p.map(q=>q.join(",")).join(" ")} ${p[n-1][0]},${y(0)}" fill="rgba(230,245,58,.12)"/><polyline points="${p.map(q=>q.join(",")).join(" ")}" fill="none" stroke="#E6F53A" stroke-width="3" stroke-linejoin="round"/>`;
+ const buoc=Math.ceil(n/6);
+ ls.forEach((z,i)=>{s+=`<circle cx="${p[i][0]}" cy="${p[i][1]}" r="5" fill="#052e18" stroke="#E6F53A" stroke-width="3"/><text x="${p[i][0]}" y="${p[i][1]-11}" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">${z.diem}</text>`;
+  if(i%buoc==0||i==n-1)s+=`<text x="${p[i][0]}" y="${H-10}" text-anchor="middle" font-size="10.5" fill="#b9d2c1">${fd(z.ngay).slice(0,5)}</text>`});
+ return s+`</svg>`;
+}
+function khoiChoSan(h){
+ const cd=D.cap_do,co=cd.some(c=>c.ma==h.cap_do),rd=h.radar&&typeof h.radar=="object"?h.radar:null;
+ return `<div class="luoi hai" style="margin-top:12px">
+ <div class="the"><span class="tde">Cấp độ${co?"":`<span class="cho">Chờ dữ liệu</span>`}</span>
+ <div class="cap-do">${cd.map(c=>`<div class="${c.ma==h.cap_do?"on":""}"><b>${esc(c.ma)}</b><small>${esc(c.mo_ta||"")}</small></div>`).join("")}</div>
+ <p class="mo nho" style="margin:0">${co?"Cấp độ hiện tại do HLV xếp.":"HLV chưa xếp cấp độ cho bé. Khi có dữ liệu, ô cấp độ của bé sẽ sáng lên."}</p></div>
+ <div class="the"><span class="tde">Năng lực 4 nhóm${rd?"":`<span class="cho">Chờ dữ liệu</span>`}</span>${radar(rd)}
+ <p class="mo nho" style="margin:0">${rd?"Thang 0-100, HLV chấm theo chuẩn lứa.":"Biểu đồ mạng nhện kỹ thuật, hiểu biết chơi bóng, thể lực, thái độ sẽ hiện khi HLV nhập điểm 4 nhóm."}</p></div></div>`;
 }
 function trangHV(ma){
  const h=D.hoc_vien.find(x=>x.ma==ma);if(!h)return `<p class="trong">Không thấy học viên.</p>`;
  const n=h.ls.length,c=n?h.ls[n-1]:null,tr=n>1?h.ls[n-2]:null;
- let o=`<p><a href="${h.lua?"#/xephang/"+h.lua:"#/dangky"}" class="mo">&larr; ${h.lua?"Bảng điểm "+esc(tenLua(h.lua)):"Tra cứu"}</a></p>
- <section class="hero san"><span class="may">Hồ sơ học viên &middot; ${esc(h.ma)}</span><br><span class="tag sap">${h.lua?esc(tenLua(h.lua)):"Chưa xếp lứa"}</span>${nhanVuot(h)}${h.vi_tri?`<span class="tag">${esc(h.vi_tri)}</span>`:""}${h.nghi?`<span class="tag">Đã nghỉ</span>`:""}${nhanMau(h)}<h1>${esc(h.ten)}</h1>
- <p>${h.nam?"Sinh "+h.nam:"Chưa có năm sinh"}${h.co_so?" &middot; "+esc(h.co_so):""} ${h.sdt?" &middot; SĐT phụ huynh "+esc(h.sdt):""}</p>`;
- if(h.vuot&&c)o+=`<div class="canh" style="color:var(--chu)"><b>Đá vượt lên ${esc(tenLua(h.vuot))}.</b> Điểm trình ${c.diem} chấm theo chuẩn ${esc(tenLua(h.lua))}. Điểm quy đổi khi xếp đội ${esc(tenLua(h.vuot))}: <b>${quyDoi(h)}</b> (= ${c.diem} x ${soVN(h.he_so)}, bé nhỏ hơn ${h.tuoi_nho} tuổi so với năm sinh nhỏ nhất của ${esc(tenLua(h.vuot))}).${h.vuot_gc?`<br>HLV ghi chú: ${esc(h.vuot_gc)}`:""}</div>`;
- if(!c)return o+`</section><div class="the" style="margin-top:14px;text-align:center;padding:34px"><div class="diem">Chưa có điểm trình</div><p class="mo" style="margin:6px 0 0">Bé chưa được HLV chấm lần nào. Điểm sẽ hiện sau giải đấu, khoá học hoặc đợt kiểm tra gần nhất.</p></div>`;
+ let o=`<a href="${h.lua?"#/xephang/"+h.lua:"#/dangky"}" class="lui">&larr; ${h.lua?"Bảng điểm "+esc(tenLua(h.lua)):"Tra cứu"}</a>
+ <section class="hero"><div class="ho-so-dau"><div class="vt">${esc(chuDau(h.ten))}</div><div>
+ <span class="tag sap">${h.lua?esc(tenLua(h.lua)):"Chưa xếp lứa"}</span>${nhanVuot(h)}${h.vi_tri?`<span class="tag">${esc(h.vi_tri)}</span>`:""}${h.nghi?`<span class="tag nghi">Đã nghỉ</span>`:""}${nhanMau(h)}
+ <h1>${esc(h.ten)}</h1><div class="mo nho">Mã ${esc(h.ma)}${h.nam?" &middot; Sinh "+h.nam:" &middot; Chưa có năm sinh"}${h.co_so?" &middot; "+esc(h.co_so):""}${h.sdt?"<br>SĐT phụ huynh "+esc(h.sdt):""}</div></div></div>`;
+ if(!c)return o+`</section>${khoiChoSan(h)}<div class="the" style="margin-top:12px;text-align:center;padding:30px"><span class="tde" style="color:var(--chanh)">Chưa có điểm trình</span><p class="mo" style="margin:0">Bé chưa được HLV chấm lần nào. Điểm sẽ hiện sau giải đấu, khoá học hoặc đợt kiểm tra gần nhất.</p></div>`;
+ o+=`<div class="bang-diem">${vong(c.diem)}<div class="chi-so"><div><span class="k">Mức trình</span><span class="tag muc" style="font-size:14px">${esc(c.muc)}</span></div>
+ <div><span class="k">Hạng trong lứa ${h.lua?esc(tenLua(h.lua)):""}</span><b>${h.hang?h.hang+`<small class="mo" style="font-size:15px"> / ${h.tong}</small>`:"-"}</b></div>
+ ${h.cap_do?`<div><span class="k">Cấp độ</span><b style="font-size:18px;color:var(--chanh)">${esc(h.cap_do)}</b></div>`:""}</div>
+ <div style="grid-column:1/-1;min-width:0" class="tru-o">${barTru(c.goc,tr&&tr.goc)}</div></div>
+ <p class="mo nho" style="margin:8px 0 0">Chấm ngày ${fd(c.ngay)} &middot; ${esc(c.loai)}: ${esc(c.dot)}${c.hlv?" &middot; HLV "+esc(c.hlv):""}</p></section>`;
+ if(h.vuot)o+=`<div class="canh"><b>Đá vượt lên ${esc(tenLua(h.vuot))}.</b> Điểm trình ${c.diem} chấm theo chuẩn ${esc(tenLua(h.lua))}. Điểm quy đổi khi xếp đội ${esc(tenLua(h.vuot))}: <b>${quyDoi(h)}</b> (= ${c.diem} x ${soVN(h.he_so)}, bé nhỏ hơn ${h.tuoi_nho} tuổi so với năm sinh nhỏ nhất của ${esc(tenLua(h.vuot))}).${h.vuot_gc?`<br>HLV ghi chú: ${esc(h.vuot_gc)}`:""}</div>`;
+ o+=khoiChoSan(h);
  const xs=D.tru.map(t=>[t.ma,c.goc[t.ma]]).sort((a,b)=>b[1]-a[1]);
- o+=`<div style="display:flex;gap:30px;flex-wrap:wrap;align-items:flex-start">
- <div><div style="opacity:.8;font-size:13px">Điểm trình</div><div style="font-size:52px;font-weight:800;color:var(--vang);line-height:1.1">${c.diem}<span style="font-size:18px;opacity:.7">/100</span></div><span class="muc">${esc(c.muc)}</span></div>
- ${h.hang?`<div><div style="opacity:.8;font-size:13px">Hạng trong lứa</div><div style="font-size:52px;font-weight:800;line-height:1.1">${h.hang}</div></div>`:""}
- <div style="flex:1 1 300px;min-width:260px">${barTru(c.goc,tr&&tr.goc)}</div></div>
- <p style="margin:14px 0 0;font-size:13px;opacity:.8">Chấm ngày ${fd(c.ngay)} &middot; ${esc(c.loai)}: ${esc(c.dot)}${c.hlv?" &middot; HLV "+esc(c.hlv):""}</p></section>
- <div class="luoi to" style="margin-top:14px">
- <div class="the"><b>Mạnh nhất</b><div class="diem">${esc(tenTru(xs[0][0]))}</div><div class="mo">${xs[0][1]} điểm</div></div>
- <div class="the"><b>Cần cải thiện</b><div class="diem" style="color:var(--do)">${esc(tenTru(xs[3][0]))}</div><div class="mo">${xs[3][1]} điểm</div></div>
- <div class="the" style="border-left:5px solid var(--vang)"><b>HLV giao tập tiếp</b><div>${esc(c.can_tap)||'<span class="mo">Chưa ghi</span>'}</div>${c.nx?`<div class="mo" style="margin-top:6px">Nhận xét: ${esc(c.nx)}</div>`:""}</div></div>
- <h2>Tiến bộ qua các lần chấm</h2>
- <div class="the">${h.ls.map(x=>`<div style="display:grid;grid-template-columns:86px 1fr 46px;gap:10px;align-items:center;margin:6px 0"><span class="mo">${fd(x.ngay)}</span><div style="background:#eef3ee;border-radius:6px;overflow:hidden"><div style="width:${x.diem}%;background:var(--xanh2);height:14px"></div></div><b>${x.diem}</b></div>`).join("")}</div>
- <div class="bang-wrap" style="margin-top:12px"><table><tr><th>Ngày</th><th>Đợt</th>${D.tru.map(t=>`<th>${esc(t.ten)}</th>`).join("")}<th>Điểm</th><th>Mức</th></tr>${[...h.ls].reverse().map(x=>`<tr><td>${fd(x.ngay)}</td><td><span class="tag">${esc(x.loai)}</span><div class="mo">${esc(x.dot)}</div></td>${D.tru.map(t=>`<td>${x.goc[t.ma]}</td>`).join("")}<td><b>${x.diem}</b></td><td>${esc(x.muc)}</td></tr>`).join("")}</table></div>
- <h2>Chi tiết lần chấm gần nhất</h2><div class="luoi to">${(()=>{let i=0;return D.tru.map(t=>`<div class="the"><b>${esc(t.ten)}</b>${t.tc.map(k=>{const v=c.tc[i++];return `<div class="tru" style="grid-template-columns:1fr 90px 26px"><span class="mo">${esc(k)}</span><div class="bar"><div style="width:${v*10}%"></div></div><b>${v}</b></div>`}).join("")}</div>`).join("")})()}</div>
- <p class="mo">HLV chấm mỗi tiêu chí 1-10, so với chuẩn của lứa ${esc(tenLua(h.lua))}.</p>`;
+ o+=`<h2>Nhận xét của HLV</h2><div class="luoi hai">
+ <div class="the nx" style="grid-column:1/-1"><span class="tde">HLV giao tập tiếp</span><q>${esc(c.can_tap)||'<span class="mo">Chưa ghi</span>'}</q>${c.nx?`<p class="mo" style="margin:8px 0 0">Nhận xét: ${esc(c.nx)}</p>`:""}</div>
+ <div class="the"><span class="tde">Mạnh nhất</span><b style="font-size:20px;color:var(--len)">${esc(tenTru(xs[0][0]))}</b><div class="mo nho">${xs[0][1]} điểm</div></div>
+ <div class="the"><span class="tde">Cần cải thiện</span><b style="font-size:20px;color:var(--do)">${esc(tenTru(xs[xs.length-1][0]))}</b><div class="mo nho">${xs[xs.length-1][1]} điểm</div></div></div>
+ <h2>Biểu đồ tiến bộ<small>${n} lần chấm</small></h2><div class="the">${bieuDo(h.ls)}</div>
+ <h2>Lịch sử chấm</h2><div class="lan">${[...h.ls].reverse().map((x,i,a)=>{const tc=a[i+1];return `<div class="the"><div class="dau-lan"><div><b>${fd(x.ngay)}</b> <span class="tag">${esc(x.loai)}</span><div class="mo nho">${esc(x.dot)}${x.hlv?" &middot; HLV "+esc(x.hlv):""}</div></div><div class="diem-o"><b>${x.diem}</b><small>${esc(x.muc)}</small></div></div>
+ <div class="bon">${D.tru.map(t=>{const d=tc?x.goc[t.ma]-tc.goc[t.ma]:0;return `<div><span>${esc(t.ten)}</span><b>${x.goc[t.ma]}${d?` <small class="${d>0?"len":"xuong"}">${d>0?"+":""}${d}</small>`:""}</b></div>`}).join("")}</div>${x.nx?`<p class="mo nho" style="margin:8px 0 0">HLV: ${esc(x.nx)}</p>`:""}</div>`}).join("")}</div>
+ <h2>Chi tiết lần chấm gần nhất<small>HLV chấm mỗi tiêu chí 1-10, so với chuẩn của lứa ${esc(tenLua(h.lua))}</small></h2><div class="luoi hai">${(()=>{let i=0;return D.tru.map(t=>`<div class="the"><span class="tde">${esc(t.ten)}</span>${t.tc.map(k=>{const v=c.tc[i++];return `<div class="tru"><span class="mo">${esc(k)}</span><div class="bar"><div style="width:${v*10}%"></div></div><b>${v}</b></div>`}).join("")}</div>`).join("")})()}</div>`;
  if(h.tl.length){const f=h.tl[0],l=h.tl[h.tl.length-1],tot=[-1,1,1,1];
-  o+=`<h2>Kiểm tra thể lực</h2><div class="bang-wrap"><table><tr><th>Bài đo</th><th>Lần đầu (${fd(f.ngay)})</th><th>Gần nhất (${fd(l.ngay)})</th><th>Thay đổi</th></tr>${D.test.map((t,i)=>{const a=f.kq[i],b=l.kq[i];if(a==null&&b==null)return "";const d=a!=null&&b!=null&&h.tl.length>1?+(b-a).toFixed(2):null;
-  return `<tr><td>${esc(t)}</td><td>${a??"-"}</td><td><b>${b??"-"}</b></td><td>${d==null||d==0?"-":`<span class="${d*tot[i]>0?"len":"xuong"}">${d>0?"+":""}${d}</span>`}</td></tr>`}).join("")}</table></div>
-  <p class="mo">Số đo chỉ để con so với chính mình, không cộng vào điểm trình. Chỉ so các lần đo cùng cách bấm giờ.</p>`}
+  o+=`<h2>Kiểm tra thể lực</h2><div class="bang-wrap"><table><tr><th>Bài đo</th><th class="so">Đầu<br>${fd(f.ngay).slice(0,5)}</th><th class="so">Mới<br>${fd(l.ngay).slice(0,5)}</th><th class="so">Đổi</th></tr>${D.test.map((t,i)=>{const a=f.kq[i],b=l.kq[i];if(a==null&&b==null)return "";const d=a!=null&&b!=null&&h.tl.length>1?+(b-a).toFixed(2):null;
+  return `<tr><td>${esc(t)}</td><td class="so">${a??"-"}</td><td class="so"><b>${b??"-"}</b></td><td class="so">${d==null||d==0?"-":`<span class="${d*tot[i]>0?"len":"xuong"}">${d>0?"+":""}${d}</span>`}</td></tr>`}).join("")}</table></div>
+  <p class="mo nho" style="margin-top:10px">Số đo chỉ để con so với chính mình, không cộng vào điểm trình. Chỉ so các lần đo cùng cách bấm giờ.</p>`}
  return o;
 }
 
+/* ---------- tra cuu cho con ---------- */
 function trangDK(){
  const sap=D.giai.filter(g=>g.trang_thai=="sap"&&g.form);
- return `<h2>Tra cứu cho con</h2>
- <div class="luoi to"><div class="the form">
- <b>Con thi đấu lứa nào?</b>
- <label>Năm sinh</label><input id="ns" type="number" min="1950" max="${D.mua}" placeholder="vd 2016">
- <p><button class="btn" onclick="tra()">Xem lứa</button></p><div id="kq"></div></div>
- <div class="the form"><b>Điểm trình của con</b>
- <label>Họ tên con hoặc số điện thoại phụ huynh (7 số đầu)</label><input id="tk" placeholder="vd Nguyễn Minh An hoặc 0912345">
- <p><button class="btn" onclick="traHV()">Tìm</button></p><div id="kq2"></div></div></div>
- ${sap.length?`<h2>Giải đang mở đăng ký</h2><div class="luoi to">${sap.map(theGiai).join("")}</div>`:""}`;
+ return `<h2>Tra cứu cho con<small>Xem lứa thi đấu và điểm trình của con</small></h2>
+ <div class="luoi hai"><div class="the form">
+ <span class="tde">Con thi đấu lứa nào?</span>
+ <label for="ns">Năm sinh của con</label><input id="ns" type="number" inputmode="numeric" min="1950" max="${D.mua}" placeholder="Ví dụ 2016">
+ <div class="nut-hang" style="margin-top:12px"><button class="btn" onclick="tra()">Xem lứa</button></div><div id="kq"></div></div>
+ <div class="the form"><span class="tde">Điểm trình của con</span>
+ <label for="tk">Họ tên con hoặc số điện thoại phụ huynh (7 số đầu)</label><input id="tk" placeholder="Ví dụ Nguyễn Minh An hoặc 0912345" onkeydown="if(event.key=='Enter')traHV()">
+ <div class="nut-hang" style="margin-top:12px"><button class="btn" onclick="traHV()">Tìm</button></div><div id="kq2"></div></div></div>
+ ${sap.length?`<h2>Giải đang mở đăng ký</h2><div class="luoi">${sap.map(theGiai).join("")}</div>`:""}`;
 }
 function tra(){
  const y=$("#ns").value,l=luaTheoNam(y),el=$("#kq");
- if(!y||y<1950||y>D.mua){el.innerHTML=`<p style="color:var(--do)">Nhập năm sinh hợp lệ.</p>`;return}
+ if(!y||y<1950||y>D.mua){el.innerHTML=`<p style="color:var(--do);margin-top:10px">Nhập năm sinh hợp lệ.</p>`;return}
  if(!l){el.innerHTML=`<div class="the kq">Bé sinh ${esc(y)} còn nhỏ hơn lứa U7 (sinh ${D.lua[0].nam_tu} - ${D.lua[0].nam_den}). Phụ huynh liên hệ hotline để được tư vấn lớp phù hợp.</div>`;return}
  const i=D.lua.findIndex(x=>x.ma==l.ma),v=D.lua[i+1];
  const g=D.giai.filter(x=>x.trang_thai=="sap"&&x.lua.includes(l.ma));
- el.innerHTML=`<div class="the kq"><div class="mo">Lứa thi đấu</div><div class="lon">${esc(l.ten)}</div>
- <p class="mo">${v?`Được đá vượt tối đa 1 lứa, lên ${esc(v.ten)}. Khi xếp đội ${esc(v.ten)}, điểm trình của bé nhân hệ số ${soVN(+(1-(D.ha_moi_tuoi??0.2)*Math.max(1,y-v.nam_den)).toFixed(2))} (bé nhỏ hơn ${Math.max(1,y-v.nam_den)} tuổi so với năm sinh nhỏ nhất của ${esc(v.ten)}). Không đá xuống lứa nhỏ hơn.`:"Không đá xuống lứa nhỏ hơn."}</p>
- ${g.length?g.map(x=>`<a class="btn" target="_blank" href="${esc(x.form)}">Đăng ký ${esc(x.ten)}</a>`).join(" "):`<p class="mo">Hiện chưa có giải mở cho lứa ${esc(l.ten)}. Phụ huynh để lại số qua hotline để được báo khi mở giải.</p>`}</div>`;
+ el.innerHTML=`<div class="the kq"><div class="mo nho">Lứa thi đấu</div><div class="lon">${esc(l.ten)}</div>
+ <p class="mo nho">${v?`Được đá vượt tối đa 1 lứa, lên ${esc(v.ten)}. Khi xếp đội ${esc(v.ten)}, điểm trình của bé nhân hệ số ${soVN(+(1-(D.ha_moi_tuoi??0.2)*Math.max(1,y-v.nam_den)).toFixed(2))} (bé nhỏ hơn ${Math.max(1,y-v.nam_den)} tuổi so với năm sinh nhỏ nhất của ${esc(v.ten)}). Không đá xuống lứa nhỏ hơn.`:"Không đá xuống lứa nhỏ hơn."}</p>
+ ${g.length?`<div class="nut-hang">${g.map(x=>`<a class="btn" target="_blank" rel="noopener" href="${esc(x.form)}">Đăng ký ${esc(x.ten)}</a>`).join("")}</div>`:`<p class="mo nho">Hiện chưa có giải mở cho lứa ${esc(l.ten)}. Phụ huynh để lại số qua hotline để được báo khi mở giải.</p>`}</div>`;
 }
 function traHV(){
  const q=$("#tk").value.trim().toLowerCase(),qs=q.replace(/\D/g,""),el=$("#kq2");
- if(q.length<2){el.innerHTML=`<p style="color:var(--do)">Nhập họ tên hoặc số điện thoại.</p>`;return}
+ if(q.length<2){el.innerHTML=`<p style="color:var(--do);margin-top:10px">Nhập họ tên hoặc số điện thoại.</p>`;return}
  const ds=D.hoc_vien.filter(h=>qs.length>=7?h.sdt.replace(/\D/g,"").startsWith(qs.slice(0,7)):h.ten.toLowerCase().includes(q));
- el.innerHTML=ds.length?(ds.length>20?`<p class="mo">Có nhiều học viên khớp. Gõ thêm họ tên đầy đủ để lọc.</p>`:"")+ds.slice(0,20).map(h=>`<a class="the kq giai" style="margin-top:8px" href="#/hv/${h.ma}"><b>${esc(h.ten)}</b>${nhanMau(h)} <span class="tag">${h.lua?esc(tenLua(h.lua)):"Chưa xếp lứa"}</span>${h.nghi?`<span class="tag nghi">Đã nghỉ</span>`:""}<div class="mo">${h.nam?"Sinh "+h.nam+" &middot; ":""}${h.sdt?"SĐT "+esc(h.sdt):""}${h.co_so?" &middot; "+esc(h.co_so):""}</div><div class="diem">${h.diem??`<span class="mo" style="font-size:15px">Chưa chấm</span>`}${h.hang?` <span class="mo" style="font-size:14px">hạng ${h.hang}</span>`:""}</div></a>`).join(""):`<p class="mo">Chưa thấy hồ sơ. Phụ huynh nhắn hotline để admin kiểm tra.</p>`;
+ el.innerHTML=ds.length?`<div class="ds-hv" style="margin-top:12px">`+(ds.length>20?`<p class="mo nho">Có ${ds.length} học viên khớp. Gõ thêm họ tên đầy đủ để lọc.</p>`:"")+ds.slice(0,20).map(h=>`<a class="hang-hv khong-hang" href="#/hv/${h.ma}"><div class="tt"><b>${esc(h.ten)}</b>${nhanMau(h)} <span class="tag">${h.lua?esc(tenLua(h.lua)):"Chưa xếp lứa"}</span>${h.nghi?`<span class="tag nghi">Đã nghỉ</span>`:""}<small>${phu(h)}</small></div><div class="diem-o">${h.diem!=null?`<b>${h.diem}</b><small>${h.hang?"hạng "+h.hang:""}</small>`:`<span class="tag chua">Chưa chấm</span>`}</div></a>`).join("")+`</div>`:`<p class="mo" style="margin-top:10px">Chưa thấy hồ sơ. Phụ huynh nhắn hotline để admin kiểm tra.</p>`;
 }
 
+/* ---------- cach cham ---------- */
 function trangCach(){
  return `<h2>Cách 4YOU chấm điểm trình</h2>
- <div class="the"><p style="margin-top:0">Điểm trình là con số 0-100 cho biết <b>trình độ hiện tại</b> của con so với chuẩn của lứa tuổi. Điểm không phải dự đoán con sau này có thành cầu thủ chuyên nghiệp hay không. Mục đích là để phụ huynh và con biết con đang ở đâu, mạnh gì, cần tập gì.</p>
+ <div class="the"><p>Điểm trình là con số 0-100 cho biết <b>trình độ hiện tại</b> của con so với chuẩn của lứa tuổi. Điểm không phải dự đoán con sau này có thành cầu thủ chuyên nghiệp hay không. Mục đích là để phụ huynh và con biết con đang ở đâu, mạnh gì, cần tập gì.</p>
  <p class="mo" style="margin-bottom:0">HLV 4YOU chấm sau mỗi giải đấu, mỗi khoá học và mỗi đợt kiểm tra. Điểm hiện tại là lần chấm gần nhất.</p></div>
  <h2>4 trụ, 14 tiêu chí</h2>
- <div class="luoi to">${D.tru.map(t=>`<div class="the"><div style="display:flex;justify-content:space-between"><b>${esc(t.ten)}</b><span class="tag">${Math.round(t.w*100)}% điểm</span></div><ul style="margin:8px 0 0;padding-left:18px">${t.tc.map(k=>`<li>${esc(k)}</li>`).join("")}</ul></div>`).join("")}</div>
- <p class="mo">Mỗi tiêu chí HLV chấm 1-10 so với các bạn cùng lứa. Điểm mỗi trụ = trung bình các tiêu chí x 10. Điểm trình = tổng 4 trụ nhân tỉ lệ ở trên.</p>
+ <div class="luoi hai">${D.tru.map(t=>`<div class="the"><div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start"><span class="tde">${esc(t.ten)}</span><span class="tag muc">${Math.round(t.w*100)}%</span></div><ul class="ds mo">${t.tc.map(k=>`<li>${esc(k)}</li>`).join("")}</ul></div>`).join("")}</div>
+ <p class="mo nho" style="margin-top:12px">Mỗi tiêu chí HLV chấm 1-10 so với các bạn cùng lứa. Điểm mỗi trụ = trung bình các tiêu chí x 10. Điểm trình = tổng 4 trụ nhân tỉ lệ ở trên.</p>
  <h2>6 mức trình</h2>
- <div class="thang">${D.muc.map(([d,m],i)=>`<div style="${i==0?"border-color:var(--vang);background:#fffbe6":""}"><div class="diem">${d}+</div><b>${esc(m)}</b></div>`).join("")}</div>
+ <div class="thang">${D.muc.map(([d,m])=>`<div><b>${d}+</b>${esc(m)}</div>`).join("")}</div>
  <h2>Bài kiểm tra thể lực</h2>
- <div class="the"><ul style="margin:0;padding-left:18px">${D.test.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>
- <p class="mo" style="margin-bottom:0">Đo theo cách cố định, ghi riêng, KHÔNG cộng vào điểm trình. Con chỉ so với chính mình lần trước để thấy tiến bộ.</p></div>
- <p class="mo">Khung học theo footballreach.com (mô hình 4 góc của Liên đoàn bóng đá Anh), ở 4YOU do HLV chấm thay vì học viên tự chấm.</p>`;
+ <div class="the"><ul class="ds">${D.test.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>
+ <p class="mo nho" style="margin:10px 0 0">Đo theo cách cố định, ghi riêng, KHÔNG cộng vào điểm trình. Con chỉ so với chính mình lần trước để thấy tiến bộ.</p></div>
+ <p class="mo nho" style="margin-top:12px">Khung học theo footballreach.com (mô hình 4 góc của Liên đoàn bóng đá Anh), ở 4YOU do HLV chấm thay vì học viên tự chấm.</p>`;
 }
 
 /* ---------- dieu huong ---------- */
+const doHd=()=>{const e=document.querySelector("header");if(e&&e.offsetHeight)document.documentElement.style.setProperty("--hd",e.offsetHeight+"px")};
+addEventListener("resize",doHd);
 function ve(){if(!D)return;
  const p=location.hash.replace(/^#\/?/,"").split("/"),k=p[0]||"";
- document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.dataset.k==(k=="hv"?"xephang":k)));
+ document.querySelectorAll("#nav a").forEach(a=>{const on=a.dataset.k==(k=="hv"?"xephang":k);a.classList.toggle("on",on);if(on&&a.scrollIntoView)a.parentNode.scrollLeft=Math.max(0,a.offsetLeft-16)});
  $("#app").innerHTML=k=="giai"?(p[1]?trangGiai(p[1]):dsGiai()):k=="lua"?trangLua():k=="xephang"?trangXH(p[1]):k=="hv"?trangHV(p[1]):k=="cachcham"?trangCach():k=="dangky"?trangDK():trangChu();
+ doHd();
 }
 let cu="";addEventListener("hashchange",()=>{if(location.hash!=cu){cu=location.hash;scrollTo(0,0)}ve()});
 /* ---------- dang nhap: data.enc ma hoa AES-GCM, khoa sinh tu ma truy cap (PBKDF2) ---------- */
