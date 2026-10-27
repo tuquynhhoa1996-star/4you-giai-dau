@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#052e18">
-<title>4YOU SPORT - Giải đấu và điểm trình bóng đá trẻ</title>
+<title>4YOU SPORT - Giải đấu và điểm năng lực bóng đá trẻ</title>
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap">
@@ -347,7 +347,7 @@ body.bt #bt{display:block}body.bt{overflow:hidden}
 <body class="khoa">
 <section id="login"><div class="dn">
  <img src="logo.png" alt="4YOU SPORT">
- <h1>Giải đấu và <span>điểm trình</span> 4YOU</h1>
+ <h1>Giải đấu và <span>điểm năng lực</span> 4YOU</h1>
  <p class="gt">Lịch giải, bảng đấu và hành trình tiến bộ của con, do HLV 4YOU SPORT chấm sau mỗi giải, khoá học và đợt kiểm tra.</p>
  <form class="hop" id="fdn" onsubmit="dangNhap(event)">
   <div class="tab-dn"><button type="button" id="tph" class="on" onclick="cheDo('ph')">Phụ huynh</button><button type="button" id="tnb" onclick="cheDo('nb')">Nội bộ 4YOU</button></div>
@@ -355,21 +355,21 @@ body.bt #bt{display:block}body.bt{overflow:hidden}
   <div class="o-mk"><input id="mk" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ví dụ 0912345678" required><button type="button" id="hienmk" style="display:none" onclick="const i=$('#mk');i.type=i.type=='password'?'text':'password';this.textContent=i.type=='password'?'Hiện':'Ẩn'">Hiện</button></div>
   <button class="nut-dn" id="nutdn">Đăng nhập</button>
   <div class="loi-dn" id="loidn"></div>
-  <div class="ghi" id="ghidn">Nhập đúng số điện thoại đã đăng ký học ở 4YOU để xem hồ sơ và điểm trình của con. Mỗi số chỉ mở được hồ sơ của con mình.</div>
+  <div class="ghi" id="ghidn">Nhập đúng số điện thoại đã đăng ký học ở 4YOU để xem hồ sơ và điểm năng lực của con. Mỗi số chỉ mở được hồ sơ của con mình.</div>
  </form>
- <a class="mo-bt" href="#/baitest">⚽ <b>Con chưa học 4YOU?</b> Làm bài test trình độ 2 phút, miễn phí, không cần đăng ký.</a>
+ <a class="mo-bt" href="#/baitest">⚽ <b>Con chưa học 4YOU?</b> Làm bài test năng lực 2 phút, miễn phí, không cần đăng ký.</a>
  <div class="slogan">LET'S DO IT</div>
 </div></section>
 <section id="bt"><div class="bt-o" id="bto"></div></section>
 <header><div class="wrap">
  <div class="top">
-  <a class="logo" href="#/"><img src="logo.png" alt="4YOU SPORT"><span><b><span class="kim">4YOU</span> SPORT</b><small>Giải đấu và điểm trình</small></span></a>
+  <a class="logo" href="#/"><img src="logo.png" alt="4YOU SPORT"><span><b><span class="kim">4YOU</span> SPORT</b><small>Giải đấu và điểm năng lực</small></span></a>
   <button class="thoat" onclick="dangXuat()">Đăng xuất</button>
  </div>
  <nav id="nav" class="cuon">
   <a href="#/" data-k="" id="navhome">Trang chủ</a>
   <a href="#/giai" data-k="giai">Giải đấu</a>
-  <a href="#/xephang" data-k="xephang">Điểm trình</a>
+  <a href="#/xephang" data-k="xephang">Điểm năng lực</a>
   <a href="#/dangky" data-k="dangky" class="cta">Tra cứu cho con</a>
   <a href="#/lua" data-k="lua">Lứa tuổi</a>
   <a href="#/cachcham" data-k="cachcham">Cách chấm</a>
@@ -421,18 +421,18 @@ const nhanGiai=g=>`<span class="tag ${g.trang_thai}">${g.trang_thai=="sap"?"Sắ
 function trangChu(){
  const sap=D.giai.filter(g=>g.trang_thai=="sap");
  return `<section class="hero"><div class="hero-chu"><div>
- <span class="nhan">Giải đấu và điểm trình cá nhân</span>
- <h1>Mỗi bé một <span>điểm trình riêng</span></h1>
+ <span class="nhan">Giải đấu và điểm năng lực cá nhân</span>
+ <h1>Mỗi bé một <span>điểm năng lực riêng</span></h1>
  <p>HLV 4YOU SPORT chấm điểm sau mỗi giải, mỗi khoá học và mỗi đợt kiểm tra, để phụ huynh và các con biết mình đang ở đâu mà phấn đấu.</p>
- <div class="nut-hang"><a class="btn" href="#/dangky">Tra cứu cho con</a><a class="btn phu" href="#/xephang">Xem điểm trình</a></div>
+ <div class="nut-hang"><a class="btn" href="#/dangky">Tra cứu cho con</a><a class="btn phu" href="#/xephang">Xem điểm năng lực</a></div>
  <div class="so-lieu"><div><b>7</b><span>lứa U7 đến Ngoại hạng</span></div><div><b>14</b><span>tiêu chí HLV chấm</span></div><div><b>4</b><span>trụ phát triển</span></div></div>
  </div><img class="hero-logo" src="logo.png" alt="4YOU SPORT"></div></section>
- <h2>7 lứa thi đấu mùa ${D.mua}<small>Bấm vào lứa để xem bảng điểm trình</small></h2>
- <div class="luoi-lua">${D.lua.map(l=>`<a class="lua${l.nam_tu?"":" rong"}" href="#/xephang/${l.ma}"><div class="ma${l.ten.length>4?" dai":""}">${esc(l.ten)}</div><div class="ns">${l.nam_tu?"Sinh "+nsLua(l):"Trên 17 tuổi"}</div><span class="di">Điểm trình &rarr;</span></a>`).join("")}</div>
+ <h2>7 lứa thi đấu mùa ${D.mua}<small>Bấm vào lứa để xem bảng điểm năng lực</small></h2>
+ <div class="luoi-lua">${D.lua.map(l=>`<a class="lua${l.nam_tu?"":" rong"}" href="#/xephang/${l.ma}"><div class="ma${l.ten.length>4?" dai":""}">${esc(l.ten)}</div><div class="ns">${l.nam_tu?"Sinh "+nsLua(l):"Trên 17 tuổi"}</div><span class="di">Điểm năng lực &rarr;</span></a>`).join("")}</div>
  ${noiBat()}
  <h2>Giải sắp diễn ra</h2>
  <div class="luoi">${sap.map(theGiai).join("")||'<p class="mo">Chưa có giải sắp diễn ra.</p>'}</div>
- <h2>Điểm trình được chấm khi nào</h2>
+ <h2>Điểm năng lực được chấm khi nào</h2>
  <div class="luoi">${[["Sau mỗi giải đấu","HLV chấm theo phong độ thi đấu của từng bé trong giải."],["Sau mỗi khoá học","HLV chấm mức tiến bộ cuối khoá."],["Sau mỗi đợt kiểm tra","HLV chấm theo bài kiểm tra kỹ năng định kỳ."]].map(([a,b],i)=>`<div class="the buoc"><span class="so">${i+1}</span><div><b>${a}</b><div class="mo">${b}</div></div></div>`).join("")}</div>`;
 }
 /* Cau thu noi bat: top 3 diem trinh moi lua, chi ban noi bo (phu huynh chi xem con minh). Khong hien so dem. */
@@ -440,7 +440,7 @@ function noiBat(){
  if(D.chiCon)return "";
  const ds=D.lua.flatMap(l=>D.hoc_vien.filter(h=>h.lua==l.ma&&h.diem!=null&&!h.nghi&&h.hang<=3).sort((a,b)=>a.hang-b.hang||a.ten.localeCompare(b.ten,"vi")).slice(0,3));
  if(!ds.length)return "";
- return `<h2>Cầu thủ nổi bật<small>Top 3 điểm trình mỗi lứa, vuốt ngang để xem, bấm vào để mở hồ sơ</small></h2>
+ return `<h2>Cầu thủ nổi bật<small>Top 3 điểm năng lực mỗi lứa, vuốt ngang để xem, bấm vào để mở hồ sơ</small></h2>
  <div class="nb">${ds.map(h=>`<a class="nb-the${hang3(h)}" href="#/hv/${h.ma}"><span class="so-hang">${h.hang}</span><div class="av">${esc(chuDau(h.ten))}</div><b>${esc(h.ten)}</b><small>${esc(tenLua(h.lua))}${h.co_so?" &middot; "+esc(h.co_so):""}</small><div class="d">${h.diem}</div><small>${esc(h.ls[h.ls.length-1].muc)}</small>${h.mau?`<div style="margin-top:6px"><span class="tag mau">MẪU</span></div>`:""}</a>`).join("")}</div>`;
 }
 /* Bang vinh danh: lay tu tran Chung ket/Ban ket co ti so (hoac g.vinh_danh dien tay), danh hieu ca nhan tu g.ca_nhan,
@@ -521,9 +521,9 @@ function trangLua(){
  return `<h2>Lứa tuổi mùa ${D.mua}</h2>
  <div class="bang-wrap"><table><tr><th>Lứa</th><th>Năm sinh</th><th>Ghi chú</th></tr>${D.lua.map(l=>`<tr><td><b style="color:var(--chanh)">${esc(l.ten)}</b></td><td>${nsLua(l)}</td><td class="mo nho">${esc(l.ghi_chu||"")}</td></tr>`).join("")}</table></div>
  <p class="mo nho" style="margin-top:10px">Lứa Ux nhận bé sinh năm (${D.mua} - x) và năm liền sau. Ngoại hạng là người trên 17 tuổi. Sang mùa mới, năm sinh tự dịch lên 1.</p>
- <h2>Điểm trình cá nhân</h2>
+ <h2>Điểm năng lực cá nhân</h2>
  <div class="the"><ol class="ds">
- <li>Mỗi học viên có 1 điểm trình riêng do HLV chấm. Điểm này để xếp trình độ cá nhân, không phải xếp hạng đội.</li>
+ <li>Mỗi học viên có 1 điểm năng lực riêng do HLV chấm. Điểm này để đánh giá năng lực cá nhân, không phải xếp hạng đội.</li>
  <li>Admin cập nhật điểm sau mỗi giải đấu, mỗi khoá học và mỗi đợt kiểm tra. Điểm hiện tại là lần chấm gần nhất, các lần trước giữ lại để xem con tiến bộ ra sao.</li>
  <li>Học viên được xếp thứ hạng trong đúng lứa tuổi của mình.</li>
  <li>Mỗi số điện thoại phụ huynh và họ tên bé chỉ có 1 hồ sơ, tránh trùng.</li></ol></div>
@@ -533,8 +533,8 @@ function trangLua(){
  <li>Học viên chỉ được đá vượt lên <b>tối đa 1 lứa</b> so với lứa theo năm sinh. Ví dụ bé U9 được đá U11, không được đá U13.</li>
  <li>Không được đá xuống lứa nhỏ hơn.</li>
  <li>Bé U17 đá vượt 1 lứa là lên Ngoại hạng.</li>
- <li>Điểm trình vẫn tính và xếp hạng ở lứa theo năm sinh của bé.</li>
- <li>Khi xếp đội ở lứa trên, HLV dùng <b>điểm quy đổi</b> = điểm trình x hệ số, vì điểm của bé được chấm theo chuẩn lứa dưới. Bé đá vượt có ghi chú riêng của HLV.</li>
+ <li>Điểm năng lực vẫn tính và xếp hạng ở lứa theo năm sinh của bé.</li>
+ <li>Khi xếp đội ở lứa trên, HLV dùng <b>điểm quy đổi</b> = điểm năng lực x hệ số, vì điểm của bé được chấm theo chuẩn lứa dưới. Bé đá vượt có ghi chú riêng của HLV.</li>
  <li>Hệ số hạ ${soVN(h)} cho mỗi tuổi bé nhỏ hơn năm sinh nhỏ nhất của lứa trên: nhỏ hơn 1 tuổi thì x ${soVN(+(1-h).toFixed(2))}, nhỏ hơn 2 tuổi thì x ${soVN(+(1-2*h).toFixed(2))}. Ví dụ mùa ${D.mua}, U13 là sinh ${D.mua-13}-${D.mua-12}: bé sinh ${D.mua-11} đá U13 được 70 điểm thì quy đổi còn ${Math.round(70*(1-h))}; bé sinh ${D.mua-10} còn ${Math.round(70*(1-2*h))}.</li></ol></div>`;
 }
 
@@ -543,7 +543,7 @@ let luaXH="",timXH="";
 function trangXH(ma){
  luaXH=ma||luaXH||"U9";
  const l=D.lua.find(x=>x.ma==luaXH);
- return `<h2>Điểm trình cá nhân<small>Xếp hạng trong từng lứa, bấm vào tên để xem hồ sơ</small></h2>
+ return `<h2>Điểm năng lực cá nhân<small>Xếp hạng trong từng lứa, bấm vào tên để xem hồ sơ</small></h2>
  <div class="thanh-tab" style="margin-top:0"><div class="cuon tabs">${D.lua.map(x=>`<button class="${x.ma==luaXH?"on":""}" onclick="location.hash='#/xephang/${x.ma}'">${esc(x.ten)}</button>`).join("")}</div></div>
  <p class="mo" style="margin-top:12px"><b style="color:#fff">${esc(l.ten)}</b>: ${l.nam_tu?"sinh "+nsLua(l):"trên 17 tuổi"}</p>
  <div class="o-tim"><input id="tim" placeholder="Tìm theo tên hoặc số điện thoại" value="${esc(timXH)}" oninput="timXH=this.value;veXH()"></div>
@@ -576,7 +576,7 @@ function bangXH(){
 function bangVuot(){
  const ds=D.hoc_vien.filter(h=>h.vuot==luaXH&&h.diem!=null&&!h.nghi).sort((a,b)=>quyDoi(b)-quyDoi(a));
  if(!ds.length)return "";
- return `<h3>Đá vượt lên ${esc(tenLua(luaXH))}</h3><p class="mo nho">Các bé này xếp hạng ở lứa theo năm sinh. Khi xếp đội ${esc(tenLua(luaXH))}, HLV dùng điểm quy đổi = điểm trình x hệ số (hạ ${soVN(D.ha_moi_tuoi??0.2)} mỗi tuổi bé nhỏ hơn).</p>
+ return `<h3>Đá vượt lên ${esc(tenLua(luaXH))}</h3><p class="mo nho">Các bé này xếp hạng ở lứa theo năm sinh. Khi xếp đội ${esc(tenLua(luaXH))}, HLV dùng điểm quy đổi = điểm năng lực x hệ số (hạ ${soVN(D.ha_moi_tuoi??0.2)} mỗi tuổi bé nhỏ hơn).</p>
  <div class="ds-hv">${ds.map(h=>`<a class="hang-hv khong-hang" href="#/hv/${h.ma}"><div class="tt"><b>${esc(h.ten)}</b>${nhanMau(h)}<small>Lứa gốc ${esc(tenLua(h.lua))} &middot; ${h.diem} x ${soVN(h.he_so)} (nhỏ ${h.tuoi_nho} tuổi)${h.vuot_gc?" &middot; HLV: "+esc(h.vuot_gc):""}</small></div><div class="diem-o"><b>${quyDoi(h)??""}</b><small>quy đổi</small></div></a>`).join("")}</div>`;
 }
 
@@ -596,7 +596,7 @@ function radar(vals){
 }
 function bieuDo(ls){
  const W=340,H=180,l=30,r=24,t=24,b=30,n=ls.length,x=i=>n<2?(l+W-r)/2:l+i*(W-l-r)/(n-1),y=v=>t+(100-v)*(H-t-b)/100;
- let s=`<svg class="bieu-do" viewBox="0 0 ${W} ${H}" role="img" aria-label="Biểu đồ tiến bộ điểm trình">`;
+ let s=`<svg class="bieu-do" viewBox="0 0 ${W} ${H}" role="img" aria-label="Biểu đồ tiến bộ điểm năng lực">`;
  [0,25,50,75,100].forEach(v=>s+=`<line x1="${l}" x2="${W-r}" y1="${y(v)}" y2="${y(v)}" stroke="rgba(255,255,255,.1)"/><text x="${l-6}" y="${y(v)+4}" text-anchor="end" font-size="10" fill="#8fb09b">${v}</text>`);
  const p=ls.map((z,i)=>[x(i),y(z.diem)]);
  if(n>1)s+=`<polygon points="${p[0][0]},${y(0)} ${p.map(q=>q.join(",")).join(" ")} ${p[n-1][0]},${y(0)}" fill="rgba(230,245,58,.12)"/><polyline points="${p.map(q=>q.join(",")).join(" ")}" fill="none" stroke="#E6F53A" stroke-width="3" stroke-linejoin="round"/>`;
@@ -628,13 +628,13 @@ function trangHV(ma){
  <section class="hero"><div class="ho-so-dau"><div class="vt">${esc(chuDau(h.ten))}</div><div>
  <span class="tag sap">${h.lua?esc(tenLua(h.lua)):"Chưa xếp lứa"}</span>${nhanVuot(h)}${h.vi_tri?`<span class="tag">${esc(h.vi_tri)}</span>`:""}${h.nghi?`<span class="tag nghi">Đã nghỉ</span>`:""}${nhanMau(h)}
  <h1>${esc(h.ten)}</h1><div class="mo nho">Mã ${esc(h.ma)}${h.nam?" &middot; Sinh "+h.nam:" &middot; Chưa có năm sinh"}${h.co_so?" &middot; "+esc(h.co_so):""}${h.sdt?"<br>SĐT phụ huynh "+esc(h.sdt):""}</div></div></div>`;
- if(!c)return o+`</section>${khoiChoSan(h)}<div class="the" style="margin-top:12px;text-align:center;padding:30px"><span class="tde" style="color:var(--chanh)">Chưa có điểm trình</span><p class="mo" style="margin:0">Bé chưa được HLV chấm lần nào. Điểm sẽ hiện sau giải đấu, khoá học hoặc đợt kiểm tra gần nhất.</p></div>`;
- o+=`<div class="bang-diem">${vong(c.diem)}<div class="chi-so"><div><span class="k">Mức trình</span><span class="tag muc" style="font-size:14px">${esc(c.muc)}</span></div>
+ if(!c)return o+`</section>${khoiChoSan(h)}<div class="the" style="margin-top:12px;text-align:center;padding:30px"><span class="tde" style="color:var(--chanh)">Chưa có điểm năng lực</span><p class="mo" style="margin:0">Bé chưa được HLV chấm lần nào. Điểm sẽ hiện sau giải đấu, khoá học hoặc đợt kiểm tra gần nhất.</p></div>`;
+ o+=`<div class="bang-diem">${vong(c.diem)}<div class="chi-so"><div><span class="k">Mức năng lực</span><span class="tag muc" style="font-size:14px">${esc(c.muc)}</span></div>
  <div><span class="k">Hạng trong lứa ${h.lua?esc(tenLua(h.lua)):""}</span><b>${h.hang||"-"}</b></div>
  ${h.cap_do?`<div><span class="k">Cấp độ</span><b style="font-size:18px;color:var(--chanh)">${esc(h.cap_do)}</b></div>`:""}</div>
  <div style="grid-column:1/-1;min-width:0" class="tru-o">${barTru(c.goc,tr&&tr.goc)}</div></div>
  <p class="mo nho" style="margin:8px 0 0">Chấm ngày ${fd(c.ngay)} &middot; ${esc(c.loai)}: ${esc(c.dot)}${c.hlv?" &middot; HLV "+esc(c.hlv):""}</p></section>`;
- if(h.vuot)o+=`<div class="canh"><b>Đá vượt lên ${esc(tenLua(h.vuot))}.</b> Điểm trình ${c.diem} chấm theo chuẩn ${esc(tenLua(h.lua))}. Điểm quy đổi khi xếp đội ${esc(tenLua(h.vuot))}: <b>${quyDoi(h)}</b> (= ${c.diem} x ${soVN(h.he_so)}, bé nhỏ hơn ${h.tuoi_nho} tuổi so với năm sinh nhỏ nhất của ${esc(tenLua(h.vuot))}).${h.vuot_gc?`<br>HLV ghi chú: ${esc(h.vuot_gc)}`:""}</div>`;
+ if(h.vuot)o+=`<div class="canh"><b>Đá vượt lên ${esc(tenLua(h.vuot))}.</b> Điểm năng lực ${c.diem} chấm theo chuẩn ${esc(tenLua(h.lua))}. Điểm quy đổi khi xếp đội ${esc(tenLua(h.vuot))}: <b>${quyDoi(h)}</b> (= ${c.diem} x ${soVN(h.he_so)}, bé nhỏ hơn ${h.tuoi_nho} tuổi so với năm sinh nhỏ nhất của ${esc(tenLua(h.vuot))}).${h.vuot_gc?`<br>HLV ghi chú: ${esc(h.vuot_gc)}`:""}</div>`;
  o+=khoiChoSan(h);
  const xs=D.tru.map(t=>[t.ma,c.goc[t.ma]]).sort((a,b)=>b[1]-a[1]);
  o+=`<h2>Nhận xét của HLV</h2><div class="luoi hai">
@@ -649,19 +649,19 @@ function trangHV(ma){
  if(h.tl.length){const f=h.tl[0],l=h.tl[h.tl.length-1],tot=[-1,1,1,1];
   o+=`<h2>Kiểm tra thể lực</h2><div class="bang-wrap"><table><tr><th>Bài đo</th><th class="so">Đầu<br>${fd(f.ngay).slice(0,5)}</th><th class="so">Mới<br>${fd(l.ngay).slice(0,5)}</th><th class="so">Đổi</th></tr>${D.test.map((t,i)=>{const a=f.kq[i],b=l.kq[i];if(a==null&&b==null)return "";const d=a!=null&&b!=null&&h.tl.length>1?+(b-a).toFixed(2):null;
   return `<tr><td>${esc(t)}</td><td class="so">${a??"-"}</td><td class="so"><b>${b??"-"}</b></td><td class="so">${d==null||d==0?"-":`<span class="${d*tot[i]>0?"len":"xuong"}">${d>0?"+":""}${d}</span>`}</td></tr>`}).join("")}</table></div>
-  <p class="mo nho" style="margin-top:10px">Số đo chỉ để con so với chính mình, không cộng vào điểm trình. Chỉ so các lần đo cùng cách bấm giờ.</p>`}
+  <p class="mo nho" style="margin-top:10px">Số đo chỉ để con so với chính mình, không cộng vào điểm năng lực. Chỉ so các lần đo cùng cách bấm giờ.</p>`}
  return o;
 }
 
 /* ---------- tra cuu cho con ---------- */
 function trangDK(){
  const sap=D.giai.filter(g=>g.trang_thai=="sap"&&g.form);
- return `<h2>Tra cứu cho con<small>Xem lứa thi đấu và điểm trình của con</small></h2>
+ return `<h2>Tra cứu cho con<small>Xem lứa thi đấu và điểm năng lực của con</small></h2>
  <div class="luoi hai"><div class="the form">
  <span class="tde">Con thi đấu lứa nào?</span>
  <label for="ns">Năm sinh của con</label><input id="ns" type="number" inputmode="numeric" min="1950" max="${D.mua}" placeholder="Ví dụ 2016">
  <div class="nut-hang" style="margin-top:12px"><button class="btn" onclick="tra()">Xem lứa</button></div><div id="kq"></div></div>
- ${D.chiCon?"":`<div class="the form"><span class="tde">Điểm trình của con</span>
+ ${D.chiCon?"":`<div class="the form"><span class="tde">Điểm năng lực của con</span>
  <label for="tk">Họ tên con hoặc số điện thoại phụ huynh (7 số đầu)</label><input id="tk" placeholder="Ví dụ Nguyễn Minh An hoặc 0912345" onkeydown="if(event.key=='Enter')traHV()">
  <div class="nut-hang" style="margin-top:12px"><button class="btn" onclick="traHV()">Tìm</button></div><div id="kq2"></div></div>`}</div>
  ${sap.length?`<h2>Giải đang mở đăng ký</h2><div class="luoi">${sap.map(theGiai).join("")}</div>`:""}`;
@@ -673,7 +673,7 @@ function tra(){
  const i=D.lua.findIndex(x=>x.ma==l.ma),v=D.lua[i+1];
  const g=D.giai.filter(x=>x.trang_thai=="sap"&&x.lua.includes(l.ma));
  el.innerHTML=`<div class="the kq"><div class="mo nho">Lứa thi đấu</div><div class="lon">${esc(l.ten)}</div>
- <p class="mo nho">${v?`Được đá vượt tối đa 1 lứa, lên ${esc(v.ten)}. Khi xếp đội ${esc(v.ten)}, điểm trình của bé nhân hệ số ${soVN(+(1-(D.ha_moi_tuoi??0.2)*Math.max(1,y-v.nam_den)).toFixed(2))} (bé nhỏ hơn ${Math.max(1,y-v.nam_den)} tuổi so với năm sinh nhỏ nhất của ${esc(v.ten)}). Không đá xuống lứa nhỏ hơn.`:"Không đá xuống lứa nhỏ hơn."}</p>
+ <p class="mo nho">${v?`Được đá vượt tối đa 1 lứa, lên ${esc(v.ten)}. Khi xếp đội ${esc(v.ten)}, điểm năng lực của bé nhân hệ số ${soVN(+(1-(D.ha_moi_tuoi??0.2)*Math.max(1,y-v.nam_den)).toFixed(2))} (bé nhỏ hơn ${Math.max(1,y-v.nam_den)} tuổi so với năm sinh nhỏ nhất của ${esc(v.ten)}). Không đá xuống lứa nhỏ hơn.`:"Không đá xuống lứa nhỏ hơn."}</p>
  ${g.length?`<div class="nut-hang">${g.map(x=>`<a class="btn" target="_blank" rel="noopener" href="${esc(x.form)}">Đăng ký ${esc(x.ten)}</a>`).join("")}</div>`:`<p class="mo nho">Hiện chưa có giải mở cho lứa ${esc(l.ten)}. Phụ huynh để lại số qua hotline để được báo khi mở giải.</p>`}</div>`;
 }
 function traHV(){
@@ -685,17 +685,17 @@ function traHV(){
 
 /* ---------- cach cham ---------- */
 function trangCach(){
- return `<h2>Cách 4YOU chấm điểm trình</h2>
- <div class="the"><p>Điểm trình là con số 0-100 cho biết <b>trình độ hiện tại</b> của con so với chuẩn của lứa tuổi. Điểm không phải dự đoán con sau này có thành cầu thủ chuyên nghiệp hay không. Mục đích là để phụ huynh và con biết con đang ở đâu, mạnh gì, cần tập gì.</p>
+ return `<h2>Cách 4YOU đánh giá năng lực</h2>
+ <div class="the"><p>Điểm năng lực là con số 0-100 cho biết <b>năng lực hiện tại</b> của con so với chuẩn của lứa tuổi. Điểm không phải dự đoán con sau này có thành cầu thủ chuyên nghiệp hay không. Mục đích là để phụ huynh và con biết con đang ở đâu, mạnh gì, cần tập gì.</p>
  <p class="mo" style="margin-bottom:0">HLV 4YOU chấm sau mỗi giải đấu, mỗi khoá học và mỗi đợt kiểm tra. Điểm hiện tại là lần chấm gần nhất.</p></div>
  <h2>4 trụ, 14 tiêu chí</h2>
  <div class="luoi hai">${D.tru.map(t=>`<div class="the"><div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start"><span class="tde">${esc(t.ten)}</span><span class="tag muc">${Math.round(t.w*100)}%</span></div><ul class="ds mo">${t.tc.map(k=>`<li>${esc(k)}</li>`).join("")}</ul></div>`).join("")}</div>
- <p class="mo nho" style="margin-top:12px">Mỗi tiêu chí HLV chấm 1-10 so với các bạn cùng lứa. Điểm mỗi trụ = trung bình các tiêu chí x 10. Điểm trình = tổng 4 trụ nhân tỉ lệ ở trên.</p>
- <h2>6 mức trình</h2>
+ <p class="mo nho" style="margin-top:12px">Mỗi tiêu chí HLV chấm 1-10 so với các bạn cùng lứa. Điểm mỗi trụ = trung bình các tiêu chí x 10. Điểm năng lực = tổng 4 trụ nhân tỉ lệ ở trên.</p>
+ <h2>6 mức năng lực</h2>
  <div class="thang">${D.muc.map(([d,m])=>`<div><b>${d}+</b>${esc(m)}</div>`).join("")}</div>
  <h2>Bài kiểm tra thể lực</h2>
  <div class="the"><ul class="ds">${D.test.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>
- <p class="mo nho" style="margin:10px 0 0">Đo theo cách cố định, ghi riêng, KHÔNG cộng vào điểm trình. Con chỉ so với chính mình lần trước để thấy tiến bộ.</p></div>
+ <p class="mo nho" style="margin:10px 0 0">Đo theo cách cố định, ghi riêng, KHÔNG cộng vào điểm năng lực. Con chỉ so với chính mình lần trước để thấy tiến bộ.</p></div>
  <p class="mo nho" style="margin-top:12px">Khung học theo footballreach.com (mô hình 4 góc của Liên đoàn bóng đá Anh), ở 4YOU do HLV chấm thay vì học viên tự chấm.</p>`;
 }
 
@@ -768,7 +768,7 @@ function luiBT(){if(BT.i>0){BT.i--;veBT()}else dongBT()}
 function lamLaiBT(){BT={i:0,tl:[],lua:BT.lua};veBT()}
 function veBT(){
  const n=CAU_BT.length,i=BT.i;
- let o=`<div class="bt-dau"><img src="logo.png" alt=""><b>Bài test trình độ 4YOU</b><button type="button" onclick="dongBT()">Đóng</button></div>`;
+ let o=`<div class="bt-dau"><img src="logo.png" alt=""><b>Bài test năng lực 4YOU</b><button type="button" onclick="dongBT()">Đóng</button></div>`;
  if(i>=n){$("#bto").innerHTML=o+ketQuaBT();return}
  const q=CAU_BT[i],nam=new Date().getFullYear();
  o+=`<div class="bt-tien"><i style="width:${i/n*100}%"></i></div><span class="nhom">Câu ${i+1}/${n} &middot; ${esc(q.nhom||TRU_BT[q.k])}</span><h1>${esc(q.hoi)}</h1>`;
@@ -783,7 +783,7 @@ function ketQuaBT(){
  const tru={};Object.keys(tong).forEach(k=>tru[k]=tong[k]/dem[k]/3*100);
  let d=Object.keys(tru).reduce((s,k)=>s+tru[k]*W_BT[k],0)*.85;   // tu cham hay cao hon thuc te nen nen lai
  if(lau<=1)d=Math.min(d,55);
- const muc=d<35?["Mới làm quen","Con đang ở bước đầu. Đây là độ tuổi tốt nhất để xây nền tảng chạm bóng và vận động."]:d<62?["Đang phát triển","Con đã có những kỹ năng cơ bản, cần tập đều để vững hơn và chơi tự tin trong trận."]:["Có nền tảng tốt","Con đã chơi khá chắc. Con nên được HLV chấm để xếp đúng lứa, đúng nhóm trình độ."];
+ const muc=d<35?["Mới làm quen","Con đang ở bước đầu. Đây là độ tuổi tốt nhất để xây nền tảng chạm bóng và vận động."]:d<62?["Đang phát triển","Con đã có những kỹ năng cơ bản, cần tập đều để vững hơn và chơi tự tin trong trận."]:["Có nền tảng tốt","Con đã chơi khá chắc. Con nên được HLV chấm để xếp đúng lứa, đúng nhóm năng lực."];
  const xs=Object.keys(tru).sort((x,y)=>tru[y]-tru[x]||W_BT[y]-W_BT[x]),manh=xs[0],yeu=xs[xs.length-1];
  const l=(BT.lua||[]).find(z=>z.nam_tu?nam>=z.nam_tu&&nam<=z.nam_den:nam<=z.nam_den);
  const bai=tcV.sort((x,y)=>x[1]-y[1]).slice(0,2).map(z=>BAI_TAP[z[0]]).filter(Boolean);
@@ -795,7 +795,7 @@ function ketQuaBT(){
  <div class="luoi hai" style="margin-top:4px"><div class="the"><span class="tde">Mạnh nhất</span><b style="font-size:18px;color:var(--len)">${TRU_BT[manh]}</b></div><div class="the"><span class="tde">Nên tập trước</span><b style="font-size:18px;color:var(--do)">${TRU_BT[yeu]}</b></div></div>
  ${bai.length?`<div class="the"><span class="tde">2 bài con tập được ngay ở nhà</span><div class="bt-nha">${bai.map(b=>`<div class="bai">${thePhieu(b)}</div>`).join("")}</div></div>`:""}
  ${buoi<=1?`<div class="canh">Con mới chơi ${buoi?"1 buổi":"rất ít"} mỗi tuần. Tập đều 2-3 buổi một tuần là cách nhanh nhất để con tiến bộ.</div>`:""}
- <div class="the"><span class="tde">Muốn biết chính xác?</span><p class="mo" style="margin:0">Đây là kết quả do phụ huynh tự đánh giá, chỉ để tham khảo. Ở buổi học thử, HLV 4YOU sẽ quan sát con chơi và chấm điểm trình theo 14 tiêu chí, so với chuẩn của lứa.</p></div>
+ <div class="the"><span class="tde">Muốn biết chính xác?</span><p class="mo" style="margin:0">Đây là kết quả do phụ huynh tự đánh giá, chỉ để tham khảo. Ở buổi học thử, HLV 4YOU sẽ quan sát con chơi và đánh giá năng lực theo 14 tiêu chí, so với chuẩn của lứa.</p></div>
  <div class="nut-cot"><a class="btn" href="https://4yousport.ygroupsport.com/" target="_blank" rel="noopener">⚽ Đăng ký học thử để HLV chấm</a>
  <button type="button" class="nut-phu" onclick="chepBT(this)">Chép kết quả để nhắn Zalo 4YOU</button>
  <a class="nut-phu" style="display:flex;align-items:center;justify-content:center;text-decoration:none" href="https://zalo.me/0934411662" target="_blank" rel="noopener">💬 Mở Zalo 4YOU</a>
@@ -830,7 +830,7 @@ async function giaiMa(mk){
 /* ---------- ban phu huynh: moi SDT 1 goi ma hoa rieng trong ph/<ky tu dau the>.json, chi chua con cua so do ---------- */
 let CHE="ph";
 function cheDo(c){CHE=c;$("#tph").classList.toggle("on",c=="ph");$("#tnb").classList.toggle("on",c=="nb");const i=$("#mk");i.value="";$("#loidn").textContent="";
- if(c=="ph"){$("#nhan").textContent="Số điện thoại phụ huynh";i.type="tel";i.inputMode="tel";i.autocomplete="tel";i.placeholder="Ví dụ 0912345678";$("#hienmk").style.display="none";$("#ghidn").textContent="Nhập đúng số điện thoại đã đăng ký học ở 4YOU để xem hồ sơ và điểm trình của con. Mỗi số chỉ mở được hồ sơ của con mình."}
+ if(c=="ph"){$("#nhan").textContent="Số điện thoại phụ huynh";i.type="tel";i.inputMode="tel";i.autocomplete="tel";i.placeholder="Ví dụ 0912345678";$("#hienmk").style.display="none";$("#ghidn").textContent="Nhập đúng số điện thoại đã đăng ký học ở 4YOU để xem hồ sơ và điểm năng lực của con. Mỗi số chỉ mở được hồ sơ của con mình."}
  else{$("#nhan").textContent="Mã truy cập nội bộ";i.type="password";i.inputMode="text";i.autocomplete="current-password";i.placeholder="Nhập mã 4YOU cấp";$("#hienmk").style.display="";$("#hienmk").textContent="Hiện";$("#ghidn").textContent="Dành cho HLV và nhân viên 4YOU. Dữ liệu được mã hoá, chỉ mở được khi có mã truy cập."}
  i.focus()}
 function chuanSdt(x){let s=String(x||"").replace(/\D/g,"");if(s.startsWith("84")&&s.length==11)s="0"+s.slice(2);if(s.length==9&&s[0]!="0")s="0"+s;return s.length==10?s:""}
@@ -847,7 +847,7 @@ async function moSdt(sdt){
  return {...CHUNG.chung,hoc_vien:ds,chiCon:true};
 }
 function trangCon(){
- return `<h2>Các con của tôi<small>Bấm vào tên con để xem hồ sơ và điểm trình</small></h2><div class="ds-hv">${D.hoc_vien.map(h=>`<a class="hang-hv khong-hang" href="#/hv/${h.ma}"><div class="tt"><b>${esc(h.ten)}</b> <span class="tag">${h.lua?esc(tenLua(h.lua)):"Chưa xếp lứa"}</span>${h.nghi?`<span class="tag nghi">Đã nghỉ</span>`:""}<small>${phu(h)}</small></div><div class="diem-o">${h.diem!=null?`<b>${h.diem}</b><small>${h.hang?"hạng "+h.hang:""}</small>`:`<span class="tag chua">Chưa chấm</span>`}</div></a>`).join("")}</div>`;
+ return `<h2>Các con của tôi<small>Bấm vào tên con để xem hồ sơ và điểm năng lực</small></h2><div class="ds-hv">${D.hoc_vien.map(h=>`<a class="hang-hv khong-hang" href="#/hv/${h.ma}"><div class="tt"><b>${esc(h.ten)}</b> <span class="tag">${h.lua?esc(tenLua(h.lua)):"Chưa xếp lứa"}</span>${h.nghi?`<span class="tag nghi">Đã nghỉ</span>`:""}<small>${phu(h)}</small></div><div class="diem-o">${h.diem!=null?`<b>${h.diem}</b><small>${h.hang?"hạng "+h.hang:""}</small>`:`<span class="tag chua">Chưa chấm</span>`}</div></a>`).join("")}</div>`;
 }
 function moWeb(d){D=d;hvTinh();document.body.classList.toggle("ph",!!d.chiCon);$("#navhome").textContent=d.chiCon?(d.hoc_vien.length>1?"Các con":"Hồ sơ của con"):"Trang chủ";$("#hl").textContent=d.hotline;$("#cn").textContent=d.cap_nhat;document.body.classList.remove("khoa");cu=location.hash;ve()}
 async function dangNhap(e){
